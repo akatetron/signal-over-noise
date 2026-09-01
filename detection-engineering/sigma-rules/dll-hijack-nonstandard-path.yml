@@ -1,0 +1,52 @@
+title: Signed Windows Binary Loading DLL from User-Writable Path
+id: c14b8a63-2e70-4d95-8f3c-6a1029db47e5
+status: experimental
+description: >
+  Detects a trusted Windows executable loading a DLL from a user-writable staging
+  directory (ProgramData, Temp, Public, AppData) rather than System32. Windows' DLL
+  search order can be abused by planting a malicious DLL where it will be found before
+  the legitimate one. Placeholder version metadata (0.0.0.0) and absent company name
+  are strong secondary indicators of a hand-built payload.
+author: Chayan Panchal
+date: 2026/08/14
+references:
+  - https://attack.mitre.org/techniques/T1574/001/
+logsource:
+  product: windows
+  category: image_load
+detection:
+  selection_path:
+    ImageLoaded|contains:
+      - 'C:\ProgramData\'
+      - 'C:\Users\Public\'
+      - '\AppData\Local\Temp\'
+      - 'C:\Windows\Temp\'
+  selection_trusted_loader:
+    Image|startswith:
+      - 'C:\Windows\System32\'
+      - 'C:\Windows\SysWOW64\'
+      - 'C:\Program Files\'
+      - 'C:\Program Files (x86)\'
+  selection_weak_metadata:
+    - FileVersion: '0.0.0.0'
+    - Company: null
+    - Signed: 'false'
+  condition: selection_path and selection_trusted_loader and selection_weak_metadata
+fields:
+  - Image
+  - ImageLoaded
+  - FileVersion
+  - Company
+  - Signed
+  - Hashes
+falsepositives:
+  - Some legitimate installers stage DLLs in Temp during setup. Correlate against a
+    concurrent MSI/setup process and a short-lived file path.
+  - In-house line-of-business software that ships unsigned DLLs. Baseline and allowlist
+    by hash rather than by path.
+level: high
+tags:
+  - attack.persistence
+  - attack.privilege_escalation
+  - attack.defense_evasion
+  - attack.t1574.001

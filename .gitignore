@@ -1,0 +1,45 @@
+# Secrets & keys — never commit
+*.key
+*.pem
+*.p12
+*.pfx
+*.ppk
+id_rsa*
+.env
+.env.*
+# Match real credential FILES, not documentation that mentions them.
+# (A bare *credential* pattern silently swallows files like
+#  lsass-credential-access.yml - detection content, not a secret.)
+credentials
+credentials.*
+*.credentials
+secrets
+secrets.*
+*.secrets
+*_rsa
+*_dsa
+*_ed25519
+
+# Lab capture data & binaries (too large / may contain sensitive traffic)
+*.pcap
+*.pcapng
+*.evtx
+*.zip
+*.rar
+*.7z
+*.exe
+*.dll
+
+# OS cruft
+.DS_Store
+__MACOSX/
+Thumbs.db
+desktop.ini
+.goodnotesmeta
+
+# Local helper scripts - not part of the portfolio
+PUSH-TO-GITHUB.bat
+PUSH-INSTRUCTIONS.md
+
+# Personal working notes - not for publication
+PROJECT-ROADMAP.md

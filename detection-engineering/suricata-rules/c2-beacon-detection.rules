@@ -1,0 +1,119 @@
+# =============================================================================
+# C2 Beacon Detection Rules — Suricata
+# Author: Chayan Panchal
+# Date:   2026-08-14
+#
+# Three complementary approaches to detecting command-and-control traffic:
+#   1. Signature-based  — match known payload content
+#   2. Anomaly-based    — match behavioural shape, not content
+#   3. Fingerprint-based— match the TLS handshake without decrypting
+#
+# SID range 9000000-9000099 reserved for local rules.
+# =============================================================================
+
+
+# -----------------------------------------------------------------------------
+# 1. SIGNATURE-BASED — PowerShell Empire HTTP C2
+#
+# Empire's default HTTP listener has a recognisable fingerprint: a GET to a
+# specific URI pattern carrying a session cookie. Matching all three elements
+# together (method + URI + cookie) keeps false positives near zero.
+#
+# Weakness: trivially defeated by an operator who changes the default profile.
+# This is why rules 2 and 3 exist.
+# -----------------------------------------------------------------------------
+alert http $HOME_NET any -> $EXTERNAL_NET any ( \
+    msg:"C2 PowerShell Empire default HTTP listener beacon"; \
+    flow:established,to_server; \
+    http.method; content:"GET"; \
+    http.uri; pcre:"/\/(login\/process|admin\/get|news)\.php$/"; \
+    http.cookie; content:"session="; \
+    classtype:trojan-activity; \
+    reference:url,attack.mitre.org/techniques/T1071/001/; \
+    sid:9000001; rev:1; \
+)
+
+
+# -----------------------------------------------------------------------------
+# 2. ANOMALY-BASED — fixed-size repeating beacon
+#
+# This rule matches no content at all. It matches *shape*: a payload of an exact
+# size, repeating more than 5 times in 60 seconds to the same destination.
+#
+# Beaconing malware checks in on a timer with a near-constant payload size.
+# Human-driven traffic does not do this. Because there is no content match, this
+# survives the operator changing their malleable C2 profile.
+#
+# Tune dsize to the observed beacon size in your environment before deploying.
+# -----------------------------------------------------------------------------
+alert tcp $HOME_NET any -> $EXTERNAL_NET any ( \
+    msg:"C2 possible fixed-size beacon - repeated identical payload length"; \
+    flow:established,to_server; \
+    dsize:312; \
+    detection_filter:track by_src, count 5, seconds 60; \
+    classtype:trojan-activity; \
+    reference:url,attack.mitre.org/techniques/T1071/; \
+    sid:9000002; rev:1; \
+)
+
+
+# -----------------------------------------------------------------------------
+# 3. FINGERPRINT-BASED — JA3 TLS hash
+#
+# JA3 hashes the client's TLS handshake parameters (version, ciphers, extensions,
+# elliptic curves). Malware written against a specific TLS library produces a
+# consistent hash regardless of what it is encrypting or which domain it fronts
+# through.
+#
+# This detects encrypted C2 *without decrypting anything* — no TLS interception,
+# no privacy tradeoff, no certificate warnings. It is the highest-value technique
+# in this file.
+#
+# Caveat: JA3 collisions exist. A hash shared with a common Go or Python HTTP
+# client will generate false positives. Always validate against a baseline of
+# your own environment before enabling in blocking mode.
+# -----------------------------------------------------------------------------
+alert tls $HOME_NET any -> $EXTERNAL_NET any ( \
+    msg:"C2 Sliver implant JA3 fingerprint match"; \
+    ja3.hash; content:"a0e9f5d64349fb13191bc781f81f42e1"; \
+    classtype:trojan-activity; \
+    reference:url,attack.mitre.org/techniques/T1573/; \
+    sid:9000003; rev:1; \
+)
+
+
+# -----------------------------------------------------------------------------
+# 4. LATERAL MOVEMENT — WMI remote process execution (wmiexec)
+#
+# WMI over DCE/RPC is a favoured lateral-movement channel because it is built in,
+# and because it is genuinely used by legitimate management tooling — which is
+# exactly why it needs to be scoped to internal-to-internal traffic and baselined
+# against known management servers.
+# -----------------------------------------------------------------------------
+alert tcp $HOME_NET any -> $HOME_NET 135 ( \
+    msg:"LATERAL possible WMI remote process execution"; \
+    flow:established,to_server; \
+    content:"|05 00 0b|"; depth:3; \
+    content:"IWbemServices"; nocase; \
+    classtype:attempted-admin; \
+    reference:url,attack.mitre.org/techniques/T1047/; \
+    sid:9000004; rev:1; \
+)
+
+
+# -----------------------------------------------------------------------------
+# DEPLOYMENT NOTES
+#
+# 1. Never deploy any of these inline (drop) on day one. Run in IDS alert-only
+#    mode for a full business cycle first — including month-end, when batch jobs
+#    and reporting traffic look nothing like a normal Tuesday.
+#
+# 2. Rule 2 (dsize) must be retuned per environment. The value 312 is an example
+#    from a lab capture, not a universal constant.
+#
+# 3. Rule 3 (JA3) requires a current hash. Fingerprints change with every implant
+#    release; treat the hash as a perishable IOC, not a permanent signature.
+#
+# 4. $HOME_NET must be defined accurately in suricata.yaml. A misdefined HOME_NET
+#    is the most common reason a correct rule silently never fires.
+# -----------------------------------------------------------------------------

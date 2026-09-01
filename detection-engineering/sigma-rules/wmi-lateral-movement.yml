@@ -1,0 +1,68 @@
+title: WMI Remote Process Execution
+id: 5d9e2f71-4c83-4b06-a2f7-91e6c3b58d24
+status: experimental
+description: >
+  Detects process creation where the parent is WmiPrvSE.exe, the WMI Provider Host.
+  Remote WMI execution (wmiexec, Invoke-WmiMethod, wmic /node:) is a favoured lateral
+  movement channel because WMI is built into Windows, runs over an already-permitted
+  RPC channel, and writes nothing to disk on the target.
+
+  The detection is deliberately parent-based rather than command-line based, because
+  the command line is fully attacker-controlled while the parent process relationship
+  is a structural property of how WMI executes remote commands.
+author: Chayan Panchal
+date: 2026/08/14
+references:
+  - https://attack.mitre.org/techniques/T1047/
+  - https://attack.mitre.org/techniques/T1021/003/
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    ParentImage|endswith: '\WmiPrvSE.exe'
+  suspicious_children:
+    Image|endswith:
+      - '\cmd.exe'
+      - '\powershell.exe'
+      - '\pwsh.exe'
+      - '\wscript.exe'
+      - '\cscript.exe'
+      - '\mshta.exe'
+      - '\rundll32.exe'
+      - '\regsvr32.exe'
+      - '\certutil.exe'
+      - '\bitsadmin.exe'
+  discovery_commands:
+    CommandLine|contains:
+      - 'whoami'
+      - 'net group'
+      - 'net localgroup'
+      - 'nltest'
+      - 'systeminfo'
+      - 'qwinsta'
+      - 'tasklist'
+  filter_sccm:
+    ParentCommandLine|contains:
+      - 'CcmExec'
+      - 'SMS Agent'
+  condition: selection and (suspicious_children or discovery_commands) and not filter_sccm
+fields:
+  - ParentImage
+  - Image
+  - CommandLine
+  - User
+  - LogonId
+falsepositives:
+  - SCCM/MECM, Intune and similar management platforms use WMI heavily for legitimate
+    software inventory and deployment. Filter on the specific management service
+    account rather than disabling the rule.
+  - Monitoring agents (Nagios, PRTG, SolarWinds) may query hosts via WMI. These normally
+    do not spawn shells, so the suspicious_children clause already excludes most of them.
+  - Legitimate admin troubleshooting. Correlate with a change ticket.
+level: high
+tags:
+  - attack.execution
+  - attack.t1047
+  - attack.lateral_movement
+  - attack.t1021.003

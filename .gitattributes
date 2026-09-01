@@ -1,0 +1,42 @@
+# Normalise text files to LF in the repository, regardless of local OS.
+* text=auto eol=lf
+
+# ---------------------------------------------------------------------------
+# BINARY FILES - never apply line-ending conversion.
+# Without this, Git can misdetect these as text and corrupt them on checkout.
+# ---------------------------------------------------------------------------
+*.pdf      binary
+*.png      binary
+*.jpg      binary
+*.jpeg     binary
+*.gif      binary
+*.webp     binary
+*.ico      binary
+*.docx     binary
+*.xlsx     binary
+*.pptx     binary
+*.zip      binary
+*.7z       binary
+*.rar      binary
+*.evtx     binary
+*.pcap     binary
+*.pcapng   binary
+
+# ---------------------------------------------------------------------------
+# Detection content - keep LF so rules stay portable across platforms.
+# ---------------------------------------------------------------------------
+*.yml      text eol=lf
+*.yaml     text eol=lf
+*.rules    text eol=lf
+*.md       text eol=lf
+
+# Windows scripts need CRLF to run correctly.
+*.bat      text eol=crlf
+*.cmd      text eol=crlf
+
+# ---------------------------------------------------------------------------
+# Keep these out of GitHub's language statistics so the repo is classified
+# by its actual content rather than by markdown volume.
+# ---------------------------------------------------------------------------
+*.pdf                linguist-documentation
+handwritten-notes/*  linguist-documentation

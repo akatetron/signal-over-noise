@@ -1,0 +1,72 @@
+title: Volume Shadow Copy Deletion
+id: 7b1a4c68-3d92-4e57-8f10-c6d4a297e5b3
+status: stable
+description: >
+  Detects deletion of Volume Shadow Copies, the last action almost every ransomware
+  family performs before or during encryption. Shadow copies are Windows' built-in
+  point-in-time backups; removing them is what turns a recoverable incident into an
+  unrecoverable one.
+
+  This is one of the highest-value detections a SOC can deploy. The baseline in a normal
+  environment is essentially zero, the technique is nearly universal across ransomware
+  families, and it fires during a narrow window where response can still limit damage.
+  Treat any hit as an active incident until proven otherwise.
+author: Chayan Panchal
+date: 2026/08/14
+references:
+  - https://attack.mitre.org/techniques/T1490/
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  vssadmin_delete:
+    Image|endswith: '\vssadmin.exe'
+    CommandLine|contains|all:
+      - 'delete'
+      - 'shadows'
+  vssadmin_resize:
+    # Resizing storage to a tiny value silently discards existing shadow copies
+    Image|endswith: '\vssadmin.exe'
+    CommandLine|contains|all:
+      - 'resize'
+      - 'shadowstorage'
+  wmic_shadowcopy:
+    Image|endswith: '\wmic.exe'
+    CommandLine|contains|all:
+      - 'shadowcopy'
+      - 'delete'
+  powershell_shadowcopy:
+    Image|endswith:
+      - '\powershell.exe'
+      - '\pwsh.exe'
+    CommandLine|contains|all:
+      - 'Win32_ShadowCopy'
+      - 'Delete'
+  wbadmin_delete:
+    Image|endswith: '\wbadmin.exe'
+    CommandLine|contains|all:
+      - 'delete'
+      - 'catalog'
+  bcdedit_recovery:
+    # Disabling recovery options commonly accompanies shadow copy deletion
+    Image|endswith: '\bcdedit.exe'
+    CommandLine|contains:
+      - 'recoveryenabled no'
+      - 'bootstatuspolicy ignoreallfailures'
+  condition: 1 of vssadmin_* or wmic_shadowcopy or powershell_shadowcopy or wbadmin_delete or bcdedit_recovery
+fields:
+  - Image
+  - CommandLine
+  - ParentImage
+  - ParentCommandLine
+  - User
+  - IntegrityLevel
+falsepositives:
+  - Backup software occasionally rotates shadow copies as part of normal maintenance.
+    Scope any exclusion to the specific backup service account AND its expected parent
+    process - never to the command alone, since that is exactly what an attacker runs.
+  - Disk cleanup utilities may resize shadow storage. Rare, and worth confirming.
+level: critical
+tags:
+  - attack.impact
+  - attack.t1490
