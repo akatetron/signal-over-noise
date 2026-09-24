@@ -8,6 +8,19 @@
 
 ---
 
+> ### ◈ Formal incident report
+>
+> This investigation is also written up as a **client-style incident report** — executive summary,
+> severity classification, ATT&CK mapping, IOCs, containment scoping rationale, eradication plan
+> and detection gap analysis.
+>
+> **[→ IR-2026-0417 — Multi-Stage Intrusion Incident Report (PDF)](./IR-2026-0417-Multi-Stage-Intrusion-Incident-Report.pdf)**
+>
+> The page below is the working investigation notes — how the conclusions were reached.
+> The report is the deliverable a client would receive.
+
+---
+
 ## The problem
 
 No alert fired. There was no EDR console pointing at a suspicious process, no SIEM

@@ -33,6 +33,8 @@
 
 **The call that matters.** Credentials were stolen but *not yet used*. That negative finding is the difference between isolating one host and assuming domain compromise.
 
+📄 **[Read the formal incident report (PDF)](./multi-stage-intrusion-windows-host/IR-2026-0417-Multi-Stage-Intrusion-Incident-Report.pdf)** — written as a client deliverable.
+
 </td>
 <td width="50%" valign="top">
 

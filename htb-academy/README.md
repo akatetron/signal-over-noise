@@ -5,7 +5,7 @@
 **Certified Defensive Security Analyst — learning path**
 
 ![Modules](https://img.shields.io/badge/Modules-11-9FEF00?style=flat-square&labelColor=141d2b)
-![Status](https://img.shields.io/badge/Path-11%2F11_Modules_Complete-9FEF00?style=flat-square&logo=hackthebox&logoColor=black&labelColor=141d2b)
+![Status](https://img.shields.io/badge/CDSA-Certified_Sep_2026-9FEF00?style=flat-square&logo=hackthebox&logoColor=black&labelColor=141d2b)
 
 </div>
 

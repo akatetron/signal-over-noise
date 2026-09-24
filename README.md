@@ -6,9 +6,9 @@
 
 <br>
 
-[![HTB CDSA](https://img.shields.io/badge/HTB_CDSA-Certified-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black&labelColor=141d2b)](https://academy.hackthebox.com)
+[![HTB CDSA](https://img.shields.io/badge/HTB_CDSA_Path-Completed-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black&labelColor=141d2b)](https://academy.hackthebox.com)
 [![Google Cybersecurity](https://img.shields.io/badge/Google_Cybersecurity-Certified-4285F4?style=for-the-badge&logo=google&logoColor=white&labelColor=141d2b)](https://www.coursera.org)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=141d2b)](https://www.linkedin.com/in/chayan-panchal-354909255)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=141d2b)](https://www.linkedin.com/in/chayanpanchal)
 
 <br>
 
@@ -45,6 +45,8 @@
 `DFIR` · `Sysmon` · `no EDR`
 
 Reconstructing a five-stage attack chain from raw event logs with **no alert to start from**. Ends with the containment-scoping call — and why it wasn't a domain-wide reset.
+
+📄 **[Formal incident report (PDF)](./investigations/multi-stage-intrusion-windows-host/IR-2026-0417-Multi-Stage-Intrusion-Incident-Report.pdf)**
 
 </td>
 <td width="50%" valign="top">
@@ -268,8 +270,8 @@ positives I would expect and how I would tune around them.
 
 ## ◈ Contact
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Chayan_Panchal-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=141d2b)](https://www.linkedin.com/in/chayan-panchal-354909255)
-[![HackTheBox](https://img.shields.io/badge/HackTheBox-@tron874-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black&labelColor=141d2b)](https://app.hackthebox.com/profile/tron874)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Chayan_Panchal-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=141d2b)](https://www.linkedin.com/in/chayanpanchal)
+[![HackTheBox](https://img.shields.io/badge/HackTheBox-@DarkHexReaper-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black&labelColor=141d2b)](https://academy.hackthebox.com/achievement/badge/de728e19-b659-11f1-82d1-bea50ffe6cb4)
 
 **St. John's, Newfoundland, Canada**
 Open to SOC Analyst · Blue Team roles in the **EU** *(sponsorship required)*, **Asia**, and **Canada**
