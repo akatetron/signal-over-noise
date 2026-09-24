@@ -6,7 +6,7 @@
 
 <br>
 
-[![HTB CDSA](https://img.shields.io/badge/HTB_CDSA_Path-Completed-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black&labelColor=141d2b)](https://academy.hackthebox.com)
+[![HTB CDSA](https://img.shields.io/badge/HTB_CDSA-Certified-9FEF00?style=for-the-badge&logo=hackthebox&logoColor=black&labelColor=141d2b)](https://academy.hackthebox.com)
 [![Google Cybersecurity](https://img.shields.io/badge/Google_Cybersecurity-Certified-4285F4?style=for-the-badge&logo=google&logoColor=white&labelColor=141d2b)](https://www.coursera.org)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=141d2b)](https://www.linkedin.com/in/chayan-panchal-354909255)
 
@@ -250,9 +250,9 @@ positives I would expect and how I would tune around them.
 
 | Credential | Status |
 |---|:---:|
-| **HTB CDSA** — full learning path completed (11 modules) | ✅ Completed |
-| HTB CDSA certification exam | 📅 In progress |
-| **Google Cybersecurity Professional Certificate** | ✅ Certified |
+| **HTB CDSA** — Certified Defensive Security Analyst | ✅ **Certified 22 Sep 2026** |
+| ↳ credential `HTBCERT-88304FEA1D` · 11-module path + practical exam | *verifiable* |
+| **Google Cybersecurity Professional Certificate** · `GBEGPUJOSIJ7` | ✅ Certified |
 | **IELTS English** (B2) | ✅ Certified |
 | Blue Team Level 1 (BTL1) | 📅 Planned |
 
