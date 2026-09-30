@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap">
+      <a class="brand" href="{{ '/' | relative_url }}">signal <span>›</span> over <span>›</span> noise</a>
+      <div class="nav-links">
+        <a href="{{ '/investigations/' | relative_url }}">Investigations</a>
+        <a href="{{ '/detection-engineering/' | relative_url }}">Detections</a>
+        <a href="{{ '/htb-academy/' | relative_url }}">HTB CDSA</a>
+        <a href="{{ '/google-cybersecurity-certificate/' | relative_url }}">Google Cert</a>
+        <a href="{{ site.linkedin }}">LinkedIn</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <div class="crumbs">
+      <a href="{{ '/' | relative_url }}">home</a>
+      {%- assign parts = page.url | split: '/' -%}
+      {%- assign trail = '' -%}
+      {%- for p in parts -%}
+        {%- if p != '' and p != 'index.html' -%}
+          {%- assign trail = trail | append: '/' | append: p -%}
+          {%- unless p contains '.html' %} / <a href="{{ trail | append: '/' | relative_url }}">{{ p }}</a>{%- endunless -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <main class="doc">
+    {{ content }}
+
+    <div class="page-foot">
+      <a href="{{ '/' | relative_url }}">← Back to portfolio</a>
+      <a href="{{ site.repo_url }}/tree/main/{{ page.dir | remove_first: '/' }}">View source on GitHub ↗</a>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <span>© Chayan Panchal · SOC Analyst · St. John's, NL, Canada</span>
+      <span>Lab work — rules require environment baselining before production use.</span>
+    </div>
+  </footer>
+  <script>
+    // Put "**Label:** value" metadata lines on their own lines, as intended in the source.
+    document.querySelectorAll('.doc p').forEach(function (p) {
+      p.innerHTML = p.innerHTML.replace(/\n(<strong>[^<]{1,40}:<\/strong>)/g, '<br>$1');
+    });
+  </script>
+</body>
+</html>
