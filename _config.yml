@@ -1,0 +1,41 @@
+title: "Chayan Panchal — SOC Analyst Portfolio"
+description: "SOC analyst portfolio: detection engineering (Sigma, KQL, SPL, Suricata), incident investigations and HTB CDSA write-ups."
+baseurl: "/signal-over-noise"
+url: "https://akatetron.github.io"
+repo_url: "https://github.com/akatetron/signal-over-noise"
+linkedin: "https://www.linkedin.com/in/chayanpanchal"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  # Lets markdown inside <div align="center"> blocks render, as it does on GitHub.
+  parse_block_html: true
+
+plugins:
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-titles-from-headings
+  - jekyll-seo-tag
+
+relative_links:
+  enabled: true
+  collections: false
+
+titles_from_headings:
+  strip_title: false
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# The homepage is index.html; the root README stays as the GitHub repo view.
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - vendor
