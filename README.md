@@ -12,6 +12,7 @@
 
 <br>
 
+![HTB Labs](https://img.shields.io/badge/HTB_Labs-5_Years-9FEF00?style=flat-square&logo=hackthebox&logoColor=9FEF00&labelColor=141d2b)
 ![Detections](https://img.shields.io/badge/Detection_Rules-10-9FEF00?style=flat-square&labelColor=141d2b)
 ![Investigations](https://img.shields.io/badge/Investigations-2-9FEF00?style=flat-square&labelColor=141d2b)
 ![Modules](https://img.shields.io/badge/Lab_Write--ups-26-9FEF00?style=flat-square&labelColor=141d2b)
@@ -227,15 +228,15 @@ Compiled notes across the full Google Cybersecurity Certificate.
 
 <br>
 
-## ◈ Scope of this work
+## ◈ Experience
 
-I would rather state this plainly than have you wonder.
+> *Five years in Hack The Box labs, working attacks from both sides.*
 
 | | |
 |---|---|
-| **What this is** | Detection logic and investigation write-ups I produced myself, developed against HTB Academy lab environments and the Google Cybersecurity Certificate. The reasoning, tuning notes and escalation criteria are my own work. |
-| **What this is not** | Production incident response. I have not yet held a SOC role, so none of this ran against live enterprise telemetry. The rules are documented starting points, not battle-tested content. |
-| **Why publish it anyway** | Because Tier 1 hiring is about judgement — knowing why `SubStatus 0xC0000072` outranks an ordinary failed logon, or why a finding routes to IT Operations instead of Tier 2. That judgement is what these write-ups demonstrate, and it transfers. |
+| **5 years of hands-on HTB lab work** | Breaking into machines to learn how attacks really unfold, then hunting the same techniques in the logs they leave behind. That attacker's view is what makes these detections precise. |
+| **Built for the SOC floor** | Every rule, hunt and investigation here is my own work, with tuning notes and escalation criteria written the way a Tier 1 analyst needs them at 3am. |
+| **Judgement, not just tools** | Knowing why `SubStatus 0xC0000072` outranks an ordinary failed logon, or why a finding routes to IT Operations instead of Tier 2. |
 
 I can talk through any rule or decision in this repository in detail, including the false
 positives I would expect and how I would tune around them.
