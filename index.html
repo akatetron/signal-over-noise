@@ -4,260 +4,276 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chayan Panchal — SOC Analyst</title>
-  <meta name="description" content="SOC analyst portfolio — detection engineering (Sigma, KQL, SPL, Suricata), DFIR investigations, HTB CDSA certified. Open to SOC roles in the EU, Asia and Canada.">
+  <meta name="description" content="Chayan Panchal — SOC analyst, HTB CDSA and Google Cybersecurity certified. Detection engineering (Sigma, KQL, SPL, Suricata) and incident investigations. Open to SOC roles in the EU, Asia and Canada.">
   <meta property="og:title" content="Chayan Panchal — SOC Analyst">
-  <meta property="og:description" content="Detection engineering, incident investigations and HTB CDSA write-ups.">
+  <meta property="og:description" content="Detections, investigations and the reasoning behind every call.">
   <meta property="og:type" content="website">
+  <meta name="theme-color" content="#12100e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2312100e'/%3E%3Cpath d='M3 20h7l3-14 4 22 3-8h9' fill='none' stroke='%23f2b134' stroke-width='2.6' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/signal-over-noise/assets/css/site.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400..800,0..100;1,9..144,400..600,0..100&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/signal-over-noise/assets/css/site.css?v=3">
 </head>
 <body>
 
-<nav class="nav">
+<nav class="topbar">
   <div class="wrap">
-    <a class="brand" href="./">signal <span>›</span> over <span>›</span> noise</a>
-    <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#detections">Detections</a>
-      <a href="#labs">Labs</a>
-      <a href="#certs">Certifications</a>
-      <a href="#contact">Contact</a>
+    <a class="sig" href="./">Chayan Panchal <b>·</b> SOC</a>
+    <div class="toplinks">
+      <a href="#casework">Casework</a>
+      <a href="#rulebook">Detections</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#training">Training</a>
+      <a href="#credentials">Credentials</a>
+      <a class="hire" href="#contact">Hire me</a>
     </div>
   </div>
 </nav>
 
 <header class="hero">
   <div class="wrap">
-    <p class="eyebrow">// SOC Analyst · Blue Team · Detection Engineering</p>
-    <h1>Chayan Panchal</h1>
-    <p class="role"><b>HTB Certified Defensive Security Analyst (CDSA) , Google Certified Cybersecurity Professional.</b>   I write detections, triage alerts and reconstruct intrusions from raw logs.</p>
-    <p class="quote">&gt; The job isn't seeing everything. It's knowing what matters.</p>
-    <div class="avail">
-      <span class="dot"></span>
-      <span><b>Open to SOC Analyst roles</b> — EU (sponsorship required) · Asia · Canada</span>
-      <span>· Based in St. John's, NL, Canada</span>
-    </div>
-    <div class="cta">
-      <a class="btn primary" href="investigations/multi-stage-intrusion-windows-host/">Read the flagship investigation →</a>
-      <a class="btn" href="investigations/multi-stage-intrusion-windows-host/IR-2026-0417-Multi-Stage-Intrusion-Incident-Report.pdf">Incident report (PDF)</a>
-      <a class="btn" href="https://www.linkedin.com/in/chayanpanchal">LinkedIn</a>
-      <a class="btn" href="https://github.com/akatetron/signal-over-noise">GitHub</a>
+    <div class="hero-grid">
+      <div>
+        <p class="label">SOC Analyst · Detection Engineering · Incident Response</p>
+        <h1>Chayan<br>Panchal<em>.</em></h1>
+        <p class="lede"><strong>HTB Certified Defensive Security Analyst (CDSA)</strong> and <strong>Google Certified Cybersecurity Professional.</strong> I write detections, triage alerts and <span class="mark">reconstruct intrusions from raw logs.</span></p>
+        <p class="avail"><span class="pulse"></span><span><b>Open to SOC Analyst roles</b> in the EU (sponsorship required), Asia and Canada. Based in St. John's, Newfoundland.</span></p>
+        <div class="cta">
+          <a class="btn" href="investigations/multi-stage-intrusion-windows-host/">Read my flagship investigation <span class="arr">→</span></a>
+          <a class="txt" href="investigations/multi-stage-intrusion-windows-host/IR-2026-0417-Multi-Stage-Intrusion-Incident-Report.pdf">Incident report (PDF)</a>
+          <a class="txt" href="https://www.linkedin.com/in/chayanpanchal">LinkedIn</a>
+        </div>
+      </div>
+      <div class="ledger" aria-label="Portfolio at a glance">
+        <div><span class="n">10</span><span class="l">detection rules, each with<br>its false positives documented</span></div>
+        <div><span class="n">2</span><span class="l">full investigations<br>+ a formal incident report</span></div>
+        <div><span class="n">26</span><span class="l">lab write-ups across<br>HTB Academy and Google</span></div>
+        <div><span class="n">9</span><span class="l">ATT&amp;CK tactics covered</span></div>
+      </div>
     </div>
 
-    <div class="stats">
-      <div class="stat"><div class="n">10</div><div class="l">Detection rules</div></div>
-      <div class="stat"><div class="n">12</div><div class="l">ATT&amp;CK techniques covered</div></div>
-      <div class="stat"><div class="n">2</div><div class="l">Full investigations</div></div>
-      <div class="stat"><div class="n">26</div><div class="l">Lab write-ups</div></div>
-    </div>
+    <figure class="trace" aria-label="A noisy line with a single clear spike: signal over noise">
+      <svg viewBox="0 0 1200 130" preserveAspectRatio="none" role="img">
+        <path class="noise draw" d="M0 86.4 L6 85.9 L12 96.4 L18 90.9 L24 96.9 L30 96.4 L36 95.6 L42 91.4 L48 92.0 L54 95.1 L60 102.1 L66 85.3 L72 101.1 L78 95.2 L84 102.7 L90 88.4 L96 96.7 L102 84.1 L108 89.1 L114 100.3 L120 99.1 L126 82.2 L132 93.2 L138 88.1 L144 95.8 L150 88.3 L156 98.4 L162 89.6 L168 88.6 L174 89.0 L180 89.2 L186 91.9 L192 99.0 L198 99.6 L204 94.5 L210 93.6 L216 99.1 L222 93.8 L228 92.4 L234 88.1 L240 100.3 L246 87.6 L252 83.7 L258 82.4 L264 98.7 L270 91.5 L276 92.0 L282 88.9 L288 102.0 L294 102.2 L300 94.9 L306 81.2 L312 80.4 L318 92.0 L324 96.3 L330 93.3 L336 96.8 L342 92.9 L348 85.0 L354 86.4 L360 97.8 L366 86.6 L372 90.1 L378 94.6 L384 85.6 L390 87.3 L396 86.1 L402 97.3 L408 88.2 L414 88.3 L420 86.9 L426 95.4 L432 101.8 L438 104.5 L444 96.1 L450 89.3 L456 98.1 L462 86.5 L468 99.4 L474 90.3 L480 94.9 L486 95.4 L492 85.1 L498 104.7 L504 97.4 L510 97.1 L516 91.7 L522 92.4 L528 100.5 L534 89.2 L540 88.4 L546 95.1 L552 93.2 L558 95.5 L564 92.7 L570 88.7 L576 88.4 L582 86.1 L588 94.3 L594 86.5 L600 101.1 L606 100.8 L612 96.5 L618 97.5 L624 99.2 L630 80.8 L636 81.3 L642 80.6 L648 97.5 L654 83.5 L660 88.0 L666 87.0 L672 100.3 L678 97.3 L684 89.5 L690 81.9 L696 101.3 L702 89.1 L708 89.1 L714 87.6 L720 82.7 L726 89.1 L732 92.9 L738 97.5 L744 89.0 L750 79.1 L756 87.2 L762 90.6 L768 99.1 L774 93.7 L780 92.6 L786 91.6 L792 92.3"/>
+        <path class="spike draw" d="M792 92.3 L800 92 L806 8 L812 112 L822 93.5"/>
+        <path class="noise draw" style="animation-delay:1.4s" d="M822 93.5 L828 93.8 L834 91.0 L840 94.2 L846 101.9 L852 96.1 L858 92.2 L864 99.2 L870 96.9 L876 94.8 L882 87.6 L888 91.5 L894 101.8 L900 90.5 L906 95.7 L912 91.9 L918 80.1 L924 86.3 L930 98.7 L936 83.8 L942 101.7 L948 83.1 L954 90.4 L960 98.3 L966 93.5 L972 90.7 L978 100.6 L984 95.8 L990 97.5 L996 90.6 L1002 84.7 L1008 87.7 L1014 85.3 L1020 95.2 L1026 95.5 L1032 95.7 L1038 94.7 L1044 98.5 L1050 94.3 L1056 99.6 L1062 97.2 L1068 100.9 L1074 99.4 L1080 96.0 L1086 93.2 L1092 88.8 L1098 96.6 L1104 82.5 L1110 102.9 L1116 98.4 L1122 82.8 L1128 91.9 L1134 84.1 L1140 89.5 L1146 80.3 L1152 85.7 L1158 93.9 L1164 96.2 L1170 94.7 L1176 97.8 L1182 100.6 L1188 96.6 L1194 94.8 L1200 86.0"/>
+      </svg>
+      <figcaption class="note-tag later">← the one that matters.</figcaption>
+    </figure>
   </div>
 </header>
 
 <main>
 
-<!-- ============ FEATURED WORK ============ -->
-<section class="block" id="work">
+<!-- CASEWORK -->
+<section class="sec" id="casework">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="kicker">01 / Start here</p>
-      <h2>Featured work</h2>
-      <p>If you only have five minutes, read the first one.</p>
+    <div class="sec-head reveal">
+      <div><p class="label">Casework</p><h2>Two investigations, worked start to finish.</h2></div>
+      <p>No hand-holding alert in either. One starts from raw event logs on a host believed compromised; the other is a first shift at a SIEM with seven findings and a decision to make on each.</p>
     </div>
 
-    <div class="grid-2">
-      <div class="card feature">
-        <div class="tags"><span class="chip accent">DFIR</span><span class="chip">Sysmon</span><span class="chip">No EDR</span><span class="chip">T1574.001 · T1055 · T1003.001 · T1134.004</span></div>
+    <div class="casework">
+      <article class="casefile reveal">
+        <span class="tab">CASE · IR-2026-0417</span>
+        <div class="stamp">Report<br>filed<small>IR-2026-0417</small></div>
         <h3>Multi-stage intrusion on a Windows host</h3>
-        <p>Reconstructed a five-stage attack chain from raw event logs with <strong>no alert to start from</strong> — DLL hijack, process injection, LSASS dumping and PPID spoofing. Ends with the containment-scoping call, and why it wasn't a domain-wide reset.</p>
-        <div class="links">
-          <a class="btn primary" href="investigations/multi-stage-intrusion-windows-host/">Investigation notes →</a>
-          <a class="btn" href="investigations/multi-stage-intrusion-windows-host/IR-2026-0417-Multi-Stage-Intrusion-Incident-Report.pdf">Formal IR report — IR-2026-0417 (PDF)</a>
+        <p class="summary">No alert fired and there was no EDR. From Sysmon and Security logs alone I reconstructed a five-stage attack chain, then made the containment-scoping call, and explained why it <em>wasn't</em> a domain-wide reset.</p>
+        <dl class="facts">
+          <div><dt>Telemetry</dt><dd>Sysmon, Security log</dd></div>
+          <div><dt>Tooling</dt><dd>Get-WinEvent, no EDR</dd></div>
+          <div><dt>Outcome</dt><dd>Full chain rebuilt</dd></div>
+        </dl>
+        <ol class="stages">
+          <li><span>DLL search-order hijack</span><span class="tid">T1574.001</span></li>
+          <li><span>Unmanaged PowerShell via CLR injection</span><span class="tid">T1059.001</span></li>
+          <li><span>Process injection</span><span class="tid">T1055</span></li>
+          <li><span>LSASS credential dumping</span><span class="tid">T1003.001</span></li>
+          <li><span>PPID spoofing</span><span class="tid">T1134.004</span></li>
+        </ol>
+        <div class="actions">
+          <a class="btn" href="investigations/multi-stage-intrusion-windows-host/">Read the investigation <span class="arr">→</span></a>
+          <a href="investigations/multi-stage-intrusion-windows-host/IR-2026-0417-Multi-Stage-Intrusion-Incident-Report.pdf">Formal incident report (PDF)</a>
         </div>
-      </div>
+      </article>
 
-      <a class="card" href="investigations/siem-alert-triage-seven-findings/">
-        <div class="tags"><span class="chip accent">Triage</span><span class="chip">KQL</span><span class="chip">Kibana</span></div>
-        <h3>Seven SIEM findings, seven dispositions</h3>
-        <p>First shift as Tier 1. <strong>5 escalated, 2 consulted, 0 dismissed</strong> — with the reasoning behind every call and when to route to IT Ops instead of Tier 2.</p>
-        <span class="more">Read the triage →</span>
-      </a>
+      <aside class="shiftlog reveal">
+        <p class="label">Shift log · Tier 1</p>
+        <h3>Seven SIEM findings. Seven calls.</h3>
+        <div class="tally" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="c"></i><i class="c"></i></div>
+        <div class="tally-key"><span>5 escalated</span><span class="c">2 sent to IT Ops</span></div>
+        <p>A first shift on an Elastic/Kibana SIEM. Every finding gets a disposition and the reasoning behind it, including when a finding belongs with IT Operations rather than Tier 2. Nothing dismissed.</p>
+        <a href="investigations/siem-alert-triage-seven-findings/">Read the triage notes →</a>
 
-      <a class="card" href="detection-engineering/">
-        <div class="tags"><span class="chip accent">Detection</span><span class="chip">Sigma</span><span class="chip">KQL</span><span class="chip">SPL</span><span class="chip">Suricata</span></div>
-        <h3>Detection engineering</h3>
-        <p>Ten rules written from those investigations. Every one ships with its <strong>false-positive profile and tuning notes</strong>.</p>
-        <span class="more">Browse the rules →</span>
-      </a>
+        <div class="also">
+          <p class="label">Also</p>
+          <p style="margin:0 0 10px">The <a href="htb-academy/cdsa-capstone-incident-report/">CDSA capstone incident report</a>, end to end, and <a href="detection-engineering/">ten detections</a> written from these cases.</p>
+        </div>
+      </aside>
     </div>
   </div>
 </section>
 
-<!-- ============ DETECTIONS ============ -->
-<section class="block" id="detections">
+<!-- RULEBOOK -->
+<section class="sec" id="rulebook">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="kicker">02 / Detection engineering</p>
-      <h2>Rules I've written</h2>
-      <p>Mapped to MITRE ATT&amp;CK, each with documented false positives(Signal strength) and tuning guidance.</p>
+    <div class="sec-head reveal">
+      <div><p class="label">Detection engineering</p><h2>Ten rules, with their false positives written down.</h2></div>
+      <p>Each rule is mapped to MITRE ATT&amp;CK and ships with tuning notes. The bars show <strong>signal strength</strong>: how far an alert can be trusted before tuning. Four bars means near-zero false positives.</p>
     </div>
 
-    <div class="table-wrap">
-      <table class="rules">
-        <thead><tr><th>Rule</th><th>Platform</th><th>ATT&amp;CK</th><th>Signal</th></tr></thead>
-        <tbody>
-          <tr><td><span class="sev crit"></span><a class="rule" href="https://github.com/akatetron/signal-over-noise/blob/main/detection-engineering/sigma-rules/lsass-credential-access.yml">LSASS memory access</a></td><td><span class="chip">Sigma</span></td><td class="tid"><a href="https://attack.mitre.org/techniques/T1003/001/">T1003.001</a></td><td class="conf">●●●<i>●</i></td></tr>
-          <tr><td><span class="sev crit"></span><a class="rule" href="https://github.com/akatetron/signal-over-noise/blob/main/detection-engineering/sigma-rules/ppid-spoofing-unusual-parent.yml">PPID spoofing</a></td><td><span class="chip">Sigma</span></td><td class="tid"><a href="https://attack.mitre.org/techniques/T1134/004/">T1134.004</a></td><td class="conf">●●●●</td></tr>
-          <tr><td><span class="sev crit"></span><a class="rule" href="https://github.com/akatetron/signal-over-noise/blob/main/detection-engineering/sigma-rules/dll-hijack-nonstandard-path.yml">DLL search-order hijack</a></td><td><span class="chip">Sigma</span></td><td class="tid"><a href="https://attack.mitre.org/techniques/T1574/001/">T1574.001</a></td><td class="conf">●●<i>●●</i></td></tr>
-          <tr><td><span class="sev crit"></span><a class="rule" href="https://github.com/akatetron/signal-over-noise/blob/main/detection-engineering/sigma-rules/wmi-lateral-movement.yml">WMI lateral movement</a></td><td><span class="chip">Sigma</span></td><td class="tid"><a href="https://attack.mitre.org/techniques/T1047/">T1047</a> · <a href="https://attack.mitre.org/techniques/T1021/003/">T1021.003</a></td><td class="conf">●●●<i>●</i></td></tr>
-          <tr><td><span class="sev crit"></span><a class="rule" href="https://github.com/akatetron/signal-over-noise/blob/main/detection-engineering/sigma-rules/shadow-copy-deletion.yml">Shadow copy deletion</a></td><td><span class="chip">Sigma</span></td><td class="tid"><a href="https://attack.mitre.org/techniques/T1490/">T1490</a></td><td class="conf">●●●●</td></tr>
-          <tr><td><span class="sev high"></span><a class="rule" href="detection-engineering/kql-hunts/disabled-account-authentication.html">Disabled-account authentication</a></td><td><span class="chip">KQL</span></td><td class="tid"><a href="https://attack.mitre.org/techniques/T1078/">T1078</a></td><td class="conf">●●●●</td></tr>
-          <tr><td><span class="sev high"></span><a class="rule" href="detection-engineering/kql-hunts/service-account-interactive-logon.html">Service account RDP logon</a></td><td><span class="chip">KQL</span></td><td class="tid"><a href="https://attack.mitre.org/techniques/T1021/001/">T1021.001</a></td><td class="conf">●●●●</td></tr>
-          <tr><td><span class="sev high"></span><a class="rule" href="detection-engineering/kql-hunts/password-spray-detection.html">Password spraying</a></td><td><span class="chip">KQL</span></td><td class="tid"><a href="https://attack.mitre.org/techniques/T1110/003/">T1110.003</a></td><td class="conf">●●●●</td></tr>
-          <tr><td><span class="sev med"></span><a class="rule" href="detection-engineering/splunk-spl/privileged-group-membership-changes.html">Privileged group changes</a></td><td><span class="chip">SPL</span></td><td class="tid"><a href="https://attack.mitre.org/techniques/T1098/">T1098</a></td><td class="conf">●●●<i>●</i></td></tr>
-          <tr><td><span class="sev net"></span><a class="rule" href="https://github.com/akatetron/signal-over-noise/blob/main/detection-engineering/suricata-rules/c2-beacon-detection.rules">C2 beacon detection</a></td><td><span class="chip">Suricata</span></td><td class="tid"><a href="https://attack.mitre.org/techniques/T1071/">T1071</a> · <a href="https://attack.mitre.org/techniques/T1573/">T1573</a></td><td class="conf">●●●<i>●</i></td></tr>
-        </tbody>
-      </table>
+    <div class="legend reveal">
+      <span><span class="sev crit"></span>Critical</span>
+      <span><span class="sev high"></span>High</span>
+      <span><span class="sev med"></span>Medium</span>
+      <span><span class="sev net"></span>Network</span>
+      <span style="margin-left:auto"><span class="bars" data-n="4" style="vertical-align:-4px;margin-right:6px"><i></i><i></i><i></i><i></i></span>signal strength</span>
     </div>
 
-    <div class="attack">
-      <div class="tactic"><h4>Execution</h4><a href="https://attack.mitre.org/techniques/T1059/001/">T1059.001</a><a href="https://attack.mitre.org/techniques/T1047/">T1047</a></div>
-      <div class="tactic"><h4>Persistence / Priv Esc</h4><a href="https://attack.mitre.org/techniques/T1574/001/">T1574.001</a><a href="https://attack.mitre.org/techniques/T1098/">T1098</a></div>
-      <div class="tactic"><h4>Defense Evasion</h4><a href="https://attack.mitre.org/techniques/T1134/004/">T1134.004</a><a href="https://attack.mitre.org/techniques/T1574/001/">T1574.001</a></div>
-      <div class="tactic"><h4>Credential Access</h4><a href="https://attack.mitre.org/techniques/T1003/001/">T1003.001</a><a href="https://attack.mitre.org/techniques/T1110/003/">T1110.003</a><a href="https://attack.mitre.org/techniques/T1078/">T1078</a></div>
-      <div class="tactic"><h4>Discovery</h4><a href="https://attack.mitre.org/techniques/T1033/">T1033</a></div>
-      <div class="tactic"><h4>Lateral Movement</h4><a href="https://attack.mitre.org/techniques/T1021/001/">T1021.001</a><a href="https://attack.mitre.org/techniques/T1021/003/">T1021.003</a><a href="https://attack.mitre.org/techniques/T1047/">T1047</a></div>
-      <div class="tactic"><h4>Command &amp; Control</h4><a href="https://attack.mitre.org/techniques/T1071/">T1071</a><a href="https://attack.mitre.org/techniques/T1573/">T1573</a></div>
-      <div class="tactic"><h4>Impact</h4><a href="https://attack.mitre.org/techniques/T1490/">T1490</a></div>
+    <ol class="rulebook reveal">
+      <li><a class="row" href="https://github.com/akatetron/signal-over-noise/blob/main/detection-engineering/sigma-rules/ppid-spoofing-unusual-parent.yml"><span class="sev crit"></span><span class="nm"><span class="name">PPID spoofing</span><span class="why">Near-zero baseline.</span></span><span class="plat">Sigma</span><span class="tid">T1134.004</span><span class="bars-cell"><span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></span></a></li>
+      <li><a class="row" href="https://github.com/akatetron/signal-over-noise/blob/main/detection-engineering/sigma-rules/shadow-copy-deletion.yml"><span class="sev crit"></span><span class="nm"><span class="name">Shadow copy deletion</span><span class="why">Near-zero baseline, and a classic ransomware precursor.</span></span><span class="plat">Sigma</span><span class="tid">T1490</span><span class="bars-cell"><span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></span></a></li>
+      <li><a class="row" href="https://github.com/akatetron/signal-over-noise/blob/main/detection-engineering/sigma-rules/lsass-credential-access.yml"><span class="sev crit"></span><span class="nm"><span class="name">LSASS memory access</span><span class="why">Needs EDR and AV allowlisting.</span></span><span class="plat">Sigma</span><span class="tid">T1003.001</span><span class="bars-cell"><span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></span></a></li>
+      <li><a class="row" href="https://github.com/akatetron/signal-over-noise/blob/main/detection-engineering/sigma-rules/wmi-lateral-movement.yml"><span class="sev crit"></span><span class="nm"><span class="name">WMI lateral movement</span><span class="why">SCCM uses WMI too, so it needs filtering.</span></span><span class="plat">Sigma</span><span class="tid">T1047 · T1021.003</span><span class="bars-cell"><span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></span></a></li>
+      <li><a class="row" href="https://github.com/akatetron/signal-over-noise/blob/main/detection-engineering/sigma-rules/dll-hijack-nonstandard-path.yml"><span class="sev crit"></span><span class="nm"><span class="name">DLL search-order hijack</span><span class="why">Installers create noise; the hardest of the ten to tune.</span></span><span class="plat">Sigma</span><span class="tid">T1574.001</span><span class="bars-cell"><span class="bars" data-n="2" aria-label="Signal 2 of 4"><i></i><i></i><i></i><i></i></span></span></a></li>
+      <li><a class="row" href="detection-engineering/kql-hunts/disabled-account-authentication.html"><span class="sev high"></span><span class="nm"><span class="name">Disabled-account authentication</span><span class="why">SubStatus 0xC0000072 separates disabled accounts from ordinary failed logons.</span></span><span class="plat">KQL</span><span class="tid">T1078</span><span class="bars-cell"><span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></span></a></li>
+      <li><a class="row" href="detection-engineering/kql-hunts/service-account-interactive-logon.html"><span class="sev high"></span><span class="nm"><span class="name">Service account RDP logon</span><span class="why">Baseline is essentially zero, so any hit is meaningful.</span></span><span class="plat">KQL</span><span class="tid">T1021.001</span><span class="bars-cell"><span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></span></a></li>
+      <li><a class="row" href="detection-engineering/kql-hunts/password-spray-detection.html"><span class="sev high"></span><span class="nm"><span class="name">Password spraying</span><span class="why">Counts distinct users per source, the pivot per-account alerting misses.</span></span><span class="plat">KQL</span><span class="tid">T1110.003</span><span class="bars-cell"><span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></span></a></li>
+      <li><a class="row" href="detection-engineering/splunk-spl/privileged-group-membership-changes.html"><span class="sev med"></span><span class="nm"><span class="name">Privileged group changes</span><span class="why">Includes a self-elevation variant with no benign explanation.</span></span><span class="plat">SPL</span><span class="tid">T1098</span><span class="bars-cell"><span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></span></a></li>
+      <li><a class="row" href="https://github.com/akatetron/signal-over-noise/blob/main/detection-engineering/suricata-rules/c2-beacon-detection.rules"><span class="sev net"></span><span class="nm"><span class="name">C2 beacon detection</span><span class="why">Signature, anomaly and JA3 fingerprint layers.</span></span><span class="plat">Suricata</span><span class="tid">T1071 · T1573</span><span class="bars-cell"><span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></span></a></li>
+    </ol>
+    <div class="rule-foot reveal">
+      <span>Principle: detect behaviour, not artifacts. A renamed file shouldn't break a rule.</span>
+      <a href="detection-engineering/">All rules and design notes →</a>
     </div>
   </div>
 </section>
 
-<!-- ============ SKILLS ============ -->
-<section class="block" id="skills">
+<!-- COVERAGE -->
+<section class="sec" id="coverage">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="kicker">03 / Toolchain</p>
-      <h2>What I work with</h2>
+    <div class="sec-head reveal">
+      <div><p class="label">ATT&amp;CK coverage</p><h2>Where my work sits on the kill chain.</h2></div>
+      <p>From first execution to impact. Each stop lists the techniques my rules and investigations cover. Click any ID to open it on MITRE ATT&amp;CK.</p>
     </div>
-    <div class="skills">
-      <div class="skill"><h4>SIEM</h4><div class="chips"><span class="chip">Elastic Stack</span><span class="chip">Kibana</span><span class="chip">Splunk</span><span class="chip">KQL</span><span class="chip">SPL</span><span class="chip">EQL</span></div></div>
-      <div class="skill"><h4>Endpoint telemetry</h4><div class="chips"><span class="chip">Sysmon</span><span class="chip">Windows Security logs</span><span class="chip">Get-WinEvent</span><span class="chip">PowerShell</span></div></div>
-      <div class="skill"><h4>Network monitoring</h4><div class="chips"><span class="chip">Suricata</span><span class="chip">Snort 3</span><span class="chip">Zeek</span><span class="chip">Wireshark</span><span class="chip">tcpdump</span><span class="chip">JA3</span></div></div>
-      <div class="skill"><h4>Detection engineering</h4><div class="chips"><span class="chip">Sigma</span><span class="chip">ATT&amp;CK mapping</span><span class="chip">FP analysis</span><span class="chip">Tuning</span></div></div>
-      <div class="skill"><h4>Incident response</h4><div class="chips"><span class="chip">NIST IR lifecycle</span><span class="chip">Triage</span><span class="chip">Escalation</span><span class="chip">Containment scoping</span><span class="chip">Reporting</span></div></div>
-      <div class="skill"><h4>Frameworks &amp; other</h4><div class="chips"><span class="chip">MITRE ATT&amp;CK</span><span class="chip">NIST CSF</span><span class="chip">NIST SP 800-30</span><span class="chip">PASTA</span><span class="chip">Linux</span><span class="chip">Python</span><span class="chip">SQL</span></div></div>
+    <div class="chain reveal">
+      <div class="stop"><span class="dot"></span><h4>Execution</h4><div class="techs"><a href="https://attack.mitre.org/techniques/T1059/001/">T1059.001</a><a href="https://attack.mitre.org/techniques/T1047/">T1047</a></div></div>
+      <div class="stop"><span class="dot"></span><h4>Persistence</h4><div class="techs"><a href="https://attack.mitre.org/techniques/T1574/001/">T1574.001</a><a href="https://attack.mitre.org/techniques/T1098/">T1098</a></div></div>
+      <div class="stop"><span class="dot"></span><h4>Privilege Escalation</h4><div class="techs"><a href="https://attack.mitre.org/techniques/T1574/001/">T1574.001</a></div></div>
+      <div class="stop"><span class="dot"></span><h4>Defense Evasion</h4><div class="techs"><a href="https://attack.mitre.org/techniques/T1134/004/">T1134.004</a><a href="https://attack.mitre.org/techniques/T1574/001/">T1574.001</a></div></div>
+      <div class="stop"><span class="dot"></span><h4>Credential Access</h4><div class="techs"><a href="https://attack.mitre.org/techniques/T1003/001/">T1003.001</a><a href="https://attack.mitre.org/techniques/T1110/003/">T1110.003</a><a href="https://attack.mitre.org/techniques/T1078/">T1078</a></div></div>
+      <div class="stop"><span class="dot"></span><h4>Discovery</h4><div class="techs"><a href="https://attack.mitre.org/techniques/T1033/">T1033</a></div></div>
+      <div class="stop"><span class="dot"></span><h4>Lateral Movement</h4><div class="techs"><a href="https://attack.mitre.org/techniques/T1021/001/">T1021.001</a><a href="https://attack.mitre.org/techniques/T1021/003/">T1021.003</a><a href="https://attack.mitre.org/techniques/T1047/">T1047</a></div></div>
+      <div class="stop"><span class="dot"></span><h4>Command &amp; Control</h4><div class="techs"><a href="https://attack.mitre.org/techniques/T1071/">T1071</a><a href="https://attack.mitre.org/techniques/T1573/">T1573</a></div></div>
+      <div class="stop"><span class="dot"></span><h4>Impact</h4><div class="techs"><a href="https://attack.mitre.org/techniques/T1490/">T1490</a></div></div>
     </div>
   </div>
 </section>
 
-<!-- ============ LABS ============ -->
-<section class="block" id="labs">
+<!-- TOOLKIT -->
+<section class="sec" id="toolkit">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="kicker">04 / Lab write-ups</p>
-      <h2>Training, documented</h2>
-      <p>Full walkthroughs with the reasoning behind each step, plus illustrated PDF notes.</p>
+    <div class="sec-head reveal">
+      <div><p class="label">Toolkit</p><h2>What I work with.</h2></div>
+      <p>Hands-on across the SIEM, endpoint and network layers, plus the frameworks used to report on what's found.</p>
     </div>
-
-    <h3 class="sub-h">HTB Academy — CDSA path <span class="chip accent">11 modules</span></h3>
-    <div class="labs">
-      <a href="htb-academy/security-monitoring-siem-fundamentals/">Security Monitoring &amp; SIEM Fundamentals <span>Elastic, KQL, triage</span></a>
-      <a href="htb-academy/splunk-for-security-analysts/">Splunk for Security Analysts <span>SPL, correlation</span></a>
-      <a href="htb-academy/threat-hunting-with-elastic/">Threat Hunting with Elastic <span>Hypothesis hunting</span></a>
-      <a href="htb-academy/windows-event-logs-finding-evil/">Windows Event Logs &amp; Finding Evil <span>Sysmon, LSASS</span></a>
-      <a href="htb-academy/windows-attacks-and-defense/">Windows Attacks &amp; Defense <span>Active Directory</span></a>
-      <a href="htb-academy/working-with-ids-ips/">Working with IDS/IPS <span>Suricata, Zeek</span></a>
-      <a href="htb-academy/intro-to-network-traffic-analysis/">Intro to Network Traffic Analysis <span>Wireshark</span></a>
-      <a href="htb-academy/introduction-to-malware-analysis/">Introduction to Malware Analysis <span>Static &amp; dynamic</span></a>
-      <a href="htb-academy/javascript-deobfuscation/">JavaScript Deobfuscation <span>Decoding</span></a>
-      <a href="htb-academy/incident-handling-process/">Incident Handling Process <span>IR lifecycle</span></a>
-      <a href="htb-academy/cdsa-capstone-incident-report/">CDSA Capstone Incident Report <span>End-to-end IR</span></a>
-    </div>
-
-    <h3 class="sub-h">Google Cybersecurity Certificate <span class="chip accent">15 labs</span></h3>
-    <div class="labs">
-      <a href="google-cybersecurity-certificate/security-audits/">Security Audits <span>NIST CSF</span></a>
-      <a href="google-cybersecurity-certificate/incident-response/">Incident Response <span>Ransomware, DoS</span></a>
-      <a href="google-cybersecurity-certificate/network-traffic-analysis/">Network Traffic Analysis <span>DNS, ICMP</span></a>
-      <a href="google-cybersecurity-certificate/wireshark-labs/">Wireshark Labs <span>Filters, TCP/HTTP</span></a>
-      <a href="google-cybersecurity-certificate/tcpdump-labs/">tcpdump Labs <span>Capture</span></a>
-      <a href="google-cybersecurity-certificate/sql-security/">SQL Security <span>Log investigation</span></a>
-      <a href="google-cybersecurity-certificate/threat-modeling-pasta/">Threat Modeling — PASTA <span>Attack trees</span></a>
-      <a href="google-cybersecurity-certificate/vulnerability-assessment/">Vulnerability Assessment <span>SP 800-30</span></a>
-      <a href="google-cybersecurity-certificate/">All 15 labs + handwritten notes <span>→</span></a>
-    </div>
+    <dl class="toolkit reveal">
+      <div><dt>SIEM</dt><dd>Elastic Stack and Kibana, Splunk. Queries in KQL, SPL and EQL.</dd></div>
+      <div><dt>Endpoint</dt><dd>Sysmon, Windows Security event logs, PowerShell and Get-WinEvent.</dd></div>
+      <div><dt>Network</dt><dd>Suricata, Snort 3, Zeek, Wireshark, tcpdump, JA3 fingerprinting.</dd></div>
+      <div><dt>Detection</dt><dd>Sigma authoring, ATT&amp;CK mapping, false-positive analysis and tuning.</dd></div>
+      <div><dt>Response</dt><dd>NIST IR lifecycle: triage, escalation, containment scoping, reporting.</dd></div>
+      <div><dt>Frameworks</dt><dd>MITRE ATT&amp;CK, NIST CSF, NIST SP 800-30, PASTA. Also Linux, Python, SQL.</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- ============ CERTS ============ -->
-<section class="block" id="certs">
+<!-- TRAINING -->
+<section class="sec" id="training">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="kicker">05 / Certifications</p>
-      <h2>Credentials</h2>
+    <div class="sec-head reveal">
+      <div><p class="label">Training, documented</p><h2>Twenty-six labs, each written up.</h2></div>
+      <p>Full walkthroughs with the reasoning behind every step, plus illustrated PDF notes. Graded HTB answers are masked, per HTB's publication guidance.</p>
     </div>
-    <div class="grid-2">
-      <div class="card cert">
-        <div class="badge">HTB</div>
-        <div>
-          <h3>HTB CDSA — Certified Defensive Security Analyst</h3>
-          <p>Certified 22 Sep 2026 · 11-module path + practical exam</p>
-          <p class="id">ID HTBCERT-88304FEA1D · <a href="assets/HTB-CDSA-Certificate-Chayan-Panchal.pdf">view certificate</a></p>
-        </div>
+    <div class="toc-grid">
+      <div class="toc reveal">
+        <h3>HTB Academy: CDSA path</h3>
+        <p class="sub">11 modules · Certified Sep 2026</p>
+        <ol>
+          <li><a href="htb-academy/security-monitoring-siem-fundamentals/"><span class="t">SIEM Fundamentals</span><span class="dots"></span><span class="f">Elastic, KQL</span></a></li>
+          <li><a href="htb-academy/splunk-for-security-analysts/"><span class="t">Splunk for Security Analysts</span><span class="dots"></span><span class="f">SPL</span></a></li>
+          <li><a href="htb-academy/threat-hunting-with-elastic/"><span class="t">Threat Hunting with Elastic</span><span class="dots"></span><span class="f">hypotheses</span></a></li>
+          <li><a href="htb-academy/windows-event-logs-finding-evil/"><span class="t">Windows Event Logs &amp; Finding Evil</span><span class="dots"></span><span class="f">Sysmon</span></a></li>
+          <li><a href="htb-academy/windows-attacks-and-defense/"><span class="t">Windows Attacks &amp; Defense</span><span class="dots"></span><span class="f">AD</span></a></li>
+          <li><a href="htb-academy/working-with-ids-ips/"><span class="t">Working with IDS/IPS</span><span class="dots"></span><span class="f">Suricata, Zeek</span></a></li>
+          <li><a href="htb-academy/intro-to-network-traffic-analysis/"><span class="t">Network Traffic Analysis</span><span class="dots"></span><span class="f">Wireshark</span></a></li>
+          <li><a href="htb-academy/introduction-to-malware-analysis/"><span class="t">Intro to Malware Analysis</span><span class="dots"></span><span class="f">static, dynamic</span></a></li>
+          <li><a href="htb-academy/javascript-deobfuscation/"><span class="t">JavaScript Deobfuscation</span><span class="dots"></span><span class="f">decoding</span></a></li>
+          <li><a href="htb-academy/incident-handling-process/"><span class="t">Incident Handling Process</span><span class="dots"></span><span class="f">IR lifecycle</span></a></li>
+          <li><a href="htb-academy/cdsa-capstone-incident-report/"><span class="t">CDSA Capstone Report</span><span class="dots"></span><span class="f">end to end</span></a></li>
+        </ol>
       </div>
-      <div class="card cert">
-        <div class="badge">G</div>
-        <div>
-          <h3>Google Cybersecurity Professional Certificate</h3>
-          <p>15 hands-on labs across 8 courses</p>
-          <p class="id">ID GBEGPUJOSIJ7</p>
-        </div>
-      </div>
-      <div class="card cert">
-        <div class="badge">EN</div>
-        <div>
-          <h3>IELTS English</h3>
-          <p>B2</p>
-        </div>
-      </div>
-      <div class="card cert">
-        <div class="badge planned">BTL1</div>
-        <div>
-          <h3>Blue Team Level 1</h3>
-          <p>Planned</p>
-        </div>
+      <div class="toc reveal">
+        <h3>Google Cybersecurity Certificate</h3>
+        <p class="sub">15 labs · plus 6 sets of handwritten notes</p>
+        <ol>
+          <li><a href="google-cybersecurity-certificate/security-audits/"><span class="t">Security Audits</span><span class="dots"></span><span class="f">NIST CSF</span></a></li>
+          <li><a href="google-cybersecurity-certificate/incident-response/"><span class="t">Incident Response</span><span class="dots"></span><span class="f">ransomware, DoS</span></a></li>
+          <li><a href="google-cybersecurity-certificate/network-traffic-analysis/"><span class="t">Network Traffic Analysis</span><span class="dots"></span><span class="f">DNS, ICMP</span></a></li>
+          <li><a href="google-cybersecurity-certificate/wireshark-labs/"><span class="t">Wireshark Labs</span><span class="dots"></span><span class="f">filters</span></a></li>
+          <li><a href="google-cybersecurity-certificate/sql-security/"><span class="t">SQL Security</span><span class="dots"></span><span class="f">log queries</span></a></li>
+          <li><a href="google-cybersecurity-certificate/threat-modeling-pasta/"><span class="t">Threat Modeling: PASTA</span><span class="dots"></span><span class="f">attack trees</span></a></li>
+          <li><a href="google-cybersecurity-certificate/vulnerability-assessment/"><span class="t">Vulnerability Assessment</span><span class="dots"></span><span class="f">SP 800-30</span></a></li>
+          <li><a href="google-cybersecurity-certificate/risk-management/"><span class="t">Risk Management</span><span class="dots"></span><span class="f">risk register</span></a></li>
+          <li class="more"><a href="google-cybersecurity-certificate/"><span class="t">All 15 labs</span><span class="dots"></span><span class="f">index</span></a></li>
+          <li class="more"><a href="handwritten-notes/"><span class="t">Handwritten study notes</span><span class="dots"></span><span class="f">6 PDFs</span></a></li>
+        </ol>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SCOPE ============ -->
-<section class="block" id="scope">
+<!-- CREDENTIALS -->
+<section class="sec" id="credentials">
   <div class="wrap">
-    <div class="sec-head">
-      <p class="kicker">06 / Scope</p>
-      <h2>What this work is — and isn't</h2>
-      <p>I'd rather state this plainly than have you wonder.</p>
+    <div class="sec-head reveal">
+      <div><p class="label">Credentials</p><h2>Verified, not just listed.</h2></div>
+      <p>Credential IDs are included so they can be checked.</p>
     </div>
-    <div class="scope">
-      <div class="card"><h3>// what it is</h3><p>Detection logic and investigation write-ups I produced myself against HTB Academy and Google lab environments. The reasoning, tuning notes and escalation criteria are my own.</p></div>
-      <div class="card"><h3>// what it isn't</h3><p>Production incident response. I haven't yet held a SOC role, so none of this ran against live enterprise telemetry. The rules are documented starting points, not battle-tested content.</p></div>
-      <div class="card"><h3>// why it matters</h3><p>Tier 1 hiring is about judgement — knowing why <code>SubStatus 0xC0000072</code> outranks an ordinary failed logon, or why a finding goes to IT Ops instead of Tier 2. That transfers.</p></div>
+    <div class="creds reveal">
+      <div class="cred"><h3>HTB Certified Defensive Security Analyst (CDSA)</h3><span class="when"><span class="ok">Certified</span> 22 Sep 2026 · practical exam</span><span class="id">HTBCERT-88304FEA1D · <a href="assets/HTB-CDSA-Certificate-Chayan-Panchal.pdf">certificate</a></span></div>
+      <div class="cred"><h3>Google Cybersecurity Professional Certificate</h3><span class="when"><span class="ok">Certified</span> · 8 courses, 15 labs</span><span class="id">GBEGPUJOSIJ7</span></div>
+      <div class="cred"><h3>IELTS English</h3><span class="when"><span class="ok">Certified</span> · B2</span><span class="id"></span></div>
+      <div class="cred planned"><h3>Blue Team Level 1 (BTL1)</h3><span class="when">Planned next</span><span class="id"></span></div>
     </div>
   </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
+<!-- FINE PRINT -->
+<section class="sec" id="scope">
+  <div class="wrap">
+    <div class="note reveal">
+      <blockquote>“I haven't held a SOC role yet. I'd rather say that plainly than have you wonder.”</blockquote>
+      <div>
+        <p><strong>What this is:</strong> detection logic and investigations I produced myself, against HTB Academy and Google lab environments. The reasoning, tuning notes and escalation criteria are my own.</p>
+        <p><strong>What it isn't:</strong> production incident response. None of it ran against live enterprise telemetry, so the rules are documented starting points, not battle-tested content.</p>
+        <p><strong>Why it still counts:</strong> Tier 1 hiring is about judgement: knowing why <code>SubStatus 0xC0000072</code> outranks an ordinary failed logon, or when a finding goes to IT Ops instead of Tier 2. That transfers, and I can walk through any decision here in detail.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section class="contact" id="contact">
-  <div class="wrap">
-    <h2>Let's talk.</h2>
-    <p>Open to SOC Analyst and Blue Team roles in the EU (sponsorship required), Asia and Canada. Happy to walk through any rule or decision here in detail.</p>
+  <div class="wrap reveal">
+    <p class="label">Contact</p>
+    <h2>Hiring for a SOC team?<br><em>Let's talk.</em></h2>
+    <p>Open to SOC Analyst and Blue Team roles in the EU (sponsorship required), Asia and Canada.</p>
     <div class="cta">
-      <a class="btn primary" href="https://www.linkedin.com/in/chayanpanchal">Connect on LinkedIn</a>
-      <a class="btn" href="https://academy.hackthebox.com/achievement/badge/de728e19-b659-11f1-82d1-bea50ffe6cb4">HackTheBox · @DarkHexReaper</a>
-      <a class="btn" href="https://github.com/akatetron/signal-over-noise">GitHub repository</a>
+      <a class="btn" href="https://www.linkedin.com/in/chayanpanchal">Message me on LinkedIn <span class="arr">→</span></a>
+      <a class="btn ghost" href="https://academy.hackthebox.com/achievement/badge/de728e19-b659-11f1-82d1-bea50ffe6cb4">HTB profile · @DarkHexReaper</a>
+      <a class="txt" href="https://github.com/akatetron/signal-over-noise">Source on GitHub</a>
     </div>
   </div>
 </section>
@@ -271,5 +287,16 @@
   </div>
 </footer>
 
+<script>
+  // Fade sections in as they scroll into view.
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
 </body>
 </html>
