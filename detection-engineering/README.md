@@ -69,14 +69,14 @@ hypothesis, a query, a triage workflow, and explicit escalation criteria.
 
 <table>
 <tr>
-<td width="50%" valign="top">
+<td width="50%" valign="top" markdown="1">
 
 **Detect behaviour, not artifacts**
 
 A rule matching a filename or hash dies the moment the attacker renames the file. A rule matching *a signed binary loading a DLL from a user-writable directory* survives — it targets a constraint of the technique, not one implementation of it.
 
 </td>
-<td width="50%" valign="top">
+<td width="50%" valign="top" markdown="1">
 
 **Every rule ships with its false positives**
 
@@ -85,14 +85,14 @@ A detection with no documented FP profile is unfinished work. The analyst receiv
 </td>
 </tr>
 <tr>
-<td width="50%" valign="top">
+<td width="50%" valign="top" markdown="1">
 
 **Exclude by identity, not by category**
 
 Excluding "all service accounts" hands an attacker a permanent allowlist. Excluding three named sync accounts does not.
 
 </td>
-<td width="50%" valign="top">
+<td width="50%" valign="top" markdown="1">
 
 **Alert-only before blocking**
 

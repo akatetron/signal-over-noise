@@ -21,7 +21,7 @@
 
 <table>
 <tr>
-<td width="50%" valign="top">
+<td width="50%" valign="top" markdown="1">
 
 ### ▸ [Multi-stage intrusion on a Windows host](./multi-stage-intrusion-windows-host/)
 
@@ -36,7 +36,7 @@
 📄 **[Read the formal incident report (PDF)](./multi-stage-intrusion-windows-host/IR-2026-0417-Multi-Stage-Intrusion-Incident-Report.pdf)** — written as a client deliverable.
 
 </td>
-<td width="50%" valign="top">
+<td width="50%" valign="top" markdown="1">
 
 ### ▸ [Triaging seven SIEM findings](./siem-alert-triage-seven-findings/)
 

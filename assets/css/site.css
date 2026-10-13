@@ -41,7 +41,7 @@ a { color: inherit; }
 .nav .links a:hover, .nav .links a[aria-current="page"] { color: var(--text); }
 .nav .links a.cta { color: var(--text); border: 1px solid var(--line-2); padding: 8px 16px; border-radius: 999px; transition: border-color .15s, background .15s; }
 .nav .links a.cta:hover { border-color: var(--text); }
-@media (max-width: 760px) { .nav .links a:not(.cta) { display: none; } }
+@media (max-width: 760px) { .nav .links a:not(.cta):not(:first-child) { display: none; } .nav .links { gap: 18px; } }
 
 /* ---------- shared bits ---------- */
 .kicker { font-size: 13.5px; color: var(--red); font-weight: 600; letter-spacing: .09em; text-transform: uppercase; margin: 0 0 20px; }
@@ -220,6 +220,26 @@ footer.foot a:hover { color: var(--text); }
 .doc .course-list a { text-decoration: none; }
 .doc .course-list a:hover { color: var(--red); }
 @media (max-width: 760px) { .cred-row, .course-cols { grid-template-columns: 1fr; } .cred-links { padding-left: 0; } .cred-meta div { grid-template-columns: 100px 1fr; } }
+
+/* ---------- contact page ---------- */
+.doc h1.contact-title { font-size: clamp(56px, 8vw, 128px); line-height: .92; letter-spacing: -.025em; margin: 8px 0 28px; }
+.doc h1.contact-title em { color: var(--red); }
+.contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 72px; margin: 8px 0 44px; }
+.contact-links { list-style: none; padding: 0 !important; margin: 0; border-top: 1px solid var(--line-2); max-width: none !important; }
+.contact-links li { margin: 0 !important; border-bottom: 1px solid var(--line); }
+.doc .contact-links a { display: grid; grid-template-columns: 1fr auto 28px; gap: 20px; align-items: baseline; padding: 22px 4px; text-decoration: none; transition: padding .2s, background .2s; }
+.doc .contact-links a:hover { padding-left: 16px; background: linear-gradient(90deg, var(--red-soft), transparent 70%); }
+.contact-links .k { font-family: var(--serif); font-size: clamp(28px, 2.6vw, 40px); line-height: 1; color: var(--text); }
+.contact-links .v { color: var(--muted); font-size: 15px; }
+.contact-links .go { color: var(--red); font-size: 22px; text-align: right; transition: transform .2s; }
+.contact-links a:hover .go { transform: translateX(4px); }
+.contact-facts { margin: 0; border-top: 1px solid var(--line-2); }
+.contact-facts div { display: grid; grid-template-columns: 130px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.contact-facts dt { font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); font-weight: 600; padding-top: 4px; }
+.contact-facts dd { margin: 0; }
+.doc > .btn { text-decoration: none; color: var(--bg); }
+.doc > .btn:hover { color: #fff; }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 36px; } .doc .contact-links a { grid-template-columns: 1fr 24px; } .contact-links .v { grid-row: 2; } }
 
 /* =================================================================
    Write-up pages (markdown through _layouts/default.html)
