@@ -237,8 +237,9 @@ footer.foot a:hover { color: var(--text); }
 .contact-facts div { display: grid; grid-template-columns: 130px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
 .contact-facts dt { font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); font-weight: 600; padding-top: 4px; }
 .contact-facts dd { margin: 0; }
-.doc > .btn { text-decoration: none; color: var(--bg); }
-.doc > .btn:hover { color: #fff; }
+.doc .actions .btn { text-decoration: none; color: var(--bg); }
+.doc .actions .btn.ghost { color: var(--text); }
+.doc .actions .btn:hover { color: #fff; }
 @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 36px; } .doc .contact-links a { grid-template-columns: 1fr 24px; } .contact-links .v { grid-row: 2; } }
 
 /* =================================================================
