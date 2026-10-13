@@ -282,3 +282,4 @@ Open to SOC Analyst · Blue Team roles in the **EU** *(sponsorship required)*, *
 <sub>All work is my own hands-on lab practice. Detection rules were developed against lab environments and are documented as reasoning demonstrations — they require environment-specific baselining before production use. Graded HTB Academy answers are masked per HTB's publication guidance.</sub>
 
 </div>
+
