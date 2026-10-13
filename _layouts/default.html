@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v=6">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v=8">
 </head>
 <body>
   {%- assign section = page.url | split: '/' | slice: 1 | first -%}
@@ -45,7 +45,6 @@
         <a href="{{ site.repo_url }}/tree/main/{{ page.dir | remove_first: '/' }}">View source on GitHub ↗</a>
       </div>
     </main>
-    <aside class="toc" id="toc" aria-label="On this page"></aside>
   </div>
 
   <footer class="foot">
@@ -64,26 +63,6 @@
       t.parentNode.insertBefore(w, t); w.appendChild(t);
     });
 
-    // "On this page" sidebar built from the page's section headings.
-    (function () {
-      var hs = [].slice.call(document.querySelectorAll('.doc h2'));
-      var shell = document.getElementById('shell'), toc = document.getElementById('toc');
-      if (hs.length < 3) { shell.classList.add('no-toc'); return; }
-      toc.innerHTML = '<p>On this page</p>';
-      hs.forEach(function (h, i) {
-        if (!h.id) h.id = 'section-' + (i + 1);
-        var a = document.createElement('a');
-        a.href = '#' + h.id; a.textContent = h.textContent.replace(/^[^A-Za-z0-9]+/, '').trim();
-        toc.appendChild(a);
-      });
-      var links = toc.querySelectorAll('a');
-      var io = new IntersectionObserver(function (es) {
-        es.forEach(function (e) {
-          if (e.isIntersecting) links.forEach(function (l) { l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id); });
-        });
-      }, { rootMargin: '0px 0px -70% 0px' });
-      hs.forEach(function (h) { io.observe(h); });
-    })();
   </script>
 </body>
 </html>

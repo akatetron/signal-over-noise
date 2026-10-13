@@ -227,16 +227,9 @@ footer.foot a:hover { color: var(--text); }
 .crumbs { padding: 6px var(--pad) 0; font-size: 14px; color: var(--faint); }
 .crumbs a { color: var(--muted); text-decoration: none; }
 .crumbs a:hover { color: var(--text); }
-.doc-shell { display: grid; grid-template-columns: minmax(0, 860px) 230px; gap: 96px; justify-content: center; padding: 0 var(--pad); }
-.doc-shell.no-toc { grid-template-columns: minmax(0, 860px); }
+.doc-shell { padding: 0 var(--pad); }
 .doc { min-width: 0; padding: 24px 0 96px; }
-.toc { position: sticky; top: 28px; align-self: start; margin-top: 128px; font-size: 14px; max-height: calc(100vh - 56px); overflow-y: auto; }
-.toc p { font-size: 12.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--faint); font-weight: 600; margin: 0 0 12px; }
-.toc a { display: block; padding: 6px 0 6px 14px; border-left: 1px solid var(--line); color: var(--muted); text-decoration: none; line-height: 1.35; transition: color .15s, border-color .15s; }
-.toc a:hover { color: var(--text); }
-.toc a.on { color: var(--text); border-left-color: var(--red); }
-.no-toc .toc { display: none; }
-@media (max-width: 1200px) { .doc-shell { grid-template-columns: minmax(0, 860px); } .toc { display: none; } }
+@media (min-width: 1500px) { .doc { font-size: 18.5px; } .doc h1 { font-size: 84px; } .doc h2 { font-size: 46px; } }
 .doc h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(42px, 6vw, 72px); line-height: 1; letter-spacing: -.02em; margin: 24px 0 32px; }
 .doc h2 { font-family: var(--serif); font-weight: 400; font-size: 38px; line-height: 1.05; margin: 72px 0 18px; }
 .doc h3 { font-size: 20px; font-weight: 600; margin: 40px 0 12px; letter-spacing: -.01em; }
