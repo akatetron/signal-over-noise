@@ -24,6 +24,31 @@ Both documents share the same red / sky-blue accent pair used throughout this fo
 
 ## Evidence from the lab
 
+Screenshots taken while working the module. The HTB answer panel is cropped out of each one,
+in line with the masking note above — what's shown is the command and its output.
+
+
+<figure class="shot" markdown="1">
+
+![Suricata eve.json filtered with jq to extract flow IDs](./source-files/suricata-eve-json-jq-flow-id.png)
+
+<figcaption markdown="span">**Pulling one field out of `eve.json`.** Suricata's EVE output is one JSON object per event, which makes `jq` the right tool rather than `grep` — `select(.event_type == "http") | .flow_id` filters to HTTP events and returns only the flow identifier, so a single flow can then be followed across every other log.</figcaption>
+</figure>
+
+<figure class="shot" markdown="1">
+
+![Suricata run against a suspicious PCAP, then reading the resulting http.log](./source-files/suricata-http-log-malicious-uri.png)
+
+<figcaption markdown="span">**Running Suricata over a capture.** `suricata -r suspicious.pcap` replays 5,172 packets through the engine, then `find`/`cat` on the generated `http.log` shows the requests — repeated calls to `adv.epostoday.uk/app.php` from one internal host, which is the pattern that makes the URI worth a rule.</figcaption>
+</figure>
+
+<figure class="shot" markdown="1">
+
+![Zeek JA3 fingerprints repeating across multiple connections to one destination](./source-files/zeek-ja3-fingerprint-trickbot.png)
+
+<figcaption markdown="span">**JA3 as a fingerprint.** The same `ja3_digest` repeating across connections to `186.71.150.23:449` from one source. JA3 hashes the TLS client hello, so it identifies the *client software* even when the traffic is encrypted and the destination changes — which is why it survives an IP rotation that would break an address-based rule.</figcaption>
+</figure>
+
 <figure class="shot" markdown="1">
 
 ![Zeek conn.log analysis extracting bytes transferred to a specific IP](./source-files/zeek-conn-log-revil-kaseya-bytes.png)
