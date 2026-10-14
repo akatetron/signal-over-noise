@@ -15,11 +15,54 @@ This exercise set is entirely SPL (Search Processing Language) work inside Splun
 ## Files in this folder
 
 | File | Description |
-|---|---|
 | [`Splunk_Walkthrough.pdf`](./Splunk_Walkthrough.pdf) | Full illustrated walkthrough of both investigations, with every SPL query and the reasoning behind it. SPL/Sysmon reference on the last page. |
 | [`Splunk_Student_Notes.pdf`](./Splunk_Student_Notes.pdf) | Condensed study notes with an SPL & Sysmon index on the first page. |
 
 Both documents share the same Splunk-green / amber accent pair used throughout this folder.
+
+---
+
+## Evidence from the lab
+
+Screenshots of the actual searches, taken while working the module. The HTB answer panel is
+cropped out of each one, in line with the masking note above — what's shown is the query and
+the result set, which is the part that demonstrates the method.
+
+<figure class="shot" markdown="1">
+
+![SPL search counting DLLs loaded by rundll32](./source-files/spl-rundll32-imageloaded-count.png)
+
+<figcaption markdown="span">**Which DLLs did `rundll32.exe` load?** `EventCode=7` (Sysmon image load) filtered to `rundll32.exe`, then `stats count by ImageLoaded`. 222 events collapse into 17 distinct DLLs, which is a short enough list to eyeball for the one that doesn't belong.</figcaption>
+</figure>
+
+<figure class="shot" markdown="1">
+
+![SPL search for suspicious clr.dll loads](./source-files/spl-clr-dll-suspicious-loads.png)
+
+<figcaption markdown="span">**Finding the injection host.** The same pivot applied to `clr.dll` — a .NET runtime load inside a process that has no business running managed code is the tell for C# injection. Sorting descending puts the rare loaders at the top.</figcaption>
+</figure>
+
+<figure class="shot" markdown="1">
+
+![SPL search listing C2 callback destination IPs](./source-files/spl-c2-callback-destination-ips.png)
+
+<figcaption markdown="span">**Where did it call home?** 519 network events grouped by `DestinationIp`. The high-count internal addresses are normal chatter; the question is which low-count destinations repeat on a schedule.</figcaption>
+</figure>
+
+<figure class="shot" markdown="1">
+
+![SPL search finding outlier processes by injected thread count using standard deviation](./source-files/spl-injected-threads-stdev-outlier.png)
+
+<figcaption markdown="span">**Injection without a signature.** This is the search I'd keep. Rather than matching a known-bad name, it counts `EventCode=8` remote threads per source process, then uses `eventstats` to compute the mean and standard deviation across all processes and keeps only those more than two deviations above the mean. The outlier surfaces itself.</figcaption>
+</figure>
+
+<figure class="shot" markdown="1">
+
+![SPL table of remote thread creation into rundll32](./source-files/spl-remote-thread-rundll32-table.png)
+
+<figcaption markdown="span">**Confirming the pair.** Once the outlier is known, a `table` of `_time`, source and target image plus both PIDs turns the hit into a timeline you can hand to someone else.</figcaption>
+</figure>
+
 
 ---
 

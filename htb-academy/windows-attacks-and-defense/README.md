@@ -15,11 +15,33 @@ This module pairs an attack with its detection, twice over, inside a live Active
 ## Files in this folder
 
 | File | Description |
-|---|---|
 | [`WinAttackDefence_Walkthrough.pdf`](./WinAttackDefence_Walkthrough.pdf) | Full illustrated walkthrough of both attack/detection pairs. Quick reference on the last page. |
 | [`WinAttackDefence_Student_Notes.pdf`](./WinAttackDefence_Student_Notes.pdf) | Condensed study notes with the same reference on the first page. |
 
 Both documents share the same blue / rose accent pair used throughout this folder.
+
+---
+
+## Evidence from the lab
+
+Screenshots of the detection side of this module, taken from Event Viewer on the domain
+controller. The HTB answer panel is cropped out of each one, in line with the masking note
+above. Offensive steps that produced credential material are deliberately not included.
+
+<figure class="shot" markdown="1">
+
+![Event 4662 showing Directory Service Access, used to detect DCSync](./source-files/event-4662-dcsync-directory-service-access.png)
+
+<figcaption markdown="span">**Detecting DCSync.** Event 4662 on the DC, with the Task Category `Directory Service Access`. This is the event that catches a DCSync attack: a replication request from an account that is not a domain controller. Filtering 183,384 security events down to the 439 of this ID is what makes it findable.</figcaption>
+</figure>
+
+<figure class="shot" markdown="1">
+
+![Event 4771 showing Kerberos pre-authentication failure with TargetSid](./source-files/event-4771-kerberos-preauth-targetsid.png)
+
+<figcaption markdown="span">**Kerberos pre-authentication failures.** Event 4771 from `krbtgt/EAGLE`, with the `TargetSid` and `Status` fields. The status code is what separates a mistyped password from AS-REP roasting or a targeted guess against one account.</figcaption>
+</figure>
+
 
 ---
 

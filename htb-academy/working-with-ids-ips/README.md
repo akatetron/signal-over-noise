@@ -15,11 +15,22 @@ This module is a hands-on tour of the three tools that sit at the core of networ
 ## Files in this folder
 
 | File | Description |
-|---|---|
 | [`IDS_IPS_Walkthrough.pdf`](./IDS_IPS_Walkthrough.pdf) | Full illustrated walkthrough — every detection rule written in the module, with the reasoning behind each option. Command index on the last page. |
 | [`IDS_IPS_Student_Notes.pdf`](./IDS_IPS_Student_Notes.pdf) | Condensed study notes with a Suricata/Snort/Zeek command index on the first page. |
 
 Both documents share the same red / sky-blue accent pair used throughout this folder.
+
+---
+
+## Evidence from the lab
+
+<figure class="shot" markdown="1">
+
+![Zeek conn.log analysis extracting bytes transferred to a specific IP](./source-files/zeek-conn-log-revil-kaseya-bytes.png)
+
+<figcaption markdown="span">**Zeek on the REvil/Kaseya capture.** Running `zeek -C -r` over the PCAP produces the log set (`conn.log`, `dce_rpc.log`, `kerberos.log`, `smb_mapping.log`), then `zeek-cut id.resp_h orig_bytes` piped through `grep` pulls out exactly what was sent to the suspect address. The point is that Zeek turns a packet capture into something you can answer questions about with ordinary text tools.</figcaption>
+</figure>
+
 
 ---
 

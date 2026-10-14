@@ -290,6 +290,14 @@ footer.foot a:hover { color: var(--text); }
 .highlight .na, .highlight .nb, .highlight .bp, .highlight .nc, .highlight .nf, .highlight .fm { color: #8fc1e8; }
 .highlight .nt, .highlight .nl { color: #ff7a6b; }
 .highlight .nv, .highlight .vi, .highlight .vg { color: #f0a43a; }
+.doc figure.shot { margin: 32px 0 40px; }
+.doc figure.shot img { display: block; width: 100%; border: 1px solid var(--line-2); border-radius: 6px; background: #000; }
+.doc figure.shot figcaption { margin-top: 12px; color: var(--muted); font-size: 15.5px; line-height: 1.55; max-width: 82ch; }
+.doc figure.shot figcaption strong { color: var(--text); }
+.doc figure.shot figcaption code { font-size: .8em; }
+@media (min-width: 1200px) { .doc figure.shot { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 32px; align-items: start; }
+  .doc figure.shot figcaption { margin-top: 0; font-size: 15px; } }
+
 .page-foot { border-top: 1px solid var(--line); margin-top: 72px; padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 15px; }
 .page-foot a { text-decoration: none !important; color: var(--muted) !important; }
 .page-foot a:hover { color: var(--text) !important; }

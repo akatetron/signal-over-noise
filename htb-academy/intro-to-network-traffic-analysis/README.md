@@ -18,7 +18,7 @@ This module builds packet-analysis fluency from the ground up: the OSI/TCP-IP la
 |---|---|
 | [`NTA_Walkthrough.pdf`](./NTA_Walkthrough.pdf) | Full illustrated walkthrough — file extraction from HTTP/FTP, the live RDP investigation, and RDP decryption. Command index on the last page. |
 | [`NTA_Student_Notes.pdf`](./NTA_Student_Notes.pdf) | Condensed study notes with a TCPDump/Wireshark command index on the first page. |
-| `source-files/` | The original lab materials — capture files, extracted evidence images, and the RDP decryption key, exactly as provided by HTB Academy. |
+| `source-files/` | The original lab materials — capture files and extracted evidence images, exactly as provided by HTB Academy. The lab's RDP decryption key is deliberately not published here. |
 
 Both PDF documents share the same teal / orange accent pair used throughout this folder.
 
@@ -48,7 +48,7 @@ The module's live-capture exercise connects to a lab target over RDP, runs Wires
 
 ### Decrypting a captured RDP session
 
-The most advanced section shows what's possible once an RDP server's private key has been recovered: adding it as an RSA key list entry in Wireshark's TLS protocol preferences (IP address, port 3389, key file) turns an otherwise opaque encrypted stream into fully readable RDP application data. `source-files/server.key` is the lab's own teaching key, provided by HTB specifically for this exercise against a training capture — not a live credential.
+The most advanced section shows what's possible once an RDP server's private key has been recovered: adding it as an RSA key list entry in Wireshark's TLS protocol preferences (IP address, port 3389, key file) turns an otherwise opaque encrypted stream into fully readable RDP application data. The key itself is HTB's own teaching key, issued for this exercise against a training capture rather than being a live credential — but a private key does not belong in a public repository regardless of its origin, so it is not included here.
 
 ---
 
