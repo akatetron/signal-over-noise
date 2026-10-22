@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v=11">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v=12">
 </head>
 <body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
   {%- assign section = page.url | split: '/' | slice: 1 | first -%}
   <nav class="nav">
     <a class="me" href="{{ '/' | relative_url }}">Chayan Panchal</a>
@@ -33,38 +34,122 @@
     {%- for p in parts -%}
       {%- if p != '' and p != 'index.html' -%}
         {%- assign trail = trail | append: '/' | append: p -%}
-        {%- unless p contains '.html' %} / <a href="{{ trail | append: '/' | relative_url }}">{{ p | replace: '-', ' ' }}</a>{%- endunless -%}
+        {%- unless p contains '.html' %} <span class="sep">/</span> <a href="{{ trail | append: '/' | relative_url }}">{{ p | replace: '-', ' ' }}</a>{%- endunless -%}
       {%- endif -%}
     {%- endfor -%}
   </div>
 
   <div class="doc-shell" id="shell">
-    <main class="doc">
+    <main class="doc" id="doc">
       {{ content }}
 
       <div class="page-foot">
-        <a href="{{ '/' | relative_url }}">← Back to portfolio</a>
-        <a href="{{ site.repo_url }}/tree/main/{{ page.dir | remove_first: '/' }}">View source on GitHub ↗</a>
+        <a class="pf-back" href="{{ '/' | relative_url }}"><span class="ar">←</span> Back to portfolio</a>
+        <a href="{{ site.repo_url }}/tree/main/{{ page.dir | remove_first: '/' }}">View source on GitHub <span class="ar">↗</span></a>
       </div>
     </main>
+    <aside class="toc" id="toc" hidden>
+      <p class="toc-h">On this page</p>
+      <nav id="toc-nav"></nav>
+    </aside>
   </div>
 
   <footer class="foot">
     <span>© Chayan Panchal · St. John's, Newfoundland</span>
     <span>Lab work. Rules need environment baselining before production use.</span>
   </footer>
-  <script>
-    // Put "**Label:** value" metadata lines on their own lines, as intended in the source.
-    document.querySelectorAll('.doc p').forEach(function (p) {
-      p.innerHTML = p.innerHTML.replace(/\n(<strong>[^<]{1,40}:<\/strong>)/g, '<br>$1');
-    });
 
-    // Let wide tables scroll sideways on small screens instead of squashing.
-    document.querySelectorAll('.doc table').forEach(function (t) {
+  <script>
+  (function () {
+    var doc = document.getElementById('doc');
+
+    // Metadata lines written as "**Label:** value" become a real spec grid.
+    (function () {
+      var first = doc.querySelector('p');
+      if (!first) return;
+      var html = first.innerHTML;
+      var parts = html.split(/\n|<br\s*\/?>/);
+      var rows = [], ok = parts.length > 1;
+      parts.forEach(function (line) {
+        var m = line.trim().match(/^<strong>([^<]{1,40}?):?<\/strong>\s*:?\s*([\s\S]*)$/);
+        if (m && m[2].trim()) { rows.push([m[1], m[2]]); } else if (line.trim()) { ok = false; }
+      });
+      if (!ok || rows.length < 2) return;
+      var dl = document.createElement('dl');
+      dl.className = 'spec';
+      rows.forEach(function (r) {
+        var d = document.createElement('div');
+        d.innerHTML = '<dt>' + r[0] + '</dt><dd>' + r[1] + '</dd>';
+        dl.appendChild(d);
+      });
+      first.replaceWith(dl);
+    })();
+
+    // Wide tables scroll sideways instead of squashing.
+    doc.querySelectorAll('table').forEach(function (t) {
       var w = document.createElement('div'); w.className = 'table-scroll';
       t.parentNode.insertBefore(w, t); w.appendChild(t);
     });
 
+    // Contents, built from the page's own headings.
+    var heads = [].slice.call(doc.querySelectorAll(':scope > h2'));
+    var toc = document.getElementById('toc'), tocNav = document.getElementById('toc-nav');
+    if (heads.length >= 3) {
+      toc.hidden = false;
+      document.getElementById('shell').classList.add('has-toc');
+      heads.forEach(function (h, i) {
+        if (!h.id) h.id = 'sec-' + i;
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent.replace(/^[^A-Za-z0-9]+/, '').trim();
+        tocNav.appendChild(a);
+      });
+      var links = [].slice.call(tocNav.children);
+      var spy = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var i = heads.indexOf(e.target);
+          links.forEach(function (l, j) { l.classList.toggle('on', j === i); });
+        });
+      }, { rootMargin: '0px 0px -72% 0px' });
+      heads.forEach(function (h) { spy.observe(h); });
+    }
+
+    // Entrance: top-level blocks lift in as they arrive, in small staggered groups.
+    (function () {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var blocks = [].slice.call(doc.children).filter(function (el) {
+        return !el.classList.contains('page-foot');
+      });
+      doc.querySelectorAll('.rulelist > li, .cards > .card, .steps > li').forEach(function (el) { blocks.push(el); });
+      if (!blocks.length) return;
+      document.documentElement.classList.add('js-reveal');
+      blocks.forEach(function (el) { el.classList.add('rise'); });
+      var io = new IntersectionObserver(function (entries) {
+        var n = 0;
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.style.transitionDelay = (n++ * 45) + 'ms';
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      blocks.forEach(function (el) { io.observe(el); });
+      // Safety net: nothing stays invisible if the observer never reports.
+      setTimeout(function () { blocks.forEach(function (el) { el.classList.add('in'); }); }, 4000);
+    })();
+
+    // Reading progress.
+    var bar = document.getElementById('progress');
+    var tick = false;
+    function draw() {
+      var max = document.documentElement.scrollHeight - innerHeight;
+      bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, scrollY / max) : 0) + ')';
+      tick = false;
+    }
+    addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(draw); } }, { passive: true });
+    draw();
+  })();
   </script>
 </body>
 </html>

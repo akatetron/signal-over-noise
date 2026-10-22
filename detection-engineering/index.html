@@ -1,0 +1,94 @@
+---
+layout: default
+title: Detections
+description: Ten detection rules by Chayan Panchal across Sigma, KQL, SPL and Suricata — each with its logic, false positives, tuning notes and escalation criteria.
+---
+<h1 class="idx-title">Rules that say what<br>they'll get wrong.</h1>
+<p class="idx-lead">Every rule here ships with the thing most rule repositories leave out: the false positives it will generate, how to tune them without deleting the detection, and the criteria for escalating a hit. Each one opens into its own write-up.</p>
+
+<div class="rule-groups">
+
+<h2 class="idx-h2">Sigma</h2>
+<p class="group-note">5 rules · host telemetry</p>
+<ul class="rulelist">
+  <li><a href="sigma-rules/shadow-copy-deletion.html">
+    <span class="dot crit"></span>
+    <span class="nm"><span class="name">Shadow copy deletion</span><span class="why">Near-zero baseline, and near-universal across ransomware families. Six command variants covered.</span></span>
+    <span class="plat">Sigma</span><code class="tid">T1490</code>
+    <span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+  <li><a href="sigma-rules/ppid-spoofing-unusual-parent.html">
+    <span class="dot crit"></span>
+    <span class="nm"><span class="name">PPID spoofing</span><span class="why">Catches the implausible parent/child pairing rather than the spoofing call itself.</span></span>
+    <span class="plat">Sigma</span><code class="tid">T1134.004</code>
+    <span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+  <li><a href="sigma-rules/lsass-credential-access.html">
+    <span class="dot crit"></span>
+    <span class="nm"><span class="name">LSASS memory access</span><span class="why">Matches the access mask, not the tool name, so renaming the binary does not help.</span></span>
+    <span class="plat">Sigma</span><code class="tid">T1003.001</code>
+    <span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+  <li><a href="sigma-rules/wmi-lateral-movement.html">
+    <span class="dot crit"></span>
+    <span class="nm"><span class="name">WMI lateral movement</span><span class="why">Keys on the WmiPrvSE parent, which is structural. SCCM needs filtering first.</span></span>
+    <span class="plat">Sigma</span><code class="tid">T1047 · T1021.003</code>
+    <span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+  <li><a href="sigma-rules/dll-hijack-nonstandard-path.html">
+    <span class="dot crit"></span>
+    <span class="nm"><span class="name">DLL search-order hijack</span><span class="why">Three conditions that are common alone and rare together. The hardest of the ten to tune.</span></span>
+    <span class="plat">Sigma</span><code class="tid">T1574.001</code>
+    <span class="bars" data-n="2" aria-label="Signal 2 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+</ul>
+
+<h2 class="idx-h2">KQL</h2>
+<p class="group-note">3 hunts · Elastic / Kibana</p>
+<ul class="rulelist">
+  <li><a href="kql-hunts/disabled-account-authentication.html">
+    <span class="dot high"></span>
+    <span class="nm"><span class="name">Disabled-account authentication</span><span class="why">SubStatus 0xC0000072 separates disabled accounts from ordinary logon failures.</span></span>
+    <span class="plat">KQL</span><code class="tid">T1078</code>
+    <span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+  <li><a href="kql-hunts/service-account-interactive-logon.html">
+    <span class="dot high"></span>
+    <span class="nm"><span class="name">Service account RDP logon</span><span class="why">Baseline is essentially zero, so any hit is meaningful on its own.</span></span>
+    <span class="plat">KQL</span><code class="tid">T1021.001</code>
+    <span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+  <li><a href="kql-hunts/password-spray-detection.html">
+    <span class="dot high"></span>
+    <span class="nm"><span class="name">Password spraying</span><span class="why">Counts distinct users per source — the pivot that per-account alerting misses.</span></span>
+    <span class="plat">KQL</span><code class="tid">T1110.003</code>
+    <span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+</ul>
+
+<h2 class="idx-h2">SPL</h2>
+<p class="group-note">1 search · Splunk</p>
+<ul class="rulelist">
+  <li><a href="splunk-spl/privileged-group-membership-changes.html">
+    <span class="dot med"></span>
+    <span class="nm"><span class="name">Privileged group changes</span><span class="why">Includes a self-elevation variant that has no benign explanation.</span></span>
+    <span class="plat">SPL</span><code class="tid">T1098</code>
+    <span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+</ul>
+
+<h2 class="idx-h2">Suricata</h2>
+<p class="group-note">4 rules · network</p>
+<ul class="rulelist">
+  <li><a href="suricata-rules/c2-beacon-detection.html">
+    <span class="dot net"></span>
+    <span class="nm"><span class="name">C2 beacon detection</span><span class="why">Four layers — signature, payload shape, JA3 fingerprint and DCE/RPC — each covering the others' blind spot.</span></span>
+    <span class="plat">Suricata</span><code class="tid">T1071 · T1573</code>
+    <span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+</ul>
+
+</div>
+
+<h2 class="idx-h2">How these are written</h2>
+<ol class="steps">
+  <li><b>Behaviour, not artifacts</b><span>A renamed file should not break a rule. Where possible the detection keys on something structural the attacker cannot choose.</span></li>
+  <li><b>False positives stated up front</b><span>Each rule names what will trigger it benignly, and how to exclude that without creating a hole.</span></li>
+  <li><b>Tuning that keeps the detection</b><span>Exclusions are scoped to an account and a parent together, never to the command alone — the command is what you are trying to catch.</span></li>
+  <li><b>Escalation criteria</b><span>A table of findings and the call each one warrants, so a Tier 1 analyst does not have to improvise at 3am.</span></li>
+  <li><b>A way to test it</b><span>How to make the rule fire in a lab, and what to check in the resulting event.</span></li>
+</ol>
+
+<blockquote class="pull">A rule without its false positives written down is not finished. It is just a search someone else has to debug at 3am.</blockquote>
+
+<p class="idx-foot">These rules come out of the <a href="{{ '/investigations/' | relative_url }}">investigations</a>. Signal strength is my own estimate of how cleanly a rule separates true from false positives in a baselined environment: four bars means near-zero false positives, two means it needs real tuning work first.</p>

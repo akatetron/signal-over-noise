@@ -1,0 +1,49 @@
+---
+layout: default
+title: Casework
+description: Full analytical incident write-ups by Chayan Panchal — a five-stage intrusion reconstructed from raw logs, and a Tier 1 SIEM triage shift with seven dispositions.
+---
+<p class="idx-kicker">Casework</p>
+<h1 class="idx-title">Two investigations,<br>start to disposition.</h1>
+<p class="idx-lead">These are the write-ups to read first; everything else on this site is supporting evidence. Each one shows the reasoning, not just the result — including the findings that turned out to be nothing.</p>
+
+<div class="cards">
+  <article class="card">
+    <h2><a href="multi-stage-intrusion-windows-host/">Multi-stage intrusion on a Windows host</a></h2>
+    <p class="chips"><span>DFIR</span><span>Sysmon</span><span>no EDR</span><code>T1574.001</code><code>T1055</code><code>T1003.001</code><code>T1134.004</code></p>
+    <dl class="card-facts">
+      <div><dt>The scenario</dt><dd>No alert fired. No EDR pointing at a suspicious process. Just raw event logs on a host believed to be compromised — and the first problem was deciding where to look at all.</dd></div>
+      <div><dt>The outcome</dt><dd>Five-stage attack chain fully reconstructed: DLL hijack → CLR injection → <code>CreateRemoteThread</code> → LSASS dump → PPID-spoofed discovery.</dd></div>
+      <div><dt>The call that matters</dt><dd>Credentials were stolen but <em>not yet used</em>. That negative finding is the difference between isolating one host and assuming domain compromise.</dd></div>
+    </dl>
+    <p class="card-go">
+      <a class="btn" href="multi-stage-intrusion-windows-host/">Read the investigation <span class="arr">→</span></a>
+      <a class="tlink" href="multi-stage-intrusion-windows-host/IR-2026-0417-Multi-Stage-Intrusion-Incident-Report.pdf">Formal incident report (PDF) <span class="arr">→</span></a>
+    </p>
+  </article>
+
+  <article class="card">
+    <h2><a href="siem-alert-triage-seven-findings/">Triaging seven SIEM findings</a></h2>
+    <p class="chips"><span>Triage</span><span>KQL</span><span>escalation judgement</span><code>T1078</code><code>T1021.001</code><code>T1098</code></p>
+    <dl class="card-facts">
+      <div><dt>The scenario</dt><dd>First shift as Tier 1 in a defined environment — cloud-only, four admins, a PAW policy, <code>svc-</code> prefixed service accounts, root SSH disabled.</dd></div>
+      <div><dt>The outcome</dt><dd>Seven findings, seven dispositions: <b>5 escalated, 2 consulted, 0 dismissed.</b></dd></div>
+      <div><dt>The lesson</dt><dd>Half the dispositions were decided by a documented policy rather than by log analysis. Reading the environment's controls is analyst work, not paperwork.</dd></div>
+    </dl>
+    <p class="card-go"><a class="btn" href="siem-alert-triage-seven-findings/">Read the triage log <span class="arr">→</span></a></p>
+  </article>
+</div>
+
+<h2 class="idx-h2">How these are structured</h2>
+<p class="idx-lead narrow">Every write-up follows the same five parts, because that shape is what an incident report has to contain.</p>
+<ol class="steps">
+  <li><b>Starting position</b><span>What was known, what tooling was available, and critically what was not.</span></li>
+  <li><b>Approach</b><span>Why I looked where I looked first, rather than reading chronologically.</span></li>
+  <li><b>Findings</b><span>Each stage with the query that surfaced it and the reasoning that interpreted it.</span></li>
+  <li><b>Disposition</b><span>The call made, and the criteria behind it.</span></li>
+  <li><b>What I'd do differently</b><span>Telemetry gaps, earlier detections, containment scoping.</span></li>
+</ol>
+
+<blockquote class="pull">Negative findings are documented alongside positive ones. Establishing that stolen credentials were <em>not</em> subsequently used is worth more than another indicator — it is what scopes the entire response.</blockquote>
+
+<p class="idx-foot">Detection rules written from these investigations live in <a href="{{ '/detection-engineering/' | relative_url }}">detection engineering</a>.</p>

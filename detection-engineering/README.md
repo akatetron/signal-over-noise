@@ -32,11 +32,11 @@ Elastic, Sentinel, or QRadar via `sigmac`.
 
 | | Rule | Technique | Signal quality |
 |:---:|---|---|---|
-| 🔴 | [LSASS memory access](./sigma-rules/lsass-credential-access.yml) | [T1003.001](https://attack.mitre.org/techniques/T1003/001/) Credential dumping | ●●●○ Requires EDR allowlisting |
-| 🔴 | [PPID spoofing](./sigma-rules/ppid-spoofing-unusual-parent.yml) | [T1134.004](https://attack.mitre.org/techniques/T1134/004/) Parent PID spoofing | ●●●● Near-zero baseline |
-| 🔴 | [DLL search-order hijack](./sigma-rules/dll-hijack-nonstandard-path.yml) | [T1574.001](https://attack.mitre.org/techniques/T1574/001/) Hijack execution flow | ●●○○ Installers create noise |
-| 🔴 | [WMI lateral movement](./sigma-rules/wmi-lateral-movement.yml) | [T1047](https://attack.mitre.org/techniques/T1047/) WMI · [T1021.003](https://attack.mitre.org/techniques/T1021/003/) | ●●●○ SCCM needs filtering |
-| ⛔ | [Shadow copy deletion](./sigma-rules/shadow-copy-deletion.yml) | [T1490](https://attack.mitre.org/techniques/T1490/) Inhibit system recovery | ●●●● Near-zero baseline, ransomware |
+| 🔴 | [LSASS memory access](./sigma-rules/lsass-credential-access.md) | [T1003.001](https://attack.mitre.org/techniques/T1003/001/) Credential dumping | ●●●○ Requires EDR allowlisting |
+| 🔴 | [PPID spoofing](./sigma-rules/ppid-spoofing-unusual-parent.md) | [T1134.004](https://attack.mitre.org/techniques/T1134/004/) Parent PID spoofing | ●●●● Near-zero baseline |
+| 🔴 | [DLL search-order hijack](./sigma-rules/dll-hijack-nonstandard-path.md) | [T1574.001](https://attack.mitre.org/techniques/T1574/001/) Hijack execution flow | ●●○○ Installers create noise |
+| 🔴 | [WMI lateral movement](./sigma-rules/wmi-lateral-movement.md) | [T1047](https://attack.mitre.org/techniques/T1047/) WMI · [T1021.003](https://attack.mitre.org/techniques/T1021/003/) | ●●●○ SCCM needs filtering |
+| ⛔ | [Shadow copy deletion](./sigma-rules/shadow-copy-deletion.md) | [T1490](https://attack.mitre.org/techniques/T1490/) Inhibit system recovery | ●●●● Near-zero baseline, ransomware |
 
 ## ▸ KQL hunts
 
@@ -59,7 +59,7 @@ hypothesis, a query, a triage workflow, and explicit escalation criteria.
 
 | | Ruleset | Coverage |
 |:---:|---|---|
-| 🔵 | [C2 beacon detection](./suricata-rules/c2-beacon-detection.rules) | Signature, anomaly (`dsize` + `detection_filter`), JA3 fingerprint, and WMI lateral movement |
+| 🔵 | [C2 beacon detection](./suricata-rules/c2-beacon-detection.md) | Signature, anomaly (`dsize` + `detection_filter`), JA3 fingerprint, and WMI lateral movement |
 
 <br>
 
