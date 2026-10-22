@@ -4,273 +4,248 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chayan Panchal — SOC Analyst</title>
-  <meta name="description" content="Chayan Panchal, SOC Analyst. HTB CDSA and Google Cybersecurity certified, five years in Hack The Box labs. Detection engineering and incident investigations. Open to SOC roles in the EU, Asia and Canada.">
+  <meta name="description" content="Chayan Panchal, SOC Analyst. I reconstructed a five-stage intrusion from raw Sysmon and Windows Security logs with no EDR and no alert. HTB CDSA certified, 26 labs written up, 10 detection rules.">
   <meta property="og:title" content="Chayan Panchal — SOC Analyst">
-  <meta property="og:description" content="I read logs for a living. SOC analyst: detection engineering, incident reconstruction, 26 written-up labs.">
+  <meta property="og:description" content="Nothing alerted. I rebuilt it from the traces.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://akatetron.github.io/signal-over-noise/">
   <meta property="og:image" content="https://akatetron.github.io/signal-over-noise/assets/og-card.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#0c0d0f">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230c0d0f'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23ff4b3a'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#0b0e14">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%230b0e14'/%3E%3Crect x='7' y='9' width='18' height='2' fill='%231e2532'/%3E%3Crect x='7' y='15' width='18' height='2' fill='%23ff4d2e'/%3E%3Crect x='7' y='21' width='18' height='2' fill='%231e2532'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/signal-over-noise/assets/css/site.css?v=12">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/signal-over-noise/assets/css/site.css?v=20">
 </head>
 <body>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
 <nav class="nav">
-  <a class="me" href="./">Chayan Panchal</a>
+  <a class="me" href="./">chayan-panchal</a>
   <div class="links">
-    <a href="./" aria-current="page">Home</a>
-    <a href="investigations/">Casework</a>
-    <a href="detection-engineering/">Detections</a>
-    <a href="htb-academy/">Training</a>
-    <a href="certifications/">Credentials</a>
-    <a href="assets/Chayan-Panchal-CV.pdf">CV</a>
-    <a class="cta" href="contact/">Contact</a>
+    <a href="./" aria-current="page">index</a>
+    <a href="investigations/">casework</a>
+    <a href="detection-engineering/">detections</a>
+    <a href="htb-academy/">training</a>
+    <a href="certifications/">credentials</a>
+    <a href="assets/Chayan-Panchal-CV.pdf">cv</a>
+    <a class="cta" href="contact/">contact</a>
   </div>
 </nav>
 
-<header class="hero">
-  <div>
-    <h1>I read logs<br>for a living.</h1>
-    <p class="who"><b>Chayan Panchal, SOC Analyst.</b> I reconstructed a five-stage intrusion on a Windows host from raw Sysmon and Security logs — no EDR, nothing alerted. HTB CDSA certified, SOC Analyst path complete, five years in Hack The Box labs.</p>
-    <p class="avail"><span class="live"></span>Available immediately · open to SOC roles in Canada, the EU and Asia · St. John's, NL</p>
+<div class="crumbs">case ir-2026-0417 <span class="sep">/</span> windows endpoint <span class="sep">/</span> no edr</div>
+
+<div class="home-wrap"><div class="home-sheet">
+  <aside class="rail" id="rail" aria-label="Section index"></aside>
+  <div class="home-body">
+
+  <header class="hero">
+    <p class="kicker">Chayan Panchal &middot; SOC Analyst &middot; St John's, Newfoundland</p>
+    <h1>Nothing alerted.<br>I rebuilt it <em>from the traces.</em></h1>
+    <div class="hero-lay">
+      <div>
+        <p class="who">An analyst never watches the attack happen. You arrive afterwards, with fragments, and work out what the machine was doing when nobody was looking.</p>
+        <p class="who">Five years of that in Hack The Box labs. <b>HTB CDSA certified</b>, SOC Analyst path complete at 18 of 18 modules, twenty-six labs written up with the reasoning behind every step.</p>
+        <p class="avail"><span class="live"></span>Available immediately &middot; Canada, EU and Asia</p>
+        <div class="actions">
+          <a class="btn p" href="investigations/multi-stage-intrusion-windows-host/">Open the case file <span class="arr">&rarr;</span></a>
+          <a class="btn" href="assets/Chayan-Panchal-CV.pdf">Download CV</a>
+        </div>
+      </div>
+      <div class="paper">
+        <div class="ph"><span>Case summary</span><span>IR-2026-0417</span></div>
+        <h3>Five-stage intrusion on a Windows host</h3>
+        <p><b>Telemetry.</b> Sysmon and Windows Security event logs. No EDR, and no alert to start from.</p>
+        <p><b>Finding.</b> Credentials were taken at stage four and <span class="sg">never subsequently used</span>.</p>
+        <p><b>Why it matters.</b> That negative finding is the difference between isolating one host and declaring domain compromise.</p>
+      </div>
+    </div>
+
+    <ol class="chain-list">
+      <li><a href="investigations/multi-stage-intrusion-windows-host/"><span class="n">Stage 01</span><span class="t">DLL search-order hijack<small>A signed binary loads mscoree.dll from ProgramData. Unsigned, version 0.0.0.0.</small></span><span class="id">T1574.001</span></a></li>
+      <li><a href="investigations/multi-stage-intrusion-windows-host/"><span class="n">Stage 02</span><span class="t">PowerShell via CLR injection<small>The .NET runtime loaded into a process with no managed code of its own.</small></span><span class="id">T1059.001</span></a></li>
+      <li><a href="investigations/multi-stage-intrusion-windows-host/"><span class="n">Stage 03</span><span class="t">Process injection<small>A remote thread whose start address resolves to no loaded module.</small></span><span class="id">T1055</span></a></li>
+      <li class="hot"><a href="investigations/multi-stage-intrusion-windows-host/"><span class="n">Stage 04</span><span class="t">LSASS credential dumping<small>A handle to lsass.exe, CallTrace UNKNOWN. A .dmp lands twelve seconds later.</small></span><span class="id">T1003.001</span></a></li>
+      <li><a href="investigations/multi-stage-intrusion-windows-host/"><span class="n">Stage 05</span><span class="t">PPID spoofing<small>cmd.exe parented to the print spooler. The pairing is the signal.</small></span><span class="id">T1134.004</span></a></li>
+    </ol>
+
+    <div class="counts">
+      <div><span>Investigations</span><b>02</b></div>
+      <div><span>Detection rules</span><b>10</b></div>
+      <div><span>Labs written up</span><b>26</b></div>
+      <div><span>ATT&amp;CK techniques</span><b>12</b></div>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="sec-head">
+      <h2>Exhibits</h2>
+      <p>Four moments from the lab write-ups — the point in each where a hypothesis turned into a finding. Every frame links to the full reasoning behind it.</p>
+    </div>
+    <div class="exhibits">
+      <figure><a href="htb-academy/working-with-ids-ips/">
+        <img src="assets/evidence/zeek-ja3.jpg" alt="Zeek SSL log showing a repeated JA3 digest across several connections to port 449" loading="lazy" decoding="async">
+        <figcaption><span class="ex-n">EX.01</span><span class="ex-t">C2 through an encrypted handshake</span><span class="ex-d">A JA3 fingerprint identifies the client from the TLS handshake alone.</span></figcaption></a></figure>
+      <figure><a href="htb-academy/splunk-for-security-analysts/">
+        <img src="assets/evidence/spl-injected.jpg" alt="Splunk search using stdev to rank injected thread counts per source image" loading="lazy" decoding="async">
+        <figcaption><span class="ex-n">EX.02</span><span class="ex-t">Injected threads, found by outlier</span><span class="ex-d">Ranking remote-thread counts by standard deviation, with no signature to match.</span></figcaption></a></figure>
+      <figure><a href="htb-academy/windows-attacks-and-defense/">
+        <img src="assets/evidence/event-4662.jpg" alt="Windows Event Viewer showing Event 4662 directory service access" loading="lazy" decoding="async">
+        <figcaption><span class="ex-n">EX.03</span><span class="ex-t">DCSync in the audit log</span><span class="ex-d">Event 4662 from an account with no business replicating the directory.</span></figcaption></a></figure>
+      <figure><a href="htb-academy/working-with-ids-ips/">
+        <img src="assets/evidence/zeek-conn.jpg" alt="Terminal running zeek-cut on conn.log filtering responder host and originator bytes" loading="lazy" decoding="async">
+        <figcaption><span class="ex-n">EX.04</span><span class="ex-t">Exfiltration sized in bytes</span><span class="ex-d">zeek-cut on conn.log, finding the transfer that does not fit the baseline.</span></figcaption></a></figure>
+    </div>
+    <div class="sec-foot"><span>Lab environments, not production. Graded answers masked per HTB's guidance.</span><a class="tlink" href="htb-academy/">all twenty-six write-ups <span class="arr">&rarr;</span></a></div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <h2>Ten rules that say what they'll <em>get wrong.</em></h2>
+      <p>Each rule ships with the thing most repositories leave out: the false positives it will generate, how to tune them without deleting the detection, and when to escalate. Each one opens into its own write-up.</p>
+    </div>
+    <div class="legend"><span><span class="dot crit"></span>Critical</span><span><span class="dot high"></span>High</span><span><span class="dot med"></span>Medium</span><span><span class="dot net"></span>Network</span></div>
+    <ol class="rules">
+      <li><a href="detection-engineering/sigma-rules/shadow-copy-deletion.html"><span class="dot crit"></span><span class="nm"><span class="name">Shadow copy deletion</span><span class="why">Near-zero baseline, near-universal across ransomware. Six command variants covered.</span></span><span class="plat">Sigma</span><code class="tid">T1490</code><span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+      <li><a href="detection-engineering/sigma-rules/ppid-spoofing-unusual-parent.html"><span class="dot crit"></span><span class="nm"><span class="name">PPID spoofing</span><span class="why">Catches the implausible parent/child pairing rather than the spoofing call.</span></span><span class="plat">Sigma</span><code class="tid">T1134.004</code><span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+      <li><a href="detection-engineering/sigma-rules/lsass-credential-access.html"><span class="dot crit"></span><span class="nm"><span class="name">LSASS memory access</span><span class="why">Matches the access mask, not the tool name, so renaming the binary does not help.</span></span><span class="plat">Sigma</span><code class="tid">T1003.001</code><span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+      <li><a href="detection-engineering/sigma-rules/wmi-lateral-movement.html"><span class="dot crit"></span><span class="nm"><span class="name">WMI lateral movement</span><span class="why">Keys on the WmiPrvSE parent, which is structural. SCCM needs filtering first.</span></span><span class="plat">Sigma</span><code class="tid">T1047</code><span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+      <li><a href="detection-engineering/sigma-rules/dll-hijack-nonstandard-path.html"><span class="dot crit"></span><span class="nm"><span class="name">DLL search-order hijack</span><span class="why">Three conditions common alone and rare together. The hardest of the ten to tune.</span></span><span class="plat">Sigma</span><code class="tid">T1574.001</code><span class="bars" data-n="2" aria-label="Signal 2 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+      <li><a href="detection-engineering/kql-hunts/disabled-account-authentication.html"><span class="dot high"></span><span class="nm"><span class="name">Disabled-account authentication</span><span class="why">SubStatus 0xC0000072 separates disabled accounts from ordinary logon failures.</span></span><span class="plat">KQL</span><code class="tid">T1078</code><span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+      <li><a href="detection-engineering/kql-hunts/service-account-interactive-logon.html"><span class="dot high"></span><span class="nm"><span class="name">Service account RDP logon</span><span class="why">Baseline is essentially zero, so any hit is meaningful on its own.</span></span><span class="plat">KQL</span><code class="tid">T1021.001</code><span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+      <li><a href="detection-engineering/kql-hunts/password-spray-detection.html"><span class="dot high"></span><span class="nm"><span class="name">Password spraying</span><span class="why">Counts distinct users per source — the pivot that per-account alerting misses.</span></span><span class="plat">KQL</span><code class="tid">T1110.003</code><span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+      <li><a href="detection-engineering/splunk-spl/privileged-group-membership-changes.html"><span class="dot med"></span><span class="nm"><span class="name">Privileged group changes</span><span class="why">Includes a self-elevation variant that has no benign explanation.</span></span><span class="plat">SPL</span><code class="tid">T1098</code><span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+      <li><a href="detection-engineering/suricata-rules/c2-beacon-detection.html"><span class="dot net"></span><span class="nm"><span class="name">C2 beacon detection</span><span class="why">Four layers — signature, payload shape, JA3 and DCE/RPC — each covering the others' blind spot.</span></span><span class="plat">Suricata</span><code class="tid">T1071 &middot; T1573</code><span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></a></li>
+    </ol>
+    <div class="sec-foot"><span>Detect behaviour, not artifacts: a renamed file shouldn't break a rule.</span><a class="tlink" href="detection-engineering/">all rules and design notes <span class="arr">&rarr;</span></a></div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head">
+      <h2>Signal over noise</h2>
+      <p>Fourteen events from the night of the intrusion. Thirteen of them are a Windows host doing its job.</p>
+    </div>
+    <pre class="settle" id="settle" aria-label="Log excerpt from case IR-2026-0417"></pre>
+    <p class="settle-note" id="settle-note">&nbsp;</p>
+  </section>
+
+  </div>
+</div></div>
+
+<section class="closing">
+  <div class="closing-in">
+    <p class="kicker">Disposition</p>
+    <h2>Hire the analyst who <em>reads it all.</em></h2>
+    <p><b>SOC Analyst and Blue Team roles.</b> 24&times;7 rotational shifts, remote, hybrid or on-site.</p>
+    <p>Happy to walk through any rule, any investigation, or any decision on this site in detail.</p>
     <div class="actions">
-      <a class="btn" href="investigations/multi-stage-intrusion-windows-host/">Read the investigation <span class="arr">→</span></a>
-      <a class="btn ghost" href="assets/Chayan-Panchal-CV.pdf">Download CV</a>
-      <a class="btn ghost" href="investigations/multi-stage-intrusion-windows-host/IR-2026-0417-Multi-Stage-Intrusion-Incident-Report.pdf">Incident report (PDF)</a>
+      <a class="btn p" href="mailto:chayanpanchal11@gmail.com">Email me <span class="arr">&rarr;</span></a>
+      <a class="btn" href="assets/Chayan-Panchal-CV.pdf">Download CV</a>
+      <a class="btn" href="contact/">All contact details</a>
     </div>
-  </div>
-  <div class="timeline" aria-label="Reconstructed attack timeline">
-    <h2>Reconstructed timeline</h2>
-    <div class="ev"><small>Stage 1 · T1574.001</small><span>DLL search-order hijack</span></div>
-    <div class="ev"><small>Stage 2 · T1059.001</small><span>PowerShell via CLR injection</span></div>
-    <div class="ev"><small>Stage 3 · T1055</small><span>Process injection</span></div>
-    <div class="ev hot"><small>Stage 4 · T1003.001</small><span>LSASS credential dumping</span><span class="note">credentials taken; scope the blast radius</span></div>
-    <div class="ev"><small>Stage 5 · T1134.004</small><span>PPID spoofing</span></div>
-    <a class="tlink more" href="investigations/multi-stage-intrusion-windows-host/">How each stage was found →</a>
-  </div>
-</header>
-
-<main>
-
-<!-- SECOND CASE -->
-<section class="sec band">
-  <div class="sec-head rv">
-    <div><h2>Seven SIEM findings.<br>Seven calls.</h2></div>
-    <p>A Tier 1 shift log on an Elastic SIEM. Every finding gets a disposition and the reasoning behind it, including when it belongs with IT Operations rather than Tier 2.</p>
-  </div>
-  <div class="calls rv">
-    <div><span class="n r">5</span><span class="l">escalated to Tier 2</span></div>
-    <div><span class="n">2</span><span class="l">sent to IT Ops for context</span></div>
-    <div><span class="n">0</span><span class="l">dismissed</span></div>
-  </div>
-  <ul class="case-list rv">
-    <li><b class="e">Escalate</b><span>Authentication attempts against a disabled account</span></li>
-    <li><b class="e">Escalate</b><span>Service account RDP into the PKI server</span></li>
-    <li><b class="e">Escalate</b><span>Admin logons outside the PAW policy, and a root SSH login</span></li>
-    <li><b>IT Ops</b><span>Failed logons for a service account; an unrecognised SID added to Administrators</span></li>
-  </ul>
-  <a class="tlink rv" href="investigations/siem-alert-triage-seven-findings/">Read the reasoning behind every call →</a>
-</section>
-
-<!-- DETECTIONS -->
-<section class="sec">
-  <div class="sec-head rv">
-    <div><h2>Ten rules that say what<br>they'll get wrong.</h2></div>
-    <p>Detection engineering. Each rule is mapped to MITRE ATT&amp;CK and ships with its false positives and tuning notes. The bars show signal strength: four means near-zero false positives.</p>
-  </div>
-  <div class="legend rv"><span><span class="dot crit"></span>Critical</span><span><span class="dot high"></span>High</span><span><span class="dot med"></span>Medium</span><span><span class="dot net"></span>Network</span></div>
-  <ol class="rules rv">
-    <li><a href="detection-engineering/sigma-rules/ppid-spoofing-unusual-parent.html"><span class="dot crit"></span><span class="nm"><span class="name">PPID spoofing</span><span class="why">Near-zero baseline.</span></span><span class="plat">Sigma</span><code class="tid">T1134.004</code><span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></a></li>
-    <li><a href="detection-engineering/sigma-rules/shadow-copy-deletion.html"><span class="dot crit"></span><span class="nm"><span class="name">Shadow copy deletion</span><span class="why">Near-zero baseline; a classic ransomware precursor.</span></span><span class="plat">Sigma</span><code class="tid">T1490</code><span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></a></li>
-    <li><a href="detection-engineering/sigma-rules/lsass-credential-access.html"><span class="dot crit"></span><span class="nm"><span class="name">LSASS memory access</span><span class="why">Needs EDR and AV allowlisting.</span></span><span class="plat">Sigma</span><code class="tid">T1003.001</code><span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></a></li>
-    <li><a href="detection-engineering/sigma-rules/wmi-lateral-movement.html"><span class="dot crit"></span><span class="nm"><span class="name">WMI lateral movement</span><span class="why">SCCM uses WMI too, so it needs filtering.</span></span><span class="plat">Sigma</span><code class="tid">T1047 · T1021.003</code><span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></a></li>
-    <li><a href="detection-engineering/sigma-rules/dll-hijack-nonstandard-path.html"><span class="dot crit"></span><span class="nm"><span class="name">DLL search-order hijack</span><span class="why">Installers create noise; the hardest of the ten to tune.</span></span><span class="plat">Sigma</span><code class="tid">T1574.001</code><span class="bars" data-n="2" aria-label="Signal 2 of 4"><i></i><i></i><i></i><i></i></span></a></li>
-    <li><a href="detection-engineering/kql-hunts/disabled-account-authentication.html"><span class="dot high"></span><span class="nm"><span class="name">Disabled-account authentication</span><span class="why">SubStatus 0xC0000072 separates disabled accounts from ordinary failures.</span></span><span class="plat">KQL</span><code class="tid">T1078</code><span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></a></li>
-    <li><a href="detection-engineering/kql-hunts/service-account-interactive-logon.html"><span class="dot high"></span><span class="nm"><span class="name">Service account RDP logon</span><span class="why">Baseline is essentially zero, so any hit is meaningful.</span></span><span class="plat">KQL</span><code class="tid">T1021.001</code><span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></a></li>
-    <li><a href="detection-engineering/kql-hunts/password-spray-detection.html"><span class="dot high"></span><span class="nm"><span class="name">Password spraying</span><span class="why">Counts distinct users per source, the pivot per-account alerting misses.</span></span><span class="plat">KQL</span><code class="tid">T1110.003</code><span class="bars" data-n="4" aria-label="Signal 4 of 4"><i></i><i></i><i></i><i></i></span></a></li>
-    <li><a href="detection-engineering/splunk-spl/privileged-group-membership-changes.html"><span class="dot med"></span><span class="nm"><span class="name">Privileged group changes</span><span class="why">Includes a self-elevation variant with no benign explanation.</span></span><span class="plat">SPL</span><code class="tid">T1098</code><span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></a></li>
-    <li><a href="detection-engineering/suricata-rules/c2-beacon-detection.html"><span class="dot net"></span><span class="nm"><span class="name">C2 beacon detection</span><span class="why">Signature, anomaly and JA3 fingerprint layers.</span></span><span class="plat">Suricata</span><code class="tid">T1071 · T1573</code><span class="bars" data-n="3" aria-label="Signal 3 of 4"><i></i><i></i><i></i><i></i></span></a></li>
-  </ol>
-  <div class="sec-foot rv"><span>Detect behaviour, not artifacts: a renamed file shouldn't break a rule.</span><a class="tlink" href="detection-engineering/">All rules and design notes →</a></div>
-</section>
-
-<!-- COVERAGE -->
-<section class="sec">
-  <div class="sec-head rv">
-    <div><h2>From first execution<br>to impact.</h2></div>
-    <p>MITRE ATT&amp;CK coverage: nine tactics covered by my rules and investigations. Each ID links to its MITRE ATT&amp;CK page.</p>
-  </div>
-  <div class="chain rv">
-    <div class="stop"><h3>Execution</h3><div class="t"><a href="https://attack.mitre.org/techniques/T1059/001/"><code>T1059.001</code></a><a href="https://attack.mitre.org/techniques/T1047/"><code>T1047</code></a></div></div>
-    <div class="stop"><h3>Persistence</h3><div class="t"><a href="https://attack.mitre.org/techniques/T1574/001/"><code>T1574.001</code></a><a href="https://attack.mitre.org/techniques/T1098/"><code>T1098</code></a></div></div>
-    <div class="stop"><h3>Privilege Escalation</h3><div class="t"><a href="https://attack.mitre.org/techniques/T1574/001/"><code>T1574.001</code></a></div></div>
-    <div class="stop"><h3>Defense Evasion</h3><div class="t"><a href="https://attack.mitre.org/techniques/T1134/004/"><code>T1134.004</code></a><a href="https://attack.mitre.org/techniques/T1574/001/"><code>T1574.001</code></a></div></div>
-    <div class="stop"><h3>Credential Access</h3><div class="t"><a href="https://attack.mitre.org/techniques/T1003/001/"><code>T1003.001</code></a><a href="https://attack.mitre.org/techniques/T1110/003/"><code>T1110.003</code></a><a href="https://attack.mitre.org/techniques/T1078/"><code>T1078</code></a></div></div>
-    <div class="stop"><h3>Discovery</h3><div class="t"><a href="https://attack.mitre.org/techniques/T1033/"><code>T1033</code></a></div></div>
-    <div class="stop"><h3>Lateral Movement</h3><div class="t"><a href="https://attack.mitre.org/techniques/T1021/001/"><code>T1021.001</code></a><a href="https://attack.mitre.org/techniques/T1021/003/"><code>T1021.003</code></a><a href="https://attack.mitre.org/techniques/T1047/"><code>T1047</code></a></div></div>
-    <div class="stop"><h3>Command &amp; Control</h3><div class="t"><a href="https://attack.mitre.org/techniques/T1071/"><code>T1071</code></a><a href="https://attack.mitre.org/techniques/T1573/"><code>T1573</code></a></div></div>
-    <div class="stop"><h3>Impact</h3><div class="t"><a href="https://attack.mitre.org/techniques/T1490/"><code>T1490</code></a></div></div>
+    <p class="stamp"><span>St John's, Newfoundland</span><span>Eligible to work in Canada</span><span>Open to relocation</span></p>
   </div>
 </section>
-
-<!-- EVIDENCE -->
-<section class="sec evidence-sec">
-  <div class="sec-head rv">
-    <div><h2>What the work<br>actually looks like.</h2></div>
-    <p>Seven moments from the twenty-six labs written up on this site — the point in each where a hypothesis turned into a finding. Every frame links to the full reasoning behind it.</p>
-  </div>
-  <div class="evidence rv">
-    <figure>
-      <a href="htb-academy/working-with-ids-ips/">
-        <img src="assets/evidence/zeek-ja3.jpg" alt="Zeek SSL log entries showing a repeated JA3 digest and destination port 449 across several connections" loading="lazy" decoding="async">
-      </a>
-      <figcaption><b>C2 through an encrypted handshake.</b> A JA3 fingerprint identifies the client from the TLS handshake alone — the payload is encrypted and the domain is new, and the match still holds.</figcaption>
-    </figure>
-    <figure>
-      <a href="htb-academy/splunk-for-security-analysts/">
-        <img src="assets/evidence/spl-injected.jpg" alt="Splunk search using stats and eventstats with stdev to rank injected thread counts per source image" loading="lazy" decoding="async">
-      </a>
-      <figcaption><b>Injected threads, found by outlier.</b> Counting remote-thread creation per source image and ranking by standard deviation, so the anomaly surfaces with no signature to match against.</figcaption>
-    </figure>
-    <figure>
-      <a href="htb-academy/windows-attacks-and-defense/">
-        <img src="assets/evidence/event-4662.jpg" alt="Windows Event Viewer showing Event 4662 with task category Directory Service Access" loading="lazy" decoding="async">
-      </a>
-      <figcaption><b>DCSync in the audit log.</b> Event 4662, Directory Service Access, from an account with no business replicating the directory.</figcaption>
-    </figure>
-    <figure>
-      <a href="htb-academy/windows-attacks-and-defense/">
-        <img src="assets/evidence/event-4771.jpg" alt="Event 4771 detail pane showing TargetUserName, a highlighted TargetSid and the krbtgt service name" loading="lazy" decoding="async">
-      </a>
-      <figcaption><b>Kerberos pre-auth failure, by SID.</b> Event 4771 against the krbtgt service. The TargetSid is what ties the attempt to a real account rather than a username string.</figcaption>
-    </figure>
-    <figure>
-      <a href="htb-academy/working-with-ids-ips/">
-        <img src="assets/evidence/zeek-conn.jpg" alt="Terminal running zeek-cut on conn.log, filtering id.resp_h and orig_bytes for a single destination" loading="lazy" decoding="async">
-      </a>
-      <figcaption><b>Exfiltration sized in bytes.</b> zeek-cut against conn.log, pulling originator bytes per responder host to find the transfer that does not fit the baseline.</figcaption>
-    </figure>
-    <figure>
-      <a href="htb-academy/working-with-ids-ips/">
-        <img src="assets/evidence/suricata-http.jpg" alt="Suricata processing a pcap file, followed by http.log output showing requested URIs and user agents" loading="lazy" decoding="async">
-      </a>
-      <figcaption><b>Suricata over a captured pcap.</b> Replaying suspicious traffic through the engine, then reading http.log for the requested URI and the user agent behind it.</figcaption>
-    </figure>
-    <figure>
-      <a href="htb-academy/working-with-ids-ips/">
-        <img src="assets/evidence/suricata-jq.jpg" alt="Terminal piping Suricata eve.json through jq to select HTTP events and print their flow_id" loading="lazy" decoding="async">
-      </a>
-      <figcaption><b>Filtering eve.json with jq.</b> Pulling one field out of Suricata's JSON event log so a flow can be followed across every record that mentions it.</figcaption>
-    </figure>
-  </div>
-  <div class="sec-foot rv"><span>Lab environments, not production. Graded answers are masked, per HTB's publication guidance.</span><a class="tlink" href="htb-academy/">All twenty-six write-ups →</a></div>
-</section>
-
-<!-- EXPERIENCE -->
-<section class="sec">
-  <div class="exp">
-    <div class="rv">
-      <blockquote>Five years in Hack The Box labs, working attacks from both sides.</blockquote>
-    </div>
-    <div class="rv">
-      <p><b>Since 2021, and verified.</b> HTB's Half-Decade Hacksmith badge confirms five years of machines, challenges and Sherlocks. Academy profile <a class="tlink" href="https://academy.hackthebox.com/achievement/badge/de728e19-b659-11f1-82d1-bea50ffe6cb4">DarkHexReaper</a>: Level 36, rank Skilled.</p>
-      <p><b>The attacker's view makes detections precise.</b> Breaking in shows how a technique really unfolds, so a rule can target what the technique can't avoid, not one tool's filename.</p>
-      <p><b>Built for the SOC floor.</b> Every rule, hunt and investigation here is my own work, with tuning notes and escalation criteria written the way a Tier 1 analyst needs them at 3am.</p>
-      <ul class="creds">
-        <li><b>HTB Certified Defensive Security Analyst</b><span><span class="ok">●</span> Sep 2026</span><small><code>HTBCERT-88304FEA1D</code> · <a class="tlink" href="assets/HTB-CDSA-Certificate-Chayan-Panchal.pdf">certificate</a></small></li>
-        <li><b>HTB SOC Analyst job-role path</b><span><span class="ok">●</span> 18/18 modules</span></li>
-        <li><b>Google Cybersecurity Professional</b><span><span class="ok">●</span> Mar 2026</span><small><code>GBEGPUJOSIJ7</code></small></li>
-        <li><b>IELTS English · 6.5 (B2)</b><span><span class="ok">●</span> Certified</span></li>
-        <li><b>Blue Team Level 1</b><span>Planned next</span></li>
-      </ul>
-      <p style="margin-top:18px"><a class="tlink" href="certifications/">All credentials and the coursework behind them →</a></p>
-    </div>
-  </div>
-</section>
-
-<!-- TOOLS + TRAINING -->
-<section class="sec">
-  <div class="sec-head rv">
-    <div><h2>Twenty-six labs,<br>each written up.</h2></div>
-    <p>Tools and training. Full walkthroughs with the reasoning behind every step. Graded HTB answers are masked, per HTB's publication guidance.</p>
-  </div>
-  <div class="cols">
-    <div class="rv">
-      <h3>Toolkit</h3><p class="sub">What I work in</p>
-      <ul class="list">
-        <li><span class="i">SIEM<em>Elastic, Kibana, Splunk</em></span></li>
-        <li><span class="i">Queries<em>KQL, SPL, EQL</em></span></li>
-        <li><span class="i">Endpoint<em>Sysmon, Windows logs</em></span></li>
-        <li><span class="i">Network<em>Suricata, Zeek, Wireshark</em></span></li>
-        <li><span class="i">Detection<em>Sigma, ATT&amp;CK mapping</em></span></li>
-        <li><span class="i">Response<em>NIST IR lifecycle</em></span></li>
-      </ul>
-    </div>
-    <div class="rv">
-      <h3>HTB Academy</h3><p class="sub">CDSA path · 11 modules</p>
-      <ul class="list">
-        <li><a href="htb-academy/security-monitoring-siem-fundamentals/">SIEM Fundamentals<em>Elastic</em></a></li>
-        <li><a href="htb-academy/splunk-for-security-analysts/">Splunk for Analysts<em>SPL</em></a></li>
-        <li><a href="htb-academy/threat-hunting-with-elastic/">Threat Hunting<em>hypotheses</em></a></li>
-        <li><a href="htb-academy/windows-event-logs-finding-evil/">Finding Evil in Event Logs<em>Sysmon</em></a></li>
-        <li><a href="htb-academy/working-with-ids-ips/">Working with IDS/IPS<em>Suricata</em></a></li>
-        <li><a href="htb-academy/">All 11 modules<em>→</em></a></li>
-      </ul>
-    </div>
-    <div class="rv">
-      <h3>Google Cybersecurity</h3><p class="sub">15 labs · 6 sets of notes</p>
-      <ul class="list">
-        <li><a href="google-cybersecurity-certificate/incident-response/">Incident Response<em>ransomware</em></a></li>
-        <li><a href="google-cybersecurity-certificate/security-audits/">Security Audits<em>NIST CSF</em></a></li>
-        <li><a href="google-cybersecurity-certificate/threat-modeling-pasta/">Threat Modeling<em>PASTA</em></a></li>
-        <li><a href="google-cybersecurity-certificate/vulnerability-assessment/">Vulnerability Assessment<em>SP 800-30</em></a></li>
-        <li><a href="handwritten-notes/">Handwritten notes<em>6 PDFs</em></a></li>
-        <li><a href="google-cybersecurity-certificate/">All 15 labs<em>→</em></a></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="rv">
-    <h2>Hiring for a SOC team?<br>Let's talk.</h2>
-    <p>Available immediately for SOC Analyst and Blue Team roles, including 24×7 rotational shifts, remote, hybrid or on-site. Happy to walk through any rule or decision on this site.</p>
-    <div class="actions">
-      <a class="btn" href="mailto:chayanpanchal11@gmail.com">Email me <span class="arr">→</span></a>
-      <a class="btn ghost" href="assets/Chayan-Panchal-CV.pdf">Download CV</a>
-      <a class="btn ghost" href="contact/">All contact details</a>
-    </div>
-  </div>
-</section>
-
-</main>
 
 <footer class="foot">
-  <span>© Chayan Panchal · St. John's, Newfoundland</span>
-  <a href="https://github.com/akatetron/signal-over-noise">Source on GitHub</a>
+  <span>&copy; Chayan Panchal &middot; St John's, Newfoundland</span>
+  <a href="https://github.com/akatetron/signal-over-noise">source on github</a>
 </footer>
 
 <script>
-  // Fade sections in as they scroll into view.
-  (function () {
-    document.documentElement.classList.add('js-reveal');
-    var els = document.querySelectorAll('.rv');
-    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-    }, { rootMargin: '400px 0px 0px 0px' });
-    // Safety net: if the observer never reports (print, screenshot, odd browser), show everything.
-    setTimeout(function () { els.forEach(function (e) { e.classList.add('in'); }); }, 4000);
-    els.forEach(function (e) { io.observe(e); });
-  })();
+(function () {
+  var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* The margin rail, anchored to each section heading. */
+  var body = document.querySelector('.home-body');
+  var rail = document.getElementById('rail');
+  var heads = [].slice.call(body.querySelectorAll('.hero, .sec'));
+  var names = ['The case', 'Exhibits', 'Detection rules', 'Signal over noise'];
+  heads.forEach(function (h, i) {
+    var a = document.createElement('a');
+    a.className = 'ex';
+    a.href = '#';
+    a.innerHTML = '<b>EX.' + ('0' + (i + 1)).slice(-2) + '</b>' + (names[i] || '');
+    a.addEventListener('click', function (e) { e.preventDefault(); h.scrollIntoView({ block: 'start' }); });
+    rail.appendChild(a);
+  });
+  var marks = [].slice.call(rail.children);
+  function place() {
+    var top = body.getBoundingClientRect().top + scrollY;
+    heads.forEach(function (h, i) {
+      marks[i].style.top = (h.getBoundingClientRect().top + scrollY - top + 36) + 'px';
+    });
+  }
+  place();
+  addEventListener('resize', place);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+  var spy = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = heads.indexOf(e.target);
+      marks.forEach(function (m, j) { m.classList.toggle('on', j === i); });
+    });
+  }, { rootMargin: '0px 0px -62% 0px' });
+  heads.forEach(function (h) { spy.observe(h); });
+
+  /* The one orchestrated moment: the noise settles when you reach it, and the
+     one line that mattered stays lit. */
+  var LOGS = [
+    '02:14:07  Sysmon    7  ImageLoaded=C:\\ProgramData\\mscoree.dll   Signed=false',
+    '02:14:07  Security 4688  svchost.exe  <-  services.exe',
+    '02:14:09  Sysmon    1  WerFault.exe -u -p 4812 -s 1180',
+    '02:14:11  Security 4624  LogonType=3  svc-backup  10.22.33.145',
+    '02:14:12  Sysmon    8  powershell.exe -> notepad.exe  tid=6620',
+    '02:14:12  Security 4672  SeDebugPrivilege  Account=SYSTEM',
+    '02:14:13  Sysmon   10  TargetImage=lsass.exe  GrantedAccess=0x1410  CallTrace=UNKNOWN',
+    '02:14:13  Security 4688  cmd.exe  <-  spoolsv.exe',
+    '02:14:15  Sysmon    3  186.71.150.23:449  rundll32.exe  Initiated=true',
+    '02:14:16  Security 4625  SubStatus=0xC0000072  j.okafor  FIN-WS-04',
+    '02:14:18  Sysmon   11  C:\\Users\\Public\\out.dmp  rundll32.exe',
+    '02:14:19  Security 4662  DS-Replication-Get-Changes-All  svc-backup',
+    '02:14:21  Sysmon   22  cdn-telemetry-eu.net -> 186.71.150.23',
+    '02:14:27  Sysmon    1  vssadmin delete shadows /all /quiet'
+  ];
+  var wall = document.getElementById('settle');
+  var note = document.getElementById('settle-note');
+  var spans = LOGS.map(function (l) {
+    var s = document.createElement('span');
+    s.textContent = l + '\n';
+    if (l.indexOf('lsass.exe') > -1) { s.className = 'lit'; }
+    else { s.style.color = '#aeb7c4'; }
+    wall.appendChild(s);
+    return s;
+  });
+  note.textContent = 'one line is not like the others';
+  if (!RM) {
+    var ran = false;
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting || ran) return;
+        ran = true;
+        spans.forEach(function (s, i) {
+          if (s.className === 'lit') return;
+          setTimeout(function () { s.style.color = '#7d8896'; }, 260 + i * 95);
+        });
+        setTimeout(function () { note.textContent = 'stage 04 — lsass.exe, granted access 0x1410, call trace unknown'; }, 1900);
+      });
+    }, { rootMargin: '0px 0px -28% 0px' });
+    io.observe(wall);
+  }
+
+  /* Reading progress. */
+  var bar = document.getElementById('progress'), tick = false;
+  function draw() {
+    var max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, scrollY / max) : 0) + ')';
+    tick = false;
+  }
+  addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(draw); } }, { passive: true });
+  draw();
+})();
 </script>
 </body>
 </html>

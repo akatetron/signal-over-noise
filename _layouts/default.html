@@ -3,32 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0c0d0f">
+  <meta name="theme-color" content="#0b0e14">
   {% seo %}
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230c0d0f'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23ff4b3a'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%230b0e14'/%3E%3Crect x='7' y='9' width='18' height='2' fill='%231e2532'/%3E%3Crect x='7' y='15' width='18' height='2' fill='%23ff4d2e'/%3E%3Crect x='7' y='21' width='18' height='2' fill='%231e2532'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v=12">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v=20">
 </head>
 <body>
   <div class="progress" id="progress" aria-hidden="true"></div>
   {%- assign section = page.url | split: '/' | slice: 1 | first -%}
   <nav class="nav">
-    <a class="me" href="{{ '/' | relative_url }}">Chayan Panchal</a>
+    <a class="me" href="{{ '/' | relative_url }}">chayan-panchal</a>
     <div class="links">
-      <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/investigations/' | relative_url }}"{% if section == 'investigations' %} aria-current="page"{% endif %}>Casework</a>
-      <a href="{{ '/detection-engineering/' | relative_url }}"{% if section == 'detection-engineering' %} aria-current="page"{% endif %}>Detections</a>
-      <a href="{{ '/htb-academy/' | relative_url }}"{% if section == 'htb-academy' or section == 'google-cybersecurity-certificate' or section == 'handwritten-notes' %} aria-current="page"{% endif %}>Training</a>
-      <a href="{{ '/certifications/' | relative_url }}"{% if section == 'certifications' %} aria-current="page"{% endif %}>Credentials</a>
-      <a href="{{ '/assets/Chayan-Panchal-CV.pdf' | relative_url }}">CV</a>
-      <a class="cta" href="{{ '/contact/' | relative_url }}"{% if section == 'contact' %} aria-current="page"{% endif %}>Contact</a>
+      <a href="{{ '/' | relative_url }}">index</a>
+      <a href="{{ '/investigations/' | relative_url }}"{% if section == 'investigations' %} aria-current="page"{% endif %}>casework</a>
+      <a href="{{ '/detection-engineering/' | relative_url }}"{% if section == 'detection-engineering' %} aria-current="page"{% endif %}>detections</a>
+      <a href="{{ '/htb-academy/' | relative_url }}"{% if section == 'htb-academy' or section == 'google-cybersecurity-certificate' or section == 'handwritten-notes' %} aria-current="page"{% endif %}>training</a>
+      <a href="{{ '/certifications/' | relative_url }}"{% if section == 'certifications' %} aria-current="page"{% endif %}>credentials</a>
+      <a href="{{ '/assets/Chayan-Panchal-CV.pdf' | relative_url }}">cv</a>
+      <a class="cta" href="{{ '/contact/' | relative_url }}"{% if section == 'contact' %} aria-current="page"{% endif %}>contact</a>
     </div>
   </nav>
 
   <div class="crumbs">
-    <a href="{{ '/' | relative_url }}">Home</a>
+    <a href="{{ '/' | relative_url }}">index</a>
     {%- assign parts = page.url | split: '/' -%}
     {%- assign trail = '' -%}
     {%- for p in parts -%}
@@ -40,39 +40,37 @@
   </div>
 
   <div class="doc-shell" id="shell">
+    <aside class="rail" id="rail" aria-label="Section index"></aside>
     <main class="doc" id="doc">
       {{ content }}
 
       <div class="page-foot">
-        <a class="pf-back" href="{{ '/' | relative_url }}"><span class="ar">←</span> Back to portfolio</a>
-        <a href="{{ site.repo_url }}/tree/main/{{ page.dir | remove_first: '/' }}">View source on GitHub <span class="ar">↗</span></a>
+        <a class="pf-back" href="{{ '/' | relative_url }}"><span class="ar">&larr;</span> back to index</a>
+        <a href="{{ site.repo_url }}/tree/main/{{ page.dir | remove_first: '/' }}">source on github <span class="ar">&nearr;</span></a>
       </div>
     </main>
-    <aside class="toc" id="toc" hidden>
-      <p class="toc-h">On this page</p>
-      <nav id="toc-nav"></nav>
-    </aside>
   </div>
 
   <footer class="foot">
-    <span>© Chayan Panchal · St. John's, Newfoundland</span>
-    <span>Lab work. Rules need environment baselining before production use.</span>
+    <span>&copy; Chayan Panchal &middot; St John's, Newfoundland</span>
+    <span>Lab work &middot; rules need environment baselining before production use</span>
   </footer>
 
   <script>
   (function () {
     var doc = document.getElementById('doc');
+    var rail = document.getElementById('rail');
 
-    // Metadata lines written as "**Label:** value" become a real spec grid.
+    /* Metadata lines written as "**Label:** value" become a spec strip. */
     (function () {
       var first = doc.querySelector('p');
       if (!first) return;
-      var html = first.innerHTML;
-      var parts = html.split(/\n|<br\s*\/?>/);
+      var parts = first.innerHTML.split(/\n|<br\s*\/?>/);
       var rows = [], ok = parts.length > 1;
       parts.forEach(function (line) {
         var m = line.trim().match(/^<strong>([^<]{1,40}?):?<\/strong>\s*:?\s*([\s\S]*)$/);
-        if (m && m[2].trim()) { rows.push([m[1], m[2]]); } else if (line.trim()) { ok = false; }
+        if (m && m[2].trim()) rows.push([m[1], m[2]]);
+        else if (line.trim()) ok = false;
       });
       if (!ok || rows.length < 2) return;
       var dl = document.createElement('dl');
@@ -85,63 +83,73 @@
       first.replaceWith(dl);
     })();
 
-    // Wide tables scroll sideways instead of squashing.
+    /* Wide tables scroll instead of squashing. */
     doc.querySelectorAll('table').forEach(function (t) {
       var w = document.createElement('div'); w.className = 'table-scroll';
       t.parentNode.insertBefore(w, t); w.appendChild(t);
     });
 
-    // Contents, built from the page's own headings.
+    /* The margin rail. Each exhibit marker is anchored to the heading it refers to,
+       and the same number is printed inline so the device survives on a phone. */
     var heads = [].slice.call(doc.querySelectorAll(':scope > h2'));
-    var toc = document.getElementById('toc'), tocNav = document.getElementById('toc-nav');
-    if (heads.length >= 3) {
-      toc.hidden = false;
-      document.getElementById('shell').classList.add('has-toc');
+    if (heads.length >= 2) {
       heads.forEach(function (h, i) {
-        if (!h.id) h.id = 'sec-' + i;
+        var n = ('0' + (i + 1)).slice(-2);
+        if (!h.id) h.id = 'ex-' + n;
+        h.setAttribute('data-ex', 'EX.' + n);
         var a = document.createElement('a');
+        a.className = 'ex';
         a.href = '#' + h.id;
-        a.textContent = h.textContent.replace(/^[^A-Za-z0-9]+/, '').trim();
-        tocNav.appendChild(a);
+        a.innerHTML = '<b>EX.' + n + '</b>' + h.textContent.trim().slice(0, 22);
+        rail.appendChild(a);
       });
-      var links = [].slice.call(tocNav.children);
+      var marks = [].slice.call(rail.children);
+      function place() {
+        var top = doc.getBoundingClientRect().top + window.scrollY;
+        heads.forEach(function (h, i) {
+          marks[i].style.top = (h.getBoundingClientRect().top + window.scrollY - top + 34) + 'px';
+        });
+      }
+      place();
+      addEventListener('resize', place);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
       var spy = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
           if (!e.isIntersecting) return;
           var i = heads.indexOf(e.target);
-          links.forEach(function (l, j) { l.classList.toggle('on', j === i); });
+          marks.forEach(function (m, j) { m.classList.toggle('on', j === i); });
         });
-      }, { rootMargin: '0px 0px -72% 0px' });
+      }, { rootMargin: '0px 0px -74% 0px' });
       heads.forEach(function (h) { spy.observe(h); });
     }
 
-    // Entrance: top-level blocks lift in as they arrive, in small staggered groups.
-    (function () {
-      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    /* Blocks lift in as they arrive. Never hides content: the gate class is added by
+       script, and a timer clears it if the observer never reports. */
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
       var blocks = [].slice.call(doc.children).filter(function (el) {
         return !el.classList.contains('page-foot');
       });
-      doc.querySelectorAll('.rulelist > li, .cards > .card, .steps > li').forEach(function (el) { blocks.push(el); });
-      if (!blocks.length) return;
-      document.documentElement.classList.add('js-reveal');
-      blocks.forEach(function (el) { el.classList.add('rise'); });
-      var io = new IntersectionObserver(function (entries) {
-        var n = 0;
-        entries.forEach(function (e) {
-          if (!e.isIntersecting) return;
-          e.target.style.transitionDelay = (n++ * 45) + 'ms';
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        });
-      }, { rootMargin: '0px 0px -8% 0px' });
-      blocks.forEach(function (el) { io.observe(el); });
-      // Safety net: nothing stays invisible if the observer never reports.
-      setTimeout(function () { blocks.forEach(function (el) { el.classList.add('in'); }); }, 4000);
-    })();
+      doc.querySelectorAll('.rulelist > li, .rules > li, .cards > .card, .steps > li, .contact-links > li')
+        .forEach(function (el) { blocks.push(el); });
+      if (blocks.length) {
+        document.documentElement.classList.add('js-reveal');
+        blocks.forEach(function (el) { el.classList.add('rise'); });
+        var io = new IntersectionObserver(function (entries) {
+          var n = 0;
+          entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            e.target.style.transitionDelay = (n++ * 40) + 'ms';
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          });
+        }, { rootMargin: '0px 0px -7% 0px' });
+        blocks.forEach(function (el) { io.observe(el); });
+        setTimeout(function () { blocks.forEach(function (el) { el.classList.add('in'); }); }, 4000);
+      }
+    }
 
-    // Reading progress.
-    var bar = document.getElementById('progress');
-    var tick = false;
+    /* Reading progress. */
+    var bar = document.getElementById('progress'), tick = false;
     function draw() {
       var max = document.documentElement.scrollHeight - innerHeight;
       bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, scrollY / max) : 0) + ')';
