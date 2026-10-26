@@ -1,0 +1,28 @@
+name: Validate detections
+
+on:
+  push:
+    paths:
+      - "detection-engineering/**"
+      - ".github/scripts/**"
+      - ".github/workflows/validate-detections.yml"
+  pull_request:
+    paths:
+      - "detection-engineering/**"
+      - ".github/scripts/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Validate rules and print ATT&CK coverage
+        run: python .github/scripts/validate_rules.py | tee "$GITHUB_STEP_SUMMARY"

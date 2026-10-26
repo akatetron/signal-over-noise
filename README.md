@@ -13,6 +13,7 @@
 <br>
 
 ![HTB Labs](https://img.shields.io/badge/HTB_Labs-5_Years-9FEF00?style=flat-square&logo=hackthebox&logoColor=9FEF00&labelColor=141d2b)
+[![Validate detections](https://github.com/akatetron/signal-over-noise/actions/workflows/validate-detections.yml/badge.svg)](https://github.com/akatetron/signal-over-noise/actions/workflows/validate-detections.yml)
 ![Detections](https://img.shields.io/badge/Detection_Rules-10-9FEF00?style=flat-square&labelColor=141d2b)
 ![Investigations](https://img.shields.io/badge/Investigations-2-9FEF00?style=flat-square&labelColor=141d2b)
 ![Modules](https://img.shields.io/badge/Lab_Write--ups-26-9FEF00?style=flat-square&labelColor=141d2b)
@@ -108,18 +109,18 @@ SIEM, threat hunting, IDS/IPS, malware analysis, incident handling. Illustrated 
 
 ### ATT&CK coverage
 
+Technique count (12, parent techniques) is computed from the rule files by [`validate_rules.py`](./.github/scripts/validate_rules.py), which also runs in CI on every change to `detection-engineering/` (YAML/schema checks, unique rule IDs, valid `condition` references, mandatory false-positive notes, unique Suricata SIDs).
+
 ```
-EXECUTION        PERSISTENCE      PRIV ESC         DEFENSE EVASION
-T1059.001        T1574.001        T1574.001        T1134.004
-T1047                                              T1574.001
+EXECUTION        DEFENSE EVASION   PRIV ESC / PERSIST   CREDENTIAL ACCESS
+T1047            T1134.004         T1574.001            T1003.001
+T1059.003        T1574.001                              T1078 / T1078.002
+                                                        T1110.003
 
-CREDENTIAL ACC   DISCOVERY        LATERAL MVMT     COMMAND & CONTROL
-T1003.001        T1033            T1021.001        T1071
-T1078                             T1021.003        T1573
-T1110.003                         T1047
-
-ACCOUNT MANIP    IMPACT
-T1098            T1490
+LATERAL MVMT     COMMAND & CONTROL   ACCOUNT MANIP      IMPACT
+T1021.001        T1071               T1098              T1490
+T1021.003        T1573
+T1047
 ```
 
 <br>
