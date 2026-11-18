@@ -16,7 +16,10 @@
   {%- assign section = page.url | split: '/' | slice: 1 | first -%}
   <nav class="nav">
     <a class="me" href="{{ '/' | relative_url }}">chayan-panchal</a>
-    <div class="links">
+    <button class="navbtn" id="navbtn" aria-expanded="false" aria-controls="navlinks">
+      <span class="bars2" aria-hidden="true"><i></i><i></i><i></i></span>menu
+    </button>
+    <div class="links" id="navlinks">
       <a href="{{ '/' | relative_url }}">index</a>
       <a href="{{ '/investigations/' | relative_url }}"{% if section == 'investigations' %} aria-current="page"{% endif %}>casework</a>
       <a href="{{ '/detection-engineering/' | relative_url }}"{% if section == 'detection-engineering' %} aria-current="page"{% endif %}>detections</a>
@@ -58,6 +61,25 @@
 
   <script>
   (function () {
+
+    /* Compact navigation on a phone: the full bar was taking a third of the first screen. */
+    (function () {
+      var btn = document.getElementById('navbtn'), links = document.getElementById('navlinks');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+      links.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') { links.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && links.classList.contains('open')) {
+          links.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.focus();
+        }
+      });
+    })();
+
     var doc = document.getElementById('doc');
     var rail = document.getElementById('rail');
 
@@ -103,6 +125,18 @@
         a.innerHTML = '<b>EX.' + n + '</b>' + h.textContent.trim().slice(0, 22);
         rail.appendChild(a);
       });
+      var det = document.createElement('details');
+      det.className = 'toc-m';
+      var ol = '<summary>Contents</summary><ol>';
+      heads.forEach(function (h, i) {
+        ol += '<li><a href="#' + h.id + '"><span class="n">' + ('0' + (i + 1)).slice(-2) + '</span>'
+            + h.textContent.trim() + '</a></li>';
+      });
+      det.innerHTML = ol + '</ol>';
+      var anchor = doc.querySelector('.spec') || doc.querySelector('h1');
+      if (anchor && anchor.nextSibling) anchor.parentNode.insertBefore(det, anchor.nextSibling);
+      else doc.insertBefore(det, doc.firstChild);
+
       var marks = [].slice.call(rail.children);
       function place() {
         var top = doc.getBoundingClientRect().top + window.scrollY;

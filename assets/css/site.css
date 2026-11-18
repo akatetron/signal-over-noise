@@ -49,6 +49,14 @@ a { color: inherit; }
   transform: scaleX(0); transform-origin: 0 50%; will-change: transform; }
 
 /* ---------- nav ---------- */
+.navbtn { display: none; font-family: var(--mono); font-size: 13px; letter-spacing: .07em;
+  color: var(--ink); background: transparent; border: 1px solid var(--rule2); border-radius: 2px;
+  padding: 7px 13px; cursor: pointer; align-items: center; gap: 8px;
+  transition: border-color .2s ease, transform .16s var(--ease); }
+.navbtn:hover { border-color: var(--signal); }
+.navbtn:active { transform: scale(.96); }
+.navbtn .bars2 { display: inline-flex; flex-direction: column; gap: 3px; }
+.navbtn .bars2 i { display: block; width: 14px; height: 1.5px; background: currentColor; }
 .nav { display: flex; justify-content: space-between; align-items: baseline; gap: 18px; flex-wrap: wrap;
   padding: 14px var(--pad); font-family: var(--mono); font-size: 13px; letter-spacing: .07em;
   border-bottom: 1px solid var(--rule); }
@@ -226,6 +234,15 @@ html.js-reveal .rise.in { opacity: 1; transform: none; }
   .page-foot a:hover .ar { transform: translateX(3px); }
   .page-foot a.pf-back:hover .ar { transform: translateX(-3px); }
 }
+@media (max-width: 520px) {
+  .actions, .card-go { flex-direction: column; align-items: stretch; }
+  .actions .btn, .card-go .btn { justify-content: center; width: 100%; }
+  .crumbs { font-size: 12px; letter-spacing: .05em; }
+  .kicker, .lbl { letter-spacing: .09em; }
+  .hero h1 { font-size: clamp(31px, 8.6vw, 44px); }
+  .counts div { padding: 14px 12px 14px 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   html.js-reveal .rise, html.js-reveal .rise.in { opacity: 1 !important; transform: none !important; }
@@ -381,6 +398,12 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
   .doc .contact-links a:hover { background: var(--ground2); transform: translateX(5px); }
   .doc .contact-links a:hover .v { color: var(--signal); }
 }
+@media (max-width: 640px) {
+  .doc .contact-links a { grid-template-columns: 1fr auto; gap: 4px 14px; padding: 15px 2px; }
+  .contact-links .k { grid-column: 1 / -1; margin-bottom: 2px; }
+  .contact-links .v { font-size: 17px; }
+  .contact-facts div { grid-template-columns: 1fr; gap: 3px; padding: 12px 0; }
+}
 .contact-facts { margin: 0; border-top: 1px solid var(--rule); }
 .contact-facts div { display: grid; grid-template-columns: 124px 1fr; gap: 16px; padding: 13px 0;
   border-bottom: 1px solid var(--rule); }
@@ -506,3 +529,53 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
 .closing .stamp { max-width: none; font-family: var(--mono); font-size: 13px; letter-spacing: .13em; text-transform: uppercase;
   color: var(--paperdim); border-top: 1px solid var(--paper2); padding-top: 16px; margin-top: 34px;
   display: flex; gap: 26px; flex-wrap: wrap; }
+
+/* ---------- contents, for phones where the margin rail is hidden ---------- */
+.toc-m { display: none; margin: 0 0 30px; border: 1px solid var(--rule); border-radius: 2px;
+  background: var(--ground2); }
+.toc-m > summary { list-style: none; cursor: pointer; padding: 13px 16px; font-family: var(--mono);
+  font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim);
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.toc-m > summary::-webkit-details-marker { display: none; }
+.toc-m > summary::after { content: "+"; color: var(--signal); font-size: 15px; }
+.toc-m[open] > summary::after { content: "\2212"; }
+.toc-m ol { list-style: none; margin: 0; padding: 0 0 8px; border-top: 1px solid var(--rule); }
+.toc-m li { margin: 0; }
+.toc-m a { display: flex; gap: 12px; padding: 11px 16px; text-decoration: none; color: var(--ink);
+  font-size: 15px; line-height: 1.4; }
+.toc-m a .n { font-family: var(--mono); font-size: 12px; color: var(--signal); flex: none; padding-top: 2px; }
+@media (max-width: 980px) { .toc-m { display: block; } }
+
+/* ---------- compact navigation on phones (must win over the base nav rules) ---------- */
+@media (max-width: 760px) {
+  .nav { flex-wrap: nowrap; align-items: center; padding: 11px var(--pad); }
+  .navbtn { display: inline-flex; }
+  .nav .links { display: none; position: absolute; left: 0; right: 0; top: 100%;
+    z-index: 40; flex-direction: column; gap: 0; align-items: stretch;
+    background: var(--ground2); border-bottom: 1px solid var(--rule); }
+  .nav { position: relative; }
+  .nav .links.open { display: flex; }
+  .nav .links a { padding: 15px var(--pad); border-top: 1px solid var(--rule); font-size: 15px; }
+  .nav .links a.cta { border: 0; border-top: 1px solid var(--rule); border-radius: 0;
+    color: var(--signal); padding: 15px var(--pad); }
+}
+
+/* ---------- the homepage first screen on a phone ----------
+   Four lines of grey mono used to run before the headline, and the call to action
+   sat below the fold. Headline grows, the metadata line goes, and the credentials
+   sentence moves below the buttons so the ask lands in the first screen. */
+@media (max-width: 760px) {
+  .home-crumbs { display: none; }
+  .home-body { padding-top: 16px; }
+  .hero { padding-top: 6px; }
+  .hero h1 { font-size: clamp(34px, 9.6vw, 44px); line-height: .99; letter-spacing: -.03em;
+    margin: 0 0 20px; max-width: none; }
+  .hero .kicker { margin-bottom: 14px; }
+  .hero-lay > div:first-child { display: flex; flex-direction: column; }
+  .hero .who { font-size: 16.5px; margin: 0 0 13px; order: 2; }
+  .hero .who + .who { order: 6; margin-top: 4px; color: var(--dim); }
+  .hero .avail { order: 3; margin: 14px 0 16px; }
+  .hero .actions { order: 4; margin-top: 0; }
+  .hero-lay { gap: 26px; }
+}
+@media (max-width: 430px) { .k-loc { display: none; } }

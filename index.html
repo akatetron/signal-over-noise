@@ -25,7 +25,10 @@
 
 <nav class="nav">
   <a class="me" href="./">chayan-panchal</a>
-  <div class="links">
+  <button class="navbtn" id="navbtn" aria-expanded="false" aria-controls="navlinks">
+    <span class="bars2" aria-hidden="true"><i></i><i></i><i></i></span>menu
+  </button>
+  <div class="links" id="navlinks">
     <a href="./" aria-current="page">index</a>
     <a href="investigations/">casework</a>
     <a href="detection-engineering/">detections</a>
@@ -36,14 +39,14 @@
   </div>
 </nav>
 
-<div class="crumbs">case ir-2026-0417 <span class="sep">/</span> windows endpoint <span class="sep">/</span> no edr</div>
+<div class="crumbs home-crumbs">case ir-2026-0417 <span class="sep">/</span> windows endpoint <span class="sep">/</span> no edr</div>
 
 <div class="home-wrap"><div class="home-sheet">
   <aside class="rail" id="rail" aria-label="Section index"></aside>
   <div class="home-body">
 
   <header class="hero">
-    <p class="kicker">Chayan Panchal &middot; SOC Analyst &middot; St John's, Newfoundland</p>
+    <p class="kicker">Chayan Panchal &middot; SOC Analyst<span class="k-loc"> &middot; St John's, NL</span></p>
     <h1>Nothing alerted.<br>I rebuilt it <em>from the traces.</em></h1>
     <div class="hero-lay">
       <div>
@@ -158,6 +161,25 @@
 <script>
 (function () {
   var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* Compact navigation on a phone: the full bar was taking a third of the first screen. */
+    (function () {
+      var btn = document.getElementById('navbtn'), links = document.getElementById('navlinks');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+      links.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') { links.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && links.classList.contains('open')) {
+          links.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.focus();
+        }
+      });
+    })();
+
 
   /* The margin rail, anchored to each section heading. */
   var body = document.querySelector('.home-body');
