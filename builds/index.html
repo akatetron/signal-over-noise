@@ -13,18 +13,19 @@ description: Software built by Chayan Panchal outside security work — an offli
   <div><span>Built solo</span><b>All</b></div>
 </div>
 
-<h2 class="idx-h2">Aurum Jewelry Manager</h2>
-<p class="group-note">Offline Windows desktop app &middot; for goldsmith workshops</p>
+<h2 class="idx-h2">Four projects</h2>
+<p class="group-note">Two live to users &middot; two with private source</p>
 <div class="cards">
   <article class="card">
-    <h2><a href="https://github.com/akatetron/arum">The problem</a></h2>
-    <p class="chips"><span>Electron</span><span>SQLite</span><code>sql.js</code><code>decimal.js</code><span>offline</span></p>
+    <h2>Aurum Jewelry Manager</h2>
+    <p class="card-sub">Offline Windows desktop app for goldsmith workshops</p>
+    <p class="chips"><span class="priv">Private source</span><span>Electron</span><span>SQLite</span><code>decimal.js</code><span>offline</span></p>
     <dl class="card-facts">
       <div><dt>Who it is for</dt><dd>Goldsmith workshops and wholesale jewellery makers, who run on paper ledgers and have no reliable internet in the workshop.</dd></div>
       <div><dt>What it does</dt><dd>Per-store gold and money ledgers, the collection round, karigar boxes and job-workers, bag register, bills, expenses, a design catalogue with photos, ministry hallmark stamping, profit and loss, and the year-end statement.</dd></div>
       <div><dt>The hard part</dt><dd>Gold is weighed to three decimal places and money must balance exactly, so every figure runs through <code>decimal.js</code> rather than floating point. It ships as a signed Windows installer with its own licence key-maker.</dd></div>
     </dl>
-    <p class="card-go"><a class="btn" href="https://github.com/akatetron/arum">Source <span class="arr">&rarr;</span></a><a class="tlink" href="https://github.com/akatetron/arum/raw/main/download/Aurum-Jewelry-Manager-Setup-1.0.0.exe">Windows installer</a></p>
+    <p class="card-note priv-note">A commercial product in use by a working business, so the source and the installer are not public. Happy to walk through the architecture, the ledger model and the code in a meeting.</p>
   </article>
 
   <article class="card">
@@ -50,17 +51,17 @@ description: Software built by Chayan Panchal outside security work — an offli
   </article>
 
   <article class="card">
-    <h2><a href="https://github.com/akatetron/whypay">Studio</a></h2>
-    <p class="chips"><span>Local-first</span><span>Python</span><span>AI pipeline</span><span>in development</span></p>
+    <h2>Studio</h2>
+    <p class="chips"><span class="priv">Private source</span><span>Local-first</span><span>AI pipeline</span><span>in development</span></p>
     <dl class="card-facts">
       <div><dt>What it does</dt><dd>Takes anything from a 30-second clip to a multi-hour recording and produces long-form video, series, compilations, short-form cuts, captions and metadata.</dd></div>
       <div><dt>The same principle as Flybook</dt><dd>All AI processing runs on your own machine by default. Nothing is sent anywhere.</dd></div>
       <div><dt>Status</dt><dd><b>Early development</b>, and the repository says so plainly: a status document separates what is implemented and verified from what is not started. Shipping an honest status beats shipping a claim.</dd></div>
     </dl>
-    <p class="card-go"><a class="btn" href="https://github.com/akatetron/whypay">Source <span class="arr">&rarr;</span></a></p>
+    <p class="card-note priv-note">Still being built, and the source is private while it is. Happy to demo it and talk through the pipeline in a meeting.</p>
   </article>
 </div>
 
 <blockquote class="pull">The thread running through all four: keep the user's data on the user's machine, and say plainly what is finished and what is not.</blockquote>
 
-<p class="idx-foot">The security work is in <a href="{{ '/investigations/' | relative_url }}">casework</a> and <a href="{{ '/detection-engineering/' | relative_url }}">detections</a>. Two published games and a few smaller tools live on <a href="https://github.com/akatetron">my GitHub profile</a>.</p>
+<p class="idx-foot">The security work is in <a href="{{ '/investigations/' | relative_url }}">casework</a> and <a href="{{ '/detection-engineering/' | relative_url }}">detections</a>. Two published games and a few smaller tools live on <a href="https://github.com/akatetron">my GitHub profile</a>. Where a repository is private, I am glad to walk through the code in person.</p>
