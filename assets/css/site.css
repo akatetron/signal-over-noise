@@ -593,6 +593,11 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
 /* ---------- the credentials pack ask: paper, because it is a request to a person ---------- */
 .paper.pack { margin: 56px 0; max-width: 72ch; }
 .paper.pack .actions { margin-top: 20px; }
+/* On a full-width index the pack block was stranded at half the page width
+   beside full-width rows. Let it span; cap the prose inside instead. */
+.doc-shell:not(.narrow) .paper.pack { max-width: none; padding: 34px 38px; }
+.doc-shell:not(.narrow) .paper.pack > p { max-width: 68ch; }
+.doc-shell:not(.narrow) .paper.pack .ph { margin-bottom: 20px; }
 .paper.pack .btn { border-color: #bdb5a2; color: var(--paperink); }
 .paper.pack .btn:hover { border-color: var(--paperink); }
 .paper.pack .btn.p { background: #b4381f; border-color: #b4381f; color: #fff; }
