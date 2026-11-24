@@ -125,8 +125,8 @@ a { color: inherit; }
 .rail .ex::after { content: ""; position: absolute; right: -4px; top: 6px; width: 7px; height: 1px;
   background: var(--rule2); transition: background .25s ease, width .25s var(--ease); }
 .rail .ex.on { color: var(--dim); }
-.rail .ex.on b { color: var(--signal); }
-.rail .ex.on::after { background: var(--signal); width: 13px; }
+.rail .ex.on b { color: var(--steel); }
+.rail .ex.on::after { background: var(--steel); width: 13px; }
 .rail .ex:hover { color: var(--ink); }
 .doc { min-width: 0; padding: 34px 0 80px 34px; }
 @media (max-width: 980px) {
@@ -144,7 +144,7 @@ a { color: inherit; }
   line-height: 1.06; letter-spacing: -.02em; margin: 54px 0 14px; max-width: 26ch;
   font-variation-settings: "opsz" 96; scroll-margin-top: 20px; }
 .doc > h2::before { content: attr(data-ex); display: block; font-family: var(--mono); font-size: 13px;
-  letter-spacing: .12em; color: var(--signal); margin-bottom: 8px; font-weight: 400; }
+  letter-spacing: .12em; color: var(--steel); margin-bottom: 8px; font-weight: 400; }
 .doc h3 { font-family: var(--display); font-weight: 600; font-size: 20px; letter-spacing: -.015em; margin: 36px 0 10px; }
 .doc h4 { font-size: 16.5px; font-weight: 600; margin: 26px 0 8px; }
 .doc p, .doc li { color: #c3c8d1; }
@@ -161,12 +161,12 @@ a { color: inherit; }
 .doc hr { border: 0; height: 1px; background: linear-gradient(90deg, var(--rule2), transparent); margin: 54px 0; }
 .doc ul, .doc ol { padding-left: 20px; }
 .doc li { margin: 6px 0; }
-.doc li::marker { color: var(--signal); }
+.doc li::marker { color: var(--steel); }
 .doc img { border-radius: 2px; }
 .doc [align="center"] { text-align: left; }
 .doc details { border: 1px solid var(--rule); padding: 13px 18px; margin: 18px 0; border-radius: 2px; background: var(--ground2); }
 .doc summary { cursor: pointer; font-weight: 600; }
-.doc blockquote { margin: 26px 0; padding: 18px 22px; border: 0; border-left: 2px solid var(--signal);
+.doc blockquote { margin: 26px 0; padding: 18px 22px; border: 0; border-left: 2px solid var(--steel);
   background: var(--ground2); color: var(--dim); border-radius: 0 2px 2px 0; }
 .doc blockquote p { color: var(--dim); margin: 0 0 10px; }
 .doc blockquote p:last-child { margin: 0; }
@@ -184,7 +184,7 @@ a { color: inherit; }
 .doc code { font-family: var(--mono); font-size: .84em; color: var(--steel); background: var(--ground2);
   border: 1px solid var(--rule); padding: 1px 6px; border-radius: 2px; }
 .doc pre, .doc .highlight pre { background: var(--ground2); border: 1px solid var(--rule);
-  border-left: 2px solid var(--signal); border-radius: 0 2px 2px 0; padding: 17px 19px; overflow-x: auto;
+  border-left: 2px solid var(--rule2); border-radius: 0 2px 2px 0; padding: 17px 19px; overflow-x: auto;
   font-size: 13px; line-height: 1.85; }
 .doc pre code { background: none; border: 0; padding: 0; font-size: inherit; color: #c3c8d1; }
 .doc div.highlight { margin: 22px 0; }
@@ -307,7 +307,7 @@ h1.idx-title, .doc h1.idx-title { font-family: var(--display); font-weight: 600;
   text-transform: uppercase; color: var(--faint); }
 .rules code.tid, .rulelist code.tid { font-family: var(--mono); font-size: 13px; color: var(--steel);
   background: none; border: 0; padding: 0; }
-.rulelist .num { font-family: var(--mono); font-size: 13px; color: var(--signal); }
+.rulelist .num { font-family: var(--mono); font-size: 13px; color: var(--steel); }
 .rulelist.plain .go { color: var(--signal); font-size: 15px; text-align: right;
   transition: transform .24s var(--ease); display: inline-block; }
 .rulelist.notes .go { font-family: var(--mono); font-size: 13px; letter-spacing: .1em; color: var(--faint); text-align: right; }
@@ -344,7 +344,7 @@ h1.idx-title, .doc h1.idx-title { font-family: var(--display); font-weight: 600;
 .steps li { counter-increment: s; display: grid; grid-template-columns: 46px minmax(0, 15ch) 1fr;
   gap: 18px; align-items: baseline; padding: 15px 10px 15px 0; border-bottom: 1px solid var(--rule); }
 .steps li::before { content: "0" counter(s); font-family: var(--mono); font-size: 13px;
-  color: var(--signal); letter-spacing: .08em; }
+  color: var(--steel); letter-spacing: .08em; }
 .steps b { font-weight: 600; color: var(--ink); }
 .steps span { color: var(--dim); font-size: 15.5px; line-height: 1.5; }
 @media (max-width: 800px) { .steps li { grid-template-columns: 34px 1fr; } .steps span { grid-column: 2; } }
@@ -393,7 +393,7 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
   text-transform: uppercase; color: var(--faint); margin-bottom: 5px; }
 .contact-links .v { font-family: var(--display); font-weight: 600; font-size: 19px; letter-spacing: -.015em;
   word-break: break-word; }
-.contact-links .go { color: var(--signal); font-family: var(--mono); font-size: 13px; }
+.contact-links .go { color: var(--steel); font-family: var(--mono); font-size: 13px; }
 @media (hover: hover) and (pointer: fine) {
   .doc .contact-links a:hover { background: var(--ground2); transform: translateX(5px); }
   .doc .contact-links a:hover .v { color: var(--signal); }
@@ -494,7 +494,7 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
   background: #000; transition: transform .4s var(--ease), opacity .3s ease; }
 .exhibits figcaption { padding: 13px 15px 15px; }
 .exhibits .ex-n { display: block; font-family: var(--mono); font-size: 13px; letter-spacing: .13em;
-  color: var(--signal); margin-bottom: 6px; }
+  color: var(--amber); margin-bottom: 6px; }
 .exhibits .ex-t { display: block; font-family: var(--display); font-weight: 600; font-size: 16px;
   line-height: 1.2; margin-bottom: 5px; letter-spacing: -.012em; }
 .exhibits .ex-d { display: block; font-size: 13.5px; color: var(--dim); line-height: 1.5; }
@@ -537,13 +537,13 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
   font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim);
   display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .toc-m > summary::-webkit-details-marker { display: none; }
-.toc-m > summary::after { content: "+"; color: var(--signal); font-size: 15px; }
+.toc-m > summary::after { content: "+"; color: var(--steel); font-size: 15px; }
 .toc-m[open] > summary::after { content: "\2212"; }
 .toc-m ol { list-style: none; margin: 0; padding: 0 0 8px; border-top: 1px solid var(--rule); }
 .toc-m li { margin: 0; }
 .toc-m a { display: flex; gap: 12px; padding: 11px 16px; text-decoration: none; color: var(--ink);
   font-size: 15px; line-height: 1.4; }
-.toc-m a .n { font-family: var(--mono); font-size: 12px; color: var(--signal); flex: none; padding-top: 2px; }
+.toc-m a .n { font-family: var(--mono); font-size: 12px; color: var(--steel); flex: none; padding-top: 2px; }
 @media (max-width: 980px) { .toc-m { display: block; } }
 
 /* ---------- compact navigation on phones (must win over the base nav rules) ---------- */
@@ -620,3 +620,21 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
   padding-top: 16px; border-top: 1px solid var(--rule); max-width: none; }
 .card-sub { font-family: var(--mono); font-size: 13px; letter-spacing: .04em; color: var(--faint);
   margin: -8px 0 16px; text-transform: uppercase; line-height: 1.5; }
+
+/* ---------- builds: real cards with real space between them ---------- */
+.cards.builds { gap: 22px; align-items: start; background: none; border: 0; border-radius: 0; overflow: visible; }
+.cards.builds .card { border: 1px solid var(--rule); border-top: 2px solid var(--rule2);
+  border-radius: 3px; padding: 30px 30px 28px; background: var(--ground2); }
+.cards.builds .card > h2 { margin-bottom: 4px; }
+.cards.builds .card-facts > div + div { margin-top: 20px; }
+/* one accent per project, so the page is not a single flat colour */
+.cards.builds .acc-gold { border-top-color: var(--amber); }
+.cards.builds .acc-live { border-top-color: var(--moss); }
+.cards.builds .acc-blue { border-top-color: var(--steel); }
+.cards.builds .acc-dev  { border-top-color: var(--faint); }
+.cards.builds .acc-gold .card-sub, .cards.builds .acc-gold .card-facts dt { color: var(--amber); opacity: .85; }
+.cards.builds .acc-live .card-facts dt { color: var(--moss); opacity: .9; }
+.cards.builds .acc-blue .card-facts dt { color: var(--steel); opacity: .9; }
+.cards.builds .acc-dev .card-facts dt { color: var(--dim); }
+.cards.builds .priv-note { border-top-color: var(--rule2); margin-top: 20px; padding-top: 18px; }
+@media (max-width: 920px) { .cards.builds { gap: 18px; } .cards.builds .card { padding: 24px 22px; } }
