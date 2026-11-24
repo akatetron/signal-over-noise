@@ -599,3 +599,17 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
 .cert-shot figcaption code { font-family: var(--mono); color: var(--steel); background: none; border: 0; padding: 0; }
 /* the counts strip is shared with the homepage; give it room on an index page */
 .doc > .counts { margin: 0 0 8px; }
+
+/* A rail with no markers is a dead column and a stray line; collapse it. */
+.doc-shell.no-rail { grid-template-columns: minmax(0, 1fr); }
+.doc-shell.no-rail .rail { display: none; }
+.doc-shell.no-rail .doc { padding-left: 0; }
+
+/* Paper blocks sit inside .doc, whose body colour is tuned for the dark ground.
+   Equal specificity meant .doc p won and the text came out light grey on cream. */
+.doc .paper p, .doc .paper li { color: #3b3d44; }
+.doc .paper h3 { color: var(--paperink); }
+.doc .paper b, .doc .paper strong { color: var(--paperink); }
+.doc .paper .ph { color: var(--paperdim); }
+.doc .paper .sg { color: #b4381f; }
+.doc .paper a:not(.btn) { color: #b4381f; text-decoration-color: #b4381f; }

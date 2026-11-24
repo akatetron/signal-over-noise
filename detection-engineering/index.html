@@ -87,6 +87,21 @@ description: Ten detection rules by Chayan Panchal across Sigma, KQL, SPL and Su
 
 </div>
 
+<h2 class="idx-h2">Also: six rules tested on real attack telemetry</h2>
+<p class="group-note">ad-detection-lab &middot; separate repository</p>
+<p class="idx-lead narrow">A second lab covering one Active Directory chain end to end — credential theft through to lateral movement. Six detections in Sigma, each with Microsoft Sentinel KQL and Splunk SPL conversions, and a pytest suite that runs on every push.</p>
+
+<div class="paper pack">
+  <div class="ph"><span>Validation</span><span>OTRF Security-Datasets</span></div>
+  <h3>Five of the six fire on real captured attacks</h3>
+  <p>Not synthetic fixtures: public datasets recorded while the techniques were actually executed. The LSASS rule <b>fired on the Mimikatz access and stayed quiet on 271 other LSASS opens in the same capture</b> — the false-positive number most rule repositories never publish.</p>
+  <p>DCSync caught all three real replication events; pass-the-hash, the PsExec service install and the WMI-spawned shell each fired on the genuine article. Kerberoasting is the honest exception: no public RC4-TGS dataset exists, so it is covered by synthetic fixtures only.</p>
+  <p class="actions">
+    <a class="btn p" href="https://github.com/akatetron/ad-detection-lab">Open ad-detection-lab <span class="arr">&rarr;</span></a>
+    <a class="btn" href="https://github.com/akatetron/ad-detection-lab/blob/main/docs/validation.md">Validation results</a>
+  </p>
+</div>
+
 <h2 class="idx-h2">How these are written</h2>
 <ol class="steps">
   <li><b>Behaviour, not artifacts</b><span>A renamed file should not break a rule. Where possible the detection keys on something structural the attacker cannot choose.</span></li>

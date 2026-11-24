@@ -113,7 +113,8 @@
 
     /* The margin rail. Each exhibit marker is anchored to the heading it refers to,
        and the same number is printed inline so the device survives on a phone. */
-    var heads = [].slice.call(doc.querySelectorAll(':scope > h2'));
+    var heads = [].slice.call(doc.querySelectorAll(':scope > h2, :scope > .rule-groups > h2'));
+    if (heads.length < 2) { document.getElementById('shell').classList.add('no-rail'); }
     if (heads.length >= 2) {
       heads.forEach(function (h, i) {
         var n = ('0' + (i + 1)).slice(-2);
