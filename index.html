@@ -146,7 +146,7 @@
     <p><b>SOC Analyst and Blue Team roles.</b> 24&times;7 rotational shifts, remote, hybrid or on-site.</p>
     <p>Happy to walk through any rule, any investigation, or any decision on this site in detail.</p>
     <div class="actions">
-      <a class="btn p" href="mailto:chayanpanchal11@gmail.com">Email me <span class="arr">&rarr;</span></a>
+      <a class="btn p mailcopy" data-addr="chayanpanchal11@gmail.com" href="mailto:chayanpanchal11@gmail.com">Email me <span class="arr">&rarr;</span></a>
       <a class="btn" href="assets/Chayan-Panchal-CV.pdf">Download CV</a>
       <a class="btn" href="contact/">All contact details</a>
     </div>
@@ -269,6 +269,29 @@
   addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(draw); } }, { passive: true });
   draw();
 })();
+
+    /* mailto: silently does nothing on a machine with no mail client configured,
+       which is a lot of the people this page is for. Copy the address on every
+       click and say so, so the button always leaves them with something usable. */
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="mailto:"]');
+      if (!a) return;
+      var addr = decodeURIComponent(a.getAttribute('href').slice(7).split('?')[0]);
+      var say = function (msg) {
+        var t = document.createElement('div');
+        t.className = 'copied';
+        t.textContent = msg;
+        document.body.appendChild(t);
+        requestAnimationFrame(function () { t.classList.add('in'); });
+        setTimeout(function () { t.classList.remove('in'); setTimeout(function () { t.remove(); }, 400); }, 3200);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(addr).then(
+          function () { say(addr + ' copied to your clipboard'); },
+          function () { say('Email: ' + addr); }
+        );
+      } else { say('Email: ' + addr); }
+    });
 </script>
 </body>
 </html>
