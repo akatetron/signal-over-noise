@@ -20,7 +20,7 @@
   --signal: #ff5c3e;
   --signal-btn: #cf3617;
   --signal-soft: rgba(255, 77, 46, .1);
-  --steel: #7fa8c9;
+  --steel: #63a9e6;
   --moss: #9aa86b;
   --amber: #e0a33c;
 
@@ -144,7 +144,7 @@ a { color: inherit; }
   line-height: 1.06; letter-spacing: -.02em; margin: 54px 0 14px; max-width: 26ch;
   font-variation-settings: "opsz" 96; scroll-margin-top: 20px; }
 .doc > h2::before { content: attr(data-ex); display: block; font-family: var(--mono); font-size: 13px;
-  letter-spacing: .12em; color: var(--steel); margin-bottom: 8px; font-weight: 400; }
+  letter-spacing: .12em; color: var(--amber); margin-bottom: 8px; font-weight: 400; }
 .doc h3 { font-family: var(--display); font-weight: 600; font-size: 20px; letter-spacing: -.015em; margin: 36px 0 10px; }
 .doc h4 { font-size: 16.5px; font-weight: 600; margin: 26px 0 8px; }
 .doc p, .doc li { color: #c3c8d1; }
@@ -161,7 +161,7 @@ a { color: inherit; }
 .doc hr { border: 0; height: 1px; background: linear-gradient(90deg, var(--rule2), transparent); margin: 54px 0; }
 .doc ul, .doc ol { padding-left: 20px; }
 .doc li { margin: 6px 0; }
-.doc li::marker { color: var(--steel); }
+.doc li::marker { color: var(--amber); }
 .doc img { border-radius: 2px; }
 .doc [align="center"] { text-align: left; }
 .doc details { border: 1px solid var(--rule); padding: 13px 18px; margin: 18px 0; border-radius: 2px; background: var(--ground2); }
@@ -307,7 +307,7 @@ h1.idx-title, .doc h1.idx-title { font-family: var(--display); font-weight: 600;
   text-transform: uppercase; color: var(--faint); }
 .rules code.tid, .rulelist code.tid { font-family: var(--mono); font-size: 13px; color: var(--steel);
   background: none; border: 0; padding: 0; }
-.rulelist .num { font-family: var(--mono); font-size: 13px; color: var(--steel); }
+.rulelist .num { font-family: var(--mono); font-size: 13px; color: var(--amber); }
 .rulelist.plain .go { color: var(--signal); font-size: 15px; text-align: right;
   transition: transform .24s var(--ease); display: inline-block; }
 .rulelist.notes .go { font-family: var(--mono); font-size: 13px; letter-spacing: .1em; color: var(--faint); text-align: right; }
@@ -344,7 +344,7 @@ h1.idx-title, .doc h1.idx-title { font-family: var(--display); font-weight: 600;
 .steps li { counter-increment: s; display: grid; grid-template-columns: 46px minmax(0, 15ch) 1fr;
   gap: 18px; align-items: baseline; padding: 15px 10px 15px 0; border-bottom: 1px solid var(--rule); }
 .steps li::before { content: "0" counter(s); font-family: var(--mono); font-size: 13px;
-  color: var(--steel); letter-spacing: .08em; }
+  color: var(--amber); letter-spacing: .08em; }
 .steps b { font-weight: 600; color: var(--ink); }
 .steps span { color: var(--dim); font-size: 15.5px; line-height: 1.5; }
 @media (max-width: 800px) { .steps li { grid-template-columns: 34px 1fr; } .steps span { grid-column: 2; } }
