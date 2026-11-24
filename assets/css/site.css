@@ -479,7 +479,9 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
 /* Two rows: labels at the top, figures bottom-aligned across the strip, so a
    label that wraps to two lines cannot knock its figure out of line. */
 .counts div { display: grid; grid-template-rows: auto 1fr; gap: 10px;
-  padding: 20px 16px 22px 0; border-right: 1px solid var(--rule); }
+  padding: 24px 20px 30px 0; border-right: 1px solid var(--rule); }
+/* every cell but the first sits against a vertical rule - keep the text off it */
+.counts div + div { padding-left: 26px; }
 .counts div:last-child { border-right: 0; }
 .counts span { display: block; font-family: var(--mono); font-size: 13px; letter-spacing: .13em;
   text-transform: uppercase; color: var(--faint); margin-bottom: 0; line-height: 1.45; }
@@ -491,7 +493,9 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
   .counts div:nth-child(2) { border-right: 0; }
   /* two rows now, so the first one needs its own rule underneath */
   .counts div:nth-child(1), .counts div:nth-child(2) { border-bottom: 1px solid var(--rule); }
-  .counts div:nth-child(n+3) { padding-top: 20px; }
+  .counts div:nth-child(n+3) { padding-top: 22px; }
+  /* cell 3 starts the left column on mobile, so it has no rule to its left */
+  .counts div:nth-child(3) { padding-left: 0; }
 }
 
 /* home sections */
