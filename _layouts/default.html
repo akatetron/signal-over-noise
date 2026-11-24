@@ -43,7 +43,14 @@
     {%- endfor -%}
   </div>
 
-  <div class="doc-shell" id="shell">
+  {%- comment -%} Section indexes run full width; long-form write-ups read at a book measure. {%- endcomment -%}
+  {%- assign isidx = false -%}{%- if content contains 'idx-title' -%}{%- assign isidx = true -%}{%- endif -%}
+  {%- assign h2n = content | split: '<h2' | size | minus: 1 -%}
+  {%- assign hasrail = false -%}
+  {%- if isidx -%}
+    {%- if content contains 'rule-groups' -%}{%- assign hasrail = true -%}{%- endif -%}
+  {%- elsif h2n >= 2 -%}{%- assign hasrail = true -%}{%- endif -%}
+  <div class="doc-shell {% if hasrail %}has-rail{% else %}no-rail{% endif %}{% unless isidx %} narrow{% endunless %}" id="shell">
     <aside class="rail" id="rail" aria-label="Section index"></aside>
     <main class="doc" id="doc">
       {{ content }}
@@ -115,7 +122,6 @@
     /* The margin rail. Each exhibit marker is anchored to the heading it refers to,
        and the same number is printed inline so the device survives on a phone. */
     var heads = [].slice.call(doc.querySelectorAll(':scope > h2, :scope > .rule-groups > h2'));
-    if (heads.length < 2) { document.getElementById('shell').classList.add('no-rail'); }
     if (heads.length >= 2) {
       heads.forEach(function (h, i) {
         var n = ('0' + (i + 1)).slice(-2);
@@ -124,7 +130,7 @@
         var a = document.createElement('a');
         a.className = 'ex';
         a.href = '#' + h.id;
-        a.innerHTML = '<b>EX.' + n + '</b>' + h.textContent.trim().slice(0, 22);
+        a.textContent = h.textContent.trim().slice(0, 26);
         rail.appendChild(a);
       });
       var det = document.createElement('details');

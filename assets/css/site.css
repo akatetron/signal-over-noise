@@ -117,15 +117,17 @@ a { color: inherit; }
 /* ---------- the sheet: margin rail + body ---------- */
 .doc-shell { display: grid; grid-template-columns: var(--rail) minmax(0, 1fr); gap: 0;
   padding: 0 var(--pad); max-width: 1560px; margin: 0 auto; }
+/* long-form pages read at a book measure, centred, instead of hugging the left
+   edge of a 1560px field with half the screen left empty */
+.doc-shell.narrow { max-width: 1072px; }
 .rail { border-right: 1px solid var(--rule); position: relative; padding-top: 34px; }
 .rail .ex { position: absolute; right: 0; width: 100%; padding-right: 16px; text-align: right;
-  font-family: var(--mono); font-size: 12px; letter-spacing: .08em; color: var(--faint); line-height: 1.5;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .06em; color: #566376; line-height: 1.5;
   text-decoration: none; transition: color .25s ease; }
-.rail .ex b { display: block; color: var(--rule2); font-weight: 500; transition: color .25s ease; }
+
 .rail .ex::after { content: ""; position: absolute; right: -4px; top: 6px; width: 7px; height: 1px;
   background: var(--rule2); transition: background .25s ease, width .25s var(--ease); }
-.rail .ex.on { color: var(--dim); }
-.rail .ex.on b { color: var(--steel); }
+.rail .ex.on { color: var(--steel); }
 .rail .ex.on::after { background: var(--steel); width: 13px; }
 .rail .ex:hover { color: var(--ink); }
 .doc { min-width: 0; padding: 34px 0 80px 34px; }
@@ -638,3 +640,12 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
 .cards.builds .acc-dev .card-facts dt { color: var(--dim); }
 .cards.builds .priv-note { border-top-color: var(--rule2); margin-top: 20px; padding-top: 18px; }
 @media (max-width: 920px) { .cards.builds { gap: 18px; } .cards.builds .card { padding: 24px 22px; } }
+
+/* Filenames in table cells must not break mid-word. The first column is capped
+   so one very long path cannot starve the description column; that one chip
+   scrolls inside its own cell instead. */
+.doc table { table-layout: fixed; }
+.doc th:first-child { width: 34%; }
+.doc td code, .doc th code { white-space: nowrap; }
+.doc td code { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: bottom; }
+@media (max-width: 760px) { .doc table { table-layout: auto; } }
