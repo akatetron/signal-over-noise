@@ -1,0 +1,66 @@
+---
+layout: default
+title: Builds
+description: Software built by Chayan Panchal outside security work — an offline jewellery workshop manager, an on-device PDF-to-audiobook app, a task marketplace and a local-first video tool.
+---
+<h1 class="idx-title">Things I built<br>that aren't detections.</h1>
+<p class="idx-lead">Security is the work I want. These are the projects that taught me to ship: real users, real constraints, and the parts nobody sees — installers, migrations, test suites and the decision to keep data on the user's own machine.</p>
+
+<div class="counts">
+  <div><span>Shipped projects</span><b>04</b></div>
+  <div><span>Live to users</span><b>02</b></div>
+  <div><span>Platforms</span><b>Win · iOS · Android · web</b></div>
+  <div><span>Built solo</span><b>All</b></div>
+</div>
+
+<h2 class="idx-h2">Aurum Jewelry Manager</h2>
+<p class="group-note">Offline Windows desktop app &middot; for goldsmith workshops</p>
+<div class="cards">
+  <article class="card">
+    <h2><a href="https://github.com/akatetron/arum">The problem</a></h2>
+    <p class="chips"><span>Electron</span><span>SQLite</span><code>sql.js</code><code>decimal.js</code><span>offline</span></p>
+    <dl class="card-facts">
+      <div><dt>Who it is for</dt><dd>Goldsmith workshops and wholesale jewellery makers, who run on paper ledgers and have no reliable internet in the workshop.</dd></div>
+      <div><dt>What it does</dt><dd>Per-store gold and money ledgers, the collection round, karigar boxes and job-workers, bag register, bills, expenses, a design catalogue with photos, ministry hallmark stamping, profit and loss, and the year-end statement.</dd></div>
+      <div><dt>The hard part</dt><dd>Gold is weighed to three decimal places and money must balance exactly, so every figure runs through <code>decimal.js</code> rather than floating point. It ships as a signed Windows installer with its own licence key-maker.</dd></div>
+    </dl>
+    <p class="card-go"><a class="btn" href="https://github.com/akatetron/arum">Source <span class="arr">&rarr;</span></a><a class="tlink" href="https://github.com/akatetron/arum/raw/main/download/Aurum-Jewelry-Manager-Setup-1.0.0.exe">Windows installer</a></p>
+  </article>
+
+  <article class="card">
+    <h2><a href="https://flybookapp.in/">Flybook</a></h2>
+    <p class="chips"><span>TypeScript</span><span>WebAssembly</span><code>kokoro-js</code><code>pdf.js</code><span>PWA</span></p>
+    <dl class="card-facts">
+      <div><dt>What it does</dt><dd>Turns any PDF into an audiobook with natural neural voices, with highlights and notes, working offline and with no account.</dd></div>
+      <div><dt>The decision that shaped it</dt><dd>Every model runs <b>on the device</b>. Nothing is uploaded, so a private document stays private — the constraint that made the engineering hard and the privacy claim honest.</dd></div>
+      <div><dt>Tested</dt><dd>45 unit tests and 18 browser tests in Playwright, deployed by GitHub Actions.</dd></div>
+    </dl>
+    <p class="card-go"><a class="btn p" href="https://flybookapp.in/">Open the app <span class="arr">&rarr;</span></a><a class="tlink" href="https://github.com/akatetron/flybook">Source</a></p>
+  </article>
+
+  <article class="card">
+    <h2><a href="https://github.com/akatetron/mrtodo">Mr. Todo</a></h2>
+    <p class="chips"><span>Expo</span><span>React Native</span><span>Supabase</span><span>Vite</span></p>
+    <dl class="card-facts">
+      <div><dt>What it is</dt><dd>A marketplace where someone asks for a Personal Manager to get a task done — fix a tap, deep-clean a flat, take a parent to the bank — and where people apply to become one.</dd></div>
+      <div><dt>Three surfaces, one codebase</dt><dd>An Expo app running on iOS, Android and web; an admin dashboard for the team; and Supabase for the database, task actions and row-level security rules.</dd></div>
+      <div><dt>Security-adjacent</dt><dd>Every Personal Manager is ID-checked before approval, so the access model and the row-level rules are the part that matters most.</dd></div>
+    </dl>
+    <p class="card-go"><a class="btn" href="https://github.com/akatetron/mrtodo">Source <span class="arr">&rarr;</span></a></p>
+  </article>
+
+  <article class="card">
+    <h2><a href="https://github.com/akatetron/whypay">Studio</a></h2>
+    <p class="chips"><span>Local-first</span><span>Python</span><span>AI pipeline</span><span>in development</span></p>
+    <dl class="card-facts">
+      <div><dt>What it does</dt><dd>Takes anything from a 30-second clip to a multi-hour recording and produces long-form video, series, compilations, short-form cuts, captions and metadata.</dd></div>
+      <div><dt>The same principle as Flybook</dt><dd>All AI processing runs on your own machine by default. Nothing is sent anywhere.</dd></div>
+      <div><dt>Status</dt><dd><b>Early development</b>, and the repository says so plainly: a status document separates what is implemented and verified from what is not started. Shipping an honest status beats shipping a claim.</dd></div>
+    </dl>
+    <p class="card-go"><a class="btn" href="https://github.com/akatetron/whypay">Source <span class="arr">&rarr;</span></a></p>
+  </article>
+</div>
+
+<blockquote class="pull">The thread running through all four: keep the user's data on the user's machine, and say plainly what is finished and what is not.</blockquote>
+
+<p class="idx-foot">The security work is in <a href="{{ '/investigations/' | relative_url }}">casework</a> and <a href="{{ '/detection-engineering/' | relative_url }}">detections</a>. Two published games and a few smaller tools live on <a href="https://github.com/akatetron">my GitHub profile</a>.</p>
