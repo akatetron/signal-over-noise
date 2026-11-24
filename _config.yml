@@ -33,6 +33,183 @@ defaults:
       layout: default
       image: /assets/og-card.png
 
+  # Per-page descriptions. Set here rather than in each README's front
+  # matter, because front matter stops jekyll-readme-index turning
+  # README.md into index.html and every write-up URL would 404.
+  - scope:
+      path: "detection-engineering"
+    values:
+      description: "Detection logic written against the techniques studied across the HTB Academy CDSA path, and directly from the investigations in this repository. Each rule…"
+  - scope:
+      path: "google-cybersecurity-certificate"
+    values:
+      description: "Lab work from the Google Cybersecurity Professional Certificate. Each folder contains the write-up plus original worksheets, spreadsheets and diagrams where…"
+  - scope:
+      path: "google-cybersecurity-certificate/access-control"
+    values:
+      description: "Access control is the practice of enforcing least privilege — making sure users can only reach the resources their role actually requires. This folder…"
+  - scope:
+      path: "google-cybersecurity-certificate/brute-force-attacks"
+    values:
+      description: "Brute force attacks guess login credentials through systematic trial and error, and automated tooling turns what would take a human years into a matter of…"
+  - scope:
+      path: "google-cybersecurity-certificate/cryptography"
+    values:
+      description: "Two hands-on Linux labs covering two different pillars of cryptography: file integrity verification with SHA-256 hashing, and a three-stage decryption…"
+  - scope:
+      path: "google-cybersecurity-certificate/incident-response"
+    values:
+      description: "Incident response is the structured process of identifying, containing, and recovering from a security incident. This folder collects three separate…"
+  - scope:
+      path: "google-cybersecurity-certificate/linux-file-permissions"
+    values:
+      description: "A research team's projects directory had file and directory permissions that no longer matched the required authorization levels, and the task was to audit…"
+  - scope:
+      path: "google-cybersecurity-certificate/network-hardening"
+    values:
+      description: "Network hardening is the set of controls that shrink how many ways an attacker can get into a network — tightening configuration, closing unnecessary…"
+  - scope:
+      path: "google-cybersecurity-certificate/network-traffic-analysis"
+    values:
+      description: "Network traffic analysis means inspecting packet-level data to identify anomalies, diagnose outages, and detect attacks. This exercise diagnoses a specific…"
+  - scope:
+      path: "google-cybersecurity-certificate/risk-management"
+    values:
+      description: "Risk management means identifying threats to an organization's assets, scoring them consistently, and prioritizing which ones actually need attention first.…"
+  - scope:
+      path: "google-cybersecurity-certificate/security-audits"
+    values:
+      description: "A security audit reviews an organization's security controls, policies, and procedures against a set of expectations — in this case, a full NIST…"
+  - scope:
+      path: "google-cybersecurity-certificate/social-engineering"
+    values:
+      description: "Social engineering attacks exploit human psychology rather than a technical vulnerability. This exercise analyzes a classic USB-baiting scenario: an…"
+  - scope:
+      path: "google-cybersecurity-certificate/sql-security"
+    values:
+      description: "SQL filtering is a core skill for pulling exactly the right rows out of security-relevant data during an investigation. This exercise works through six…"
+  - scope:
+      path: "google-cybersecurity-certificate/tcpdump-labs"
+    values:
+      description: "tcpdump is a command-line packet analyzer widely used in SOC environments for incident investigation when a GUI tool like Wireshark isn't available or a…"
+  - scope:
+      path: "google-cybersecurity-certificate/threat-modeling-pasta"
+    values:
+      description: "PASTA (Process for Attack Simulation and Threat Analysis) is a risk-centric threat modeling framework that runs through seven stages, from business…"
+  - scope:
+      path: "google-cybersecurity-certificate/vulnerability-assessment"
+    values:
+      description: "A vulnerability assessment identifies weaknesses in a system and scores the risk they represent so remediation can be prioritized correctly. This exercise…"
+  - scope:
+      path: "google-cybersecurity-certificate/wireshark-labs"
+    values:
+      description: "Wireshark is a graphical packet analyzer used to capture and inspect network traffic in detail. This folder covers two connected exercises: filtering and…"
+  - scope:
+      path: "handwritten-notes"
+    values:
+      description: "Notes taken by hand while working through the certificate, one set per course, then digitised. These are the working notes — not polished summaries."
+  - scope:
+      path: "htb-academy"
+    values:
+      description: "Module write-ups from the HTB Academy CDSA path. Each folder contains a full walkthrough with the reasoning behind every step, plus illustrated PDF…"
+  - scope:
+      path: "htb-academy/cdsa-capstone-incident-report"
+    values:
+      description: "This is a full incident-response report written as a capstone exercise for HTB's CDSA (Certified Defensive Security Analyst) path, simulating a real client…"
+  - scope:
+      path: "htb-academy/incident-handling-process"
+    values:
+      description: "This module teaches the formal NIST incident-handling lifecycle — preparation, detection and analysis, containment/eradication/recovery, and post-incident…"
+  - scope:
+      path: "htb-academy/intro-to-network-traffic-analysis"
+    values:
+      description: "This module builds packet-analysis fluency from the ground up: the OSI/TCP-IP layers that make network traffic legible in the first place, then hands-on…"
+  - scope:
+      path: "htb-academy/introduction-to-malware-analysis"
+    values:
+      description: "This module builds the two core disciplines of malware analysis: static analysis (examining a sample without ever running it) and dynamic analysis…"
+  - scope:
+      path: "htb-academy/javascript-deobfuscation"
+    values:
+      description: "This module teaches the workflow a SOC analyst or malware analyst uses when they run into obfuscated JavaScript in the wild — which happens constantly…"
+  - scope:
+      path: "htb-academy/security-monitoring-siem-fundamentals"
+    values:
+      description: "This module is HTB Academy's introduction to working inside a real SIEM as a SOC Tier 1 analyst. It starts from first principles — what a SIEM actually…"
+  - scope:
+      path: "htb-academy/splunk-for-security-analysts"
+    values:
+      description: "This exercise set is entirely SPL (Search Processing Language) work inside Splunk, built around Sysmon telemetry from a compromised Windows host. It runs…"
+  - scope:
+      path: "htb-academy/threat-hunting-with-elastic"
+    values:
+      description: "This module is the shift from reactive to proactive defense: instead of waiting for a SIEM alert, a threat hunter builds a testable hypothesis and goes…"
+  - scope:
+      path: "htb-academy/windows-attacks-and-defense"
+    values:
+      description: "This module pairs an attack with its detection, twice over, inside a live Active Directory domain. The first pairing hunts for one of the most avoidable AD…"
+  - scope:
+      path: "htb-academy/windows-event-logs-finding-evil"
+    values:
+      description: "This module simulates a full intrusion on a single Windows host, from an initial DLL hijack all the way through to credential dumping and a suspicious…"
+  - scope:
+      path: "htb-academy/working-with-ids-ips"
+    values:
+      description: "This module is a hands-on tour of the three tools that sit at the core of network security monitoring: Suricata and Snort 3 as IDS/IPS engines, and Zeek as…"
+  - scope:
+      path: "investigations"
+    values:
+      description: "The scenario. No alert fired. No EDR pointing at a suspicious process. Just raw event logs on a host believed to be compromised — and the first problem was…"
+  - scope:
+      path: "investigations/multi-stage-intrusion-windows-host"
+    values:
+      description: "No alert fired. There was no EDR console pointing at a suspicious process, no SIEM correlation rule surfacing a chain. The starting position was raw event…"
+  - scope:
+      path: "investigations/siem-alert-triage-seven-findings"
+    values:
+      description: "Building a Kibana dashboard is a mechanical skill. Deciding what a finding means is the job. The same event — a service account logging on — is routine in…"
+
+  - scope:
+      path: "detection-engineering/kql-hunts/disabled-account-authentication.md"
+    values:
+      description: "When an employee offboards, their account is disabled but the credentials themselves do not change. If someone attempts to authenticate against a disabled…"
+  - scope:
+      path: "detection-engineering/kql-hunts/password-spray-detection.md"
+    values:
+      description: "Classic brute force hammers one account with many passwords — and lockout policy stops it cold. Password spraying inverts the shape: one password tried…"
+  - scope:
+      path: "detection-engineering/kql-hunts/service-account-interactive-logon.md"
+    values:
+      description: "Service accounts exist to run processes non-interactively. They typically have elevated privileges, passwords that rotate rarely or never, and — critically…"
+  - scope:
+      path: "detection-engineering/sigma-rules/dll-hijack-nonstandard-path.md"
+    values:
+      description: "Windows resolves DLL dependencies by searching a defined order of directories. If an attacker can write a malicious DLL into a directory that is searched…"
+  - scope:
+      path: "detection-engineering/sigma-rules/lsass-credential-access.md"
+    values:
+      description: "lsass.exe holds credentials, hashes and Kerberos tickets in memory. Any process that opens a handle to it with read rights is asking for exactly the thing…"
+  - scope:
+      path: "detection-engineering/sigma-rules/ppid-spoofing-unusual-parent.md"
+    values:
+      description: "An attacker who wants their payload to blend in can set a trusted process as the parent of the process they spawn. The payload then appears in the process…"
+  - scope:
+      path: "detection-engineering/sigma-rules/shadow-copy-deletion.md"
+    values:
+      description: "Shadow copies are Windows' built-in point-in-time backups. Deleting them is the last action almost every ransomware family takes before or during…"
+  - scope:
+      path: "detection-engineering/sigma-rules/wmi-lateral-movement.md"
+    values:
+      description: "Remote WMI execution — wmiexec, Invoke-WmiMethod, wmic /node: — is a favoured lateral movement channel for three reasons: WMI is built into Windows, it runs…"
+  - scope:
+      path: "detection-engineering/splunk-spl/privileged-group-membership-changes.md"
+    values:
+      description: "Adding an account to a privileged group is one of the most reliable persistence mechanisms available to an attacker, and one of the quietest. It generates a…"
+  - scope:
+      path: "detection-engineering/suricata-rules/c2-beacon-detection.md"
+    values:
+      description: "Command-and-control traffic is the one thing an intrusion cannot do without. It is also the thing attackers put the most effort into disguising. No single…"
+
 # The homepage is index.html; the root README stays as the GitHub repo view.
 exclude:
   - README.md

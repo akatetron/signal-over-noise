@@ -367,7 +367,7 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
 .cred-list { list-style: none; padding: 0 !important; margin: 0 0 22px; border-top: 1px solid var(--rule); }
 .cred-row { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 16px 40px;
   padding: 24px 12px 24px 0; border-bottom: 1px solid var(--rule); margin: 0 !important; }
-.doc .cred-row h3 { font-family: var(--display); font-weight: 600; font-size: 24px; line-height: 1.1;
+.doc .cred-row h2, .doc .cred-row h3 { font-family: var(--display); font-weight: 600; font-size: 24px; line-height: 1.1;
   margin: 2px 0 6px !important; letter-spacing: -.018em; }
 .cred-meta { margin: 0; display: grid; gap: 9px; align-content: start; }
 .cred-meta div { display: grid; grid-template-columns: 146px 1fr; gap: 12px; }
@@ -378,7 +378,7 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
 .cred-meta .mono { background: none; border: 0; padding: 0; color: var(--steel); }
 .cred-badge { font-family: var(--mono); font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
   border: 1px solid var(--rule2); padding: 3px 9px; border-radius: 2px; color: var(--moss); }
-.cred-row.planned h3 { color: var(--dim); }
+.cred-row.planned h2, .cred-row.planned h3 { color: var(--dim); }
 .cred-row.planned .cred-badge { color: var(--faint); }
 .course-list { list-style: none; padding: 0 !important; margin: 14px 0 0; counter-reset: c;
   border-top: 1px solid var(--rule); }
@@ -696,3 +696,19 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
 .copied.in { opacity: 1; transform: translate(-50%, 0); }
 .mailfall { color: var(--paperdim); font-size: 14.5px; margin-top: 14px !important; }
 .paper .mailfall code { background: none; border: 0; padding: 0; color: #b4381f; }
+
+/* ---------- accessibility corrections ---------- */
+/* Rail labels were 3.17:1 against the page - under the 4.5:1 needed at 12px.
+   This value measures 4.99:1 and is still clearly subordinate to the text. */
+.rail .ex { color: #76849a; }
+
+/* Small secondary links were 16-21px tall on a phone, under the 24px
+   minimum target size. Grow the hit area without moving the text. */
+@media (max-width: 900px) {
+  .crumbs a, .page-foot a, .doc .course-list a { display: inline-block; padding: 5px 0; }
+  .nav .links a { padding-top: 4px; padding-bottom: 4px; }
+}
+
+/* A link that is the whole content of a table cell is a target, not an inline
+   link in a sentence, so give it a real hit area on a phone. */
+@media (max-width: 900px) { .doc td a { display: inline-block; padding: 5px 0; } }
