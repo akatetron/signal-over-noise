@@ -127,8 +127,8 @@ a { color: inherit; }
 
 .rail .ex::after { content: ""; position: absolute; right: -4px; top: 6px; width: 7px; height: 1px;
   background: var(--rule2); transition: background .25s ease, width .25s var(--ease); }
-.rail .ex.on { color: var(--steel); }
-.rail .ex.on::after { background: var(--steel); width: 13px; }
+.rail .ex.on { color: var(--accent, var(--steel)); }
+.rail .ex.on::after { background: var(--accent, var(--steel)); width: 13px; }
 .rail .ex:hover { color: var(--ink); }
 .doc { min-width: 0; padding: 34px 0 80px 34px; }
 @media (max-width: 980px) {
@@ -141,12 +141,12 @@ a { color: inherit; }
 .doc h1 { font-family: var(--display); font-weight: 600; font-size: clamp(32px, 4.6vw, 58px);
   line-height: 1.02; letter-spacing: -.025em; margin: 14px 0 26px; max-width: 20ch;
   font-variation-settings: "opsz" 144; }
-.doc h1 em, .doc h2 em, h1.idx-title em { font-style: italic; font-weight: 400; color: var(--signal); }
+.doc h1 em, .doc h2 em, h1.idx-title em { font-style: italic; font-weight: 400; color: var(--accent, var(--signal)); }
 .doc > h2 { font-family: var(--display); font-weight: 600; font-size: clamp(25px, 3vw, 34px);
   line-height: 1.06; letter-spacing: -.02em; margin: 54px 0 14px; max-width: 26ch;
   font-variation-settings: "opsz" 96; scroll-margin-top: 20px; }
 .doc > h2::before { content: attr(data-ex); display: block; font-family: var(--mono); font-size: 13px;
-  letter-spacing: .12em; color: var(--amber); margin-bottom: 8px; font-weight: 400; }
+  letter-spacing: .12em; color: var(--accent, var(--amber)); margin-bottom: 8px; font-weight: 400; }
 .doc h3 { font-family: var(--display); font-weight: 600; font-size: 20px; letter-spacing: -.015em; margin: 36px 0 10px; }
 .doc h4 { font-size: 16.5px; font-weight: 600; margin: 26px 0 8px; }
 .doc p, .doc li { color: #c3c8d1; }
@@ -166,7 +166,7 @@ a { color: inherit; }
 .doc hr { border: 0; height: 1px; background: linear-gradient(90deg, var(--rule2), transparent); margin: 54px 0; }
 .doc ul, .doc ol { padding-left: 20px; }
 .doc li { margin: 6px 0; }
-.doc li::marker { color: var(--amber); }
+.doc li::marker { color: var(--accent, var(--amber)); }
 .doc img { border-radius: 2px; }
 .doc [align="center"] { text-align: left; }
 .doc details { border: 1px solid var(--rule); padding: 13px 18px; margin: 18px 0; border-radius: 2px; background: var(--ground2); }
@@ -268,7 +268,11 @@ h1.idx-title, .doc h1.idx-title { font-family: var(--display); font-weight: 600;
 .group-note { margin: 0 0 20px; font-family: var(--mono); font-size: 13px; letter-spacing: .12em;
   text-transform: uppercase; color: var(--faint); }
 .idx-foot { margin: 70px 0 0; color: var(--faint); font-size: 14.5px; max-width: 70ch; }
-.idx-kicker { display: none; }
+.doc p.idx-kicker, .idx-kicker { display: flex; align-items: center; gap: 12px; margin: 0 0 18px;
+  font-family: var(--mono); font-size: 13px; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--accent, var(--signal)); font-weight: 400; }
+.doc p.idx-kicker::after, .idx-kicker::after { content: ""; height: 1px; flex: 1; max-width: 120px;
+  background: linear-gradient(90deg, currentColor, transparent); opacity: .5; }
 
 /* case cards */
 .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule);
@@ -312,8 +316,8 @@ h1.idx-title, .doc h1.idx-title { font-family: var(--display); font-weight: 600;
   text-transform: uppercase; color: var(--faint); }
 .rules code.tid, .rulelist code.tid { font-family: var(--mono); font-size: 13px; color: var(--steel);
   background: none; border: 0; padding: 0; }
-.rulelist .num { font-family: var(--mono); font-size: 13px; color: var(--amber); }
-.rulelist.plain .go { color: var(--steel); font-size: 15px; text-align: right;
+.rulelist .num { font-family: var(--mono); font-size: 13px; color: var(--accent, var(--amber)); }
+.rulelist.plain .go { color: var(--accent, var(--steel)); font-size: 15px; text-align: right;
   transition: transform .24s var(--ease); display: inline-block; }
 .rulelist.notes .go { font-family: var(--mono); font-size: 13px; letter-spacing: .1em; color: var(--faint); text-align: right; }
 @media (hover: hover) and (pointer: fine) {

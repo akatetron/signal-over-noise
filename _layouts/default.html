@@ -50,7 +50,14 @@
   {%- if isidx -%}
     {%- if content contains 'rule-groups' -%}{%- assign hasrail = true -%}{%- endif -%}
   {%- elsif h2n >= 2 -%}{%- assign hasrail = true -%}{%- endif -%}
-  <div class="doc-shell {% if hasrail %}has-rail{% else %}no-rail{% endif %}{% unless isidx %} narrow{% endunless %}" id="shell">
+  {%- comment -%} Each section carries its own accent, inherited by its write-ups. {%- endcomment -%}
+  {%- assign u = page.url -%}
+  {%- assign ac = '--signal' -%}
+  {%- if u contains '/detection-engineering/' or u contains '/handwritten-notes/' -%}{%- assign ac = '--amber' -%}
+  {%- elsif u contains '/htb-academy/' or u contains '/builds/' -%}{%- assign ac = '--steel' -%}
+  {%- elsif u contains '/google-cybersecurity-certificate/' or u contains '/certifications/' -%}{%- assign ac = '--moss' -%}
+  {%- endif -%}
+  <div class="doc-shell {% if hasrail %}has-rail{% else %}no-rail{% endif %}{% unless isidx %} narrow{% endunless %}" id="shell" style="--accent: var({{ ac }});">
     <aside class="rail" id="rail" aria-label="Section index"></aside>
     <main class="doc" id="doc">
       {{ content }}
