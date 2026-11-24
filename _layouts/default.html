@@ -130,7 +130,9 @@
         var a = document.createElement('a');
         a.className = 'ex';
         a.href = '#' + h.id;
-        a.textContent = h.textContent.trim().slice(0, 26);
+        var t = h.textContent.trim();
+        if (t.length > 26) { t = t.slice(0, 26); t = t.slice(0, t.lastIndexOf(' ') + 1 || 26).trim() + '\u2026'; }
+        a.textContent = t;
         rail.appendChild(a);
       });
       var det = document.createElement('details');
