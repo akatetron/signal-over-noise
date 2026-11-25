@@ -18,6 +18,7 @@ plugins:
   - jekyll-readme-index
   - jekyll-titles-from-headings
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 relative_links:
   enabled: true

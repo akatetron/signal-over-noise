@@ -8,7 +8,7 @@
 
 ---
 
-> ### ◈ Formal incident report
+> ## ◈ Formal incident report
 >
 > This investigation is also written up as a **client-style incident report** — executive summary,
 > severity classification, ATT&CK mapping, IOCs, containment scoping rationale, eradication plan

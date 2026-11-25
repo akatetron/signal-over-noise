@@ -106,7 +106,7 @@ a { color: inherit; }
 .paper .ph { font-family: var(--mono); font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
   color: var(--paperdim); display: flex; justify-content: space-between; gap: 12px;
   padding-bottom: 11px; margin-bottom: 15px; border-bottom: 1px solid var(--paper2); }
-.paper h3 { font-family: var(--display); font-weight: 600; font-size: 23px; line-height: 1.14;
+.paper h2, .paper h3 { font-family: var(--display); font-weight: 600; font-size: 23px; line-height: 1.14;
   margin: 0 0 10px; letter-spacing: -.015em; }
 .paper p { margin: 0 0 11px; font-size: 15.5px; line-height: 1.58; color: #3b3d44; }
 .paper p:last-child { margin-bottom: 0; }
@@ -654,7 +654,10 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
 .cards.builds { gap: 22px; align-items: start; background: none; border: 0; border-radius: 0; overflow: visible; }
 .cards.builds .card { border: 1px solid var(--rule); border-top: 2px solid var(--rule2);
   border-radius: 3px; padding: 30px 30px 28px; background: var(--ground2); }
-.cards.builds .card > h2 { margin-bottom: 4px; }
+.cards.builds .card > h2 { margin-bottom: 9px; }
+/* .card-sub carries margin-top:-8px to hug the default h2 margin; on these
+   cards the h2 margin is smaller, so that pull made the two overlap. */
+.cards.builds .card-sub { margin-top: 0; margin-bottom: 15px; }
 .cards.builds .card-facts > div + div { margin-top: 20px; }
 /* one accent per project, so the page is not a single flat colour */
 .cards.builds .acc-gold { border-top-color: var(--amber); }
@@ -712,3 +715,8 @@ blockquote.pull em { color: var(--signal); font-style: italic; font-weight: 400;
 /* A link that is the whole content of a table cell is a target, not an inline
    link in a sentence, so give it a real hit area on a phone. */
 @media (max-width: 900px) { .doc td a { display: inline-block; padding: 5px 0; } }
+
+/* A heading inside a callout is a card title, not a page section: keep the
+   smaller scale it had as an h3 and suppress the section marker. */
+.doc blockquote h2 { font-size: 20px; line-height: 1.2; margin: 0 0 10px; letter-spacing: -.015em; }
+.doc blockquote h2::before, .paper h2::before { content: none; }
